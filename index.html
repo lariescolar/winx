@@ -1,148 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
-
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Projeto Módulo 3</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 
   <!-- SEÇÃO: HEADER (responsável: integrante A) -->
+
     <header>
     <div class="navbar bg-[#263b7a] text-white">
 
         <!-- Logo -->
+
         <div class="navbar-start lg:ml-[15%]">
             <a>
                 <img src="assets/img/logo.png"
+
                     alt="Logo"
+
                     class="w-24">
             </a>
         </div>
 
         <!-- Menu para computador -->
+
         <div class="navbar-center hidden lg:flex">
+
             <ul class="menu menu-horizontal items-center gap-2">
 
                 <!-- Instagram -->
+
                 <li>
                     <a>
+
                         <img src="assets/img/instagram.png"
+
                             alt="Instagram"
+
                             class="w-6 h-6">
+
                     </a>
                 </li>
 
                 <!-- WhatsApp -->
+
                 <li>
+
                     <a>
+
                         <img src="assets/img/whatsapp.png"
+
                             alt="WhatsApp"
+
                             class="w-6 h-6">
+
                     </a>
                 </li>
 
                 <!-- Links -->
+
                 <li><a>Sobre</a></li>
+
                 <li><a>Piscinas</a></li>
+
                 <li><a>Orçamentos</a></li>
+
                 <li><a>Garantia</a></li>
+
                 <li><a>Contatos</a></li>
 
             </ul>
         </div>
 
         <!-- Menu para celular -->
+
         <div class="navbar-end lg:hidden">
+
             <div class="dropdown dropdown-end">
 
                 <div tabindex="0"
+
                     role="button"
+
                     class="btn btn-ghost text-white">
+
                     ☰
+
                 </div>
 
                 <ul tabindex="0"
+
                     class="menu menu-sm dropdown-content bg-base-100 text-black rounded-box z-10 mt-3 w-52 p-2 shadow">
 
                     <li><a>Sobre</a></li>
+
                     <li><a>Piscinas</a></li>
+
                     <li><a>Orçamentos</a></li>
+
                     <li><a>Garantia</a></li>
+
                     <li><a>Contatos</a></li>
 
                 </ul>
-
             </div>
         </div>
-
     </div>
     </header>
 
   <!-- SEÇÃO: HERO (responsável: integrante B) -->
+
     <section class="hero min-h-[650px] bg-cover bg-center sm:min-h-[600px]"
+
     style="
+
     background-image:
+
         linear-gradient(
+
         90deg,
+
         rgba(5, 71, 135, 0.85) 0%,
+
         rgba(5, 105, 175, 0.65) 45%,
+
         rgba(0, 150, 220, 0.15) 100%
+
         ),
+
         url('img/piscina.png.jpg');
+
     ">
+
     <div class="hero-content w-full max-w-6xl justify-start px-5 py-24 text-left text-white sm:px-8 md:px-10 lg:py-32">
 
     <div class="w-full max-w-2xl">
 
         <!-- TÍTULO -->
-        <h1
-        class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
-        >
+
+        <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
+
         <span class="text-orange-400">
             Experiência no DNA
         </span>
+
         na fabricação de piscinas de fibra
+
         </h1>
 
         <!-- DESCRIÇÃO -->
+
         <p
-        class="mt-5 max-w-xl text-sm leading-6 text-white/90 sm:mt-6 sm:text-base sm:leading-7"
-        >
+
+        class="mt-5 max-w-xl text-sm leading-6 text-white/90 sm:mt-6 sm:text-base sm:leading-7">
         Uma nova marca que já nasce com 25 anos de história para contar.
+
         A Nobre Piscinas possui em seu DNA a experiência de produzir
+
         piscinas de fibra de vidro.
         </p>
 
         <!-- BOTÕES -->
+
         <div class="mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row">
 
-        <a
-            href="#sobre"
-            class="btn w-full border-none bg-orange-400 text-white hover:bg-orange-500 sm:w-auto"
-        >
+        <a href="#sobre"class="btn w-full border-none bg-orange-400 text-white hover:bg-orange-500 sm:w-auto">
             »&nbsp; Conheça nossa história
         </a>
 
-        <a
-            href="#piscinas"
-            class="btn btn-outline w-full border-white text-white hover:border-white hover:bg-white hover:text-blue-900 sm:w-auto"
-        >
+        <a href="#piscinas" class="btn btn-outline w-full border-white text-white hover:border-white hover:bg-white hover:text-blue-900 sm:w-auto">
             Ver piscinas
         </a>
 
         </div>
-
     </div>
 
     </div>
     </section>
 
   <!-- SEÇÃO: CARDS (responsável: integrante C) -->
+
     <section class="bg-[#f8faff] py-16 px-8">
 
     <div class="max-w-7xl mx-auto">
@@ -150,500 +198,788 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-end mb-8">
 
         <div>
+
             <p class="text-sm uppercase tracking-wide text-[#2588e8] font-medium mb-3">
+
             Nossos modelos de piscinas
+
             </p>
 
             <h2 class="text-4xl md:text-5xl font-bold leading-[1.05] text-[#17233b] max-w-xl">
+
             Escolha o melhor formato
+
             <br>
+
             para o seu espaço
+
             </h2>
+
         </div>
-        
+
+    
         <div class="md:pb-1">
+
             <p class="text-sm md:text-base leading-relaxed text-[#72798a] max-w-lg">
+
             São diversos modelos que estão disponíveis para sua
+
             necessidade. Consulte a lista de modelos de piscinas abaixo e
+
             descubra qual se encaixa melhor no seu espaço.
+
             </p>
+
         </div>
         </div>
 
         <div class="flex justify-end gap-2 mb-5">
+
         <button
+
             class="btn btn-circle btn-sm bg-white
+
                 border border-[#d5dce7]
+
                 text-[#c4ccd8]
+
                 hover:bg-[#f5f8fc]">
+
             ←
+
         </button>
 
         <button
+
             class="btn btn-circle btn-sm bg-white
+
                 border border-[#5799e8]
+
                 text-[#3788e5]
+
                 hover:bg-[#eef6ff]">
+
             →
+
         </button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/princesa.jpg"
+
                 alt="Linha Princesa"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
+
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Princesa
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Compactas, possuem degraus internos,
+
                 bancos e bordas rebaixadas para oferecer
+
                 a inclinação mais fácil e segura.
+
             </p>
+
             </div>
         </div>
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/condessa.jpg"
+
                 alt="Linha Condessa"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
+
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Condessa
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Compactas, possuem degraus internos,
+
                 bancos e bordas rebaixadas para oferecer
+
                 a inclinação mais fácil e segura.
+
             </p>
+
             </div>
         </div>
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/imperatriz.jpg"
+
                 alt="Linha Imperatriz"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
+
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Imperatriz
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Amplo espaço interno sem deixar o
+
                 conforto de lado. Esta linha conta com
+
                 recuos internos e bancos para oferecer
+
                 o visual mais moderno.
+
             </p>
+
             </div>
         </div>
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/duquesa.jpg"
+
                 alt="Linha Duquesa"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
+
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Duquesa
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Ideal para aproveitar o amplo espaço
+
                 interno com conforto e diversão.
+
                 As piscinas possuem recuos de canto
+
                 e banco interno.
+
             </p>
+
             </div>
         </div>
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/marquesa.jpg"
+
                 alt="Linha Marquesa"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
 
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Marquesa
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Para a família desfrutar de muito espaço
+
                 interno e conforto com suas escadas
+
                 e degraus internos.
+
             </p>
+
             </div>
         </div>
 
         <div class="card bg-white">
+
             <figure class="h-44 rounded-t-lg overflow-hidden">
+
             <img
+
                 src="img/viscondessa.jpg"
+
                 alt="Linha Viscondessa"
+
                 class="w-full h-full object-cover shadow-[0_4px_15px_rgba(30,60,100,0.15)]"
+
             >
+
             </figure>
 
             <div class="p-4">
+
             <h3 class="text-sm font-bold text-[#267bd8]">
+
                 Linha Viscondessa
+
             </h3>
 
             <p class="text-xs leading-relaxed text-[#555d6e] mt-2">
+
                 Para a família desfrutar de muito espaço
+
                 interno e conforto com suas escadas
+
                 e degraus internos.
+
             </p>
+
             </div>
+
         </div>
+
         </div>
 
         <div class="mt-10">
+
         <button
+
             class="btn btn-outline btn-primary
+
                 px-5
+
                 min-h-10 h-10
+
                 font-medium
+
                 text-xs
+
                 rounded-md
+
                 bg-white
+
                 hover:bg-[#438fe4]
+
                 hover:text-white">
 
             <span class="text-red-400 text-base">
+
             <img src="img/Vector.png" alt="">
+
             </span>
+
             BAIXE NOSSO CATÁLOGO
+
         </button>
         </div>
     </div>
 
     </section>
-    
+
+
   <!-- SEÇÃO: FAQ (responsável: integrante D) -->
+
     <!-- Importação da fonte Montserrat -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+
     .banner-atendimento {
+
         font-family: 'Montserrat', sans-serif;
+
     }
+
     </style>
 
     <!-- ========================================== -->
     <!-- BANNER SUPERIOR DE ATENDIMENTO / SUPORTE   -->
     <!-- ========================================== -->
+
     <section class="banner-atendimento relative bg-[#233875] text-white py-9 md:py-11 overflow-hidden w-full">
-    
+
+
     <!-- Gotas de Água no canto esquerdo (Sem moldura, cobrindo a lateral) -->
+
     <div class="absolute left-0 top-0 bottom-0 h-full w-56 sm:w-72 md:w-96 pointer-events-none overflow-hidden select-none">
-        <img 
-        src="img/gotas.png" 
-        alt="Gotas de água" 
-        class="h-full w-full object-cover object-left opacity-90" 
+
+        <img
+
+        src="img/gotas.png"
+
+        alt="Gotas de água"
+
+        class="h-full w-full object-cover object-left opacity-90"
+
         />
+
     </div>
 
     <!-- Container Principal -->
-    <div class="relative z-10 max-w-[1320px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
-        
-        <!-- Lado Esquerdo: Ícone WhatsApp + Bloco de Texto (com recuo para as gotas) -->
-        <div class="flex items-center gap-6 pl-16 sm:pl-32 md:pl-48 lg:pl-56">
-        
-        <!-- Ícone do WhatsApp -->
-        <img 
-            src="assets/img/whatsapp.png" 
-            alt="WhatsApp" 
-            class="w-12 h-12 md:w-14 md:h-14 object-contain shrink-0" 
-        />
-        
-        <!-- Textos com quebra idêntica ao design -->
-        <div>
-            <h3 class="text-lg md:text-[21px] font-semibold text-white leading-snug tracking-tight">
-            Ficou com dúvida ou podemos te<br class="hidden sm:inline" /> ajudar de outra forma?
-            </h3>
-            
-            <p class="text-xs md:text-[13.5px] text-blue-100/75 font-normal mt-2.5 leading-relaxed">
-            Temos consultores preparados para te ajudar no que você precisar. Entre em<br class="hidden md:inline" /> contato e descubra como podemos te surpreender.
-            </p>
-        </div>
 
+    <div class="relative z-10 max-w-[1320px] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+
+        <!-- Lado Esquerdo: Ícone WhatsApp + Bloco de Texto (com recuo para as gotas) -->
+
+        <div class="flex items-center gap-6 pl-16 sm:pl-32 md:pl-48 lg:pl-56">
+
+        <!-- Ícone do WhatsApp -->
+
+        <img
+
+            src="assets/img/whatsapp.png"
+
+            alt="WhatsApp"
+
+            class="w-12 h-12 md:w-14 md:h-14 object-contain shrink-0"
+
+        />
+
+        <!-- Textos com quebra idêntica ao design -->
+
+        <div>
+
+            <h3 class="text-lg md:text-[21px] font-semibold text-white leading-snug tracking-tight">
+
+            Ficou com dúvida ou podemos te<br class="hidden sm:inline" /> ajudar de outra forma?
+
+            </h3>
+
+           
+
+            <p class="text-xs md:text-[13.5px] text-blue-100/75 font-normal mt-2.5 leading-relaxed">
+
+            Temos consultores preparados para te ajudar no que você precisar. Entre em<br class="hidden md:inline" /> contato e descubra como podemos te surpreender.
+
+            </p>
+
+        </div>
         </div>
 
         <!-- Lado Direito: Botão Laranja -->
+
         <div class="shrink-0 w-full lg:w-auto text-center lg:text-right">
+
         <button class="bg-[#ff802c] hover:bg-[#e46e1e] text-white font-bold text-[11px] md:text-[12px] tracking-wider uppercase px-7 py-3.5 rounded-md transition-colors shadow-sm whitespace-nowrap">
+
             Fale com nosso atendimento
+
         </button>
+
         </div>
 
     </div>
+
     </section>
 
     <!-- ========================================== -->
-    <!-- 2. SEÇÃO SOBRE NÓS                         -->
+    <!--            2. SEÇÃO SOBRE NÓS              -->
     <!-- ========================================== -->
+
     <section class="py-20 md:py-28 bg-white px-4">
+
     <div class="max-w-[1140px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        
+
+
         <!-- Coluna de Textos -->
+
         <div class="space-y-6">
+
         <span class="text-[#3ba6dd] font-bold text-xs tracking-wider uppercase block">
+
             Sobre Nós
+
         </span>
-        
+
+
         <h2 class="text-2xl md:text-[34px] font-extrabold text-[#1c2938] leading-[1.25]">
+
             São mais de 25 anos de história produzindo piscinas
+
         </h2>
-        
+
+
         <div class="space-y-4 text-[#5e6d82] text-xs md:text-sm leading-relaxed font-normal">
+
             <p>
+
             A Nobre Piscinas possui em seu DNA a experiência de mais de 25 anos no mercado de piscinas de fibra de vidro.
+
             </p>
+
             <p>
+
             As nossas piscinas são fabricadas com matéria-prima de qualidade superior, equipamentos de última geração e seguem um rigoroso controle de qualidade no processo produtivo, o que garante ao consumidor a compra de um produto com excelente qualidade e custo-benefício.
+
             </p>
+
         </div>
 
         <div class="pt-2">
+
             <!-- Botão: Texto escuro (#1c3370), Borda azul ciano (#3ba6dd) e sombra leve -->
+
             <a href="#" class="inline-block border border-[#3ba6dd] text-[#1c3370] hover:bg-[#3ba6dd] hover:text-white font-bold text-[11px] tracking-wider uppercase px-5 py-2.5 rounded-[4px] shadow-sm transition-colors">
+
             Leia mais sobre nossa história
+
             </a>
+
         </div>
+
         </div>
 
         <!-- Imagem: Usa drop-shadow para criar a sombra sem nenhuma caixa/fundo branco -->
+
         <div class="flex justify-center lg:justify-end">
-        <img 
-            src="img/image 6.png" 
-            alt="Mulher na piscina" 
+
+        <img
+
+            src="img/image 6.png"
+
+            alt="Mulher na piscina"
+
             class="w-full max-w-[480px] aspect-square object-cover rounded-md block p-0 m-0 border-none bg-transparent drop-shadow-md"
+
         />
+
         </div>
 
     </div>
+
     </section>
 
   <!-- ========================================== -->
+
   <!-- 3. FORMULÁRIO SOLICITAR ORÇAMENTO          -->
+
   <!-- ========================================== -->
+
   <section class="bg-[#f4f6fb] py-20 md:py-24 px-4">
+
     <div class="max-w-[480px] mx-auto">
-      
+
       <!-- Card Azul do Formulário -->
+
       <div class="bg-[#1c3370] text-white shadow-2xl p-8 md:p-10 rounded-xl">
-        
+
         <div class="text-center mb-8">
+
           <h2 class="text-2xl md:text-3xl font-bold mb-2">Solicitar orçamento</h2>
+
           <p class="text-xs text-blue-100/80 leading-relaxed max-w-xs mx-auto">
+
             Preencha os campos abaixo para continuarmos avançando com no seu orçamento.
+
           </p>
+
         </div>
 
         <form class="space-y-4" onsubmit="event.preventDefault();">
-          
+
           <div>
+
             <label class="block text-xs font-medium text-white mb-1">Nome</label>
-            <input 
-              type="text" 
-              placeholder="Digite seu nome" 
-              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]" 
+
+            <input
+
+              type="text"
+
+              placeholder="Digite seu nome"
+
+              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]"
+
             />
+
           </div>
 
           <div>
+
             <label class="block text-xs font-medium text-white mb-1">Telefone</label>
-            <input 
-              type="tel" 
-              placeholder="Digite um número de telefone" 
-              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]" 
+
+            <input
+
+              type="tel"
+
+              placeholder="Digite um número de telefone"
+
+              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]"
+
             />
+
           </div>
 
           <div>
+
             <label class="block text-xs font-medium text-white mb-1">E-mail</label>
-            <input 
-              type="email" 
-              placeholder="Digite seu e-mail" 
-              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]" 
+
+            <input
+
+              type="email"
+
+              placeholder="Digite seu e-mail"
+
+              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]"
+
             />
+
           </div>
 
           <div>
+
             <label class="block text-xs font-medium text-white mb-1">Cidade/UF</label>
-            <input 
-              type="text" 
-              placeholder="Digite a cidade e estado de instalação da piscina" 
-              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]" 
+
+            <input
+
+              type="text"
+
+              placeholder="Digite a cidade e estado de instalação da piscina"
+
+              class="w-full bg-[#374d8a] text-white placeholder:text-blue-200/50 border-none rounded px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#2b96d1]"
+
             />
+
           </div>
 
           <div class="pt-3">
-            <button 
-              type="submit" 
+
+            <button
+
+              type="submit"
+
               class="w-full bg-[#ff7a29] hover:bg-[#e06518] text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded transition-colors shadow-md">
+
               Solicitar atendimento
+
             </button>
           </div>
-
         </form>
-
       </div>
-
     </div>
   </section>
-
 </div>
+
   <!-- SEÇÃO: FOOTER (responsável: integrante E) -->
+
   <footer class="bg-[#293D7A] text-white">
 
     <!-- CONTEÚDO PRINCIPAL -->
+
     <div class="max-w-5xl mx-auto px-6 py-10">
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
             <!-- DESCRIÇÃO E CONTATOS -->
+
             <div>
 
                 <p class="text-xs leading-5 max-w-xs">
+
                     A Nobre Piscinas é especialista em fazer piscinas de
+
                     qualidade e proporcionar o melhor atendimento aos
+
                     seus clientes. Vamos conversar?
+
                 </p>
 
                 <div class="mt-6">
-
                     <p class="text-xs mb-2">
+
                         Nossos contatos
+
                     </p>
+
+
 
                     <p class="text-xs">
+
                         +55 84 99455.5686 | +55 84 3564.6986
+
                     </p>
+
+
 
                     <p class="text-xs mt-1">
+
                         atendimento@nobrepiscinas.com.br
+
                     </p>
-
                 </div>
-
             </div>
 
-
             <!-- ESPAÇO CENTRAL -->
+
             <div></div>
 
-
             <!-- ENDEREÇO -->
+
             <div>
 
                 <p class="text-xs mb-2">
+
                     Endereço
+
                 </p>
 
                 <p class="text-xs">
+
                     Rua das Flores, Capim Macio, Natal / RN
+
                 </p>
 
                 <p class="text-xs mt-1">
+
                     CEP: 59.125-100
+
                 </p>
 
             </div>
 
-
             <!-- REDES SOCIAIS -->
+
             <div>
 
                 <p class="text-xs mb-3">
+
                     Nossas mídias
+
                 </p>
 
                 <div class="flex items-center gap-4">
 
                     <!-- Instagram -->
+
                     <a href="#" aria-label="Instagram">
+
                         <img
+
                             src="./assets/img/Vector.png"
+
                             alt="Instagram"
+
                             class="w-5 h-5 object-contain"
+
                         >
+
                     </a>
 
                     <!-- WhatsApp -->
+
                     <a href="#" aria-label="WhatsApp">
+
                         <img
+
                             src="./assets/img/Vector (1).png"
+
                             alt="WhatsApp"
+
                             class="w-5 h-5 object-contain"
+
                         >
+
                     </a>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
-
     <!-- FAIXA INFERIOR -->
+
     <div class="bg-[#223567] py-4">
 
         <!-- LOGO FORMADO PELAS DUAS IMAGENS -->
+
         <div class="flex justify-center items-center gap-0">
 
             <!-- Parte 1 do logo -->
+
             <img
+
                 src="./assets/img/Group.png"
+
                 alt="Logo Nobre Piscinas"
+
                 class="w-7 h-7 object-contain"
+
             >
 
             <!-- Parte 2 do logo -->
+
             <img
+
                 src="./assets/img/Group (1).png"
+
                 alt="Logo Nobre Piscinas"
+
                 class="w-7 h-7 object-contain"
+
             >
 
         </div>
-
     </div>
-
   </footer>
-</body>
 
-</html>
+</body>
+</html> 
+
