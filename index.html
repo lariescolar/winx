@@ -5,75 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AgênciaWeb Escolar — Dashboard</title>
 
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- CDN Tailwind CSS + DaisyUI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-white text-gray-800 min-h-screen flex flex-col antialiased">
 
   <!-- =========================================================================
-       [ISSUE #1] INTEGRANTE 1 (VOCÊ / TECH LEAD)
-       Branch: feat/layout-base
-       O que inserir aqui no seu merge:
-       - Header / Navbar Superior (Logo + User Profile)
-       - Sidebar Lateral (Canal do cliente + Navegação)
-       - Estrutura da tag <main> (onde o conteúdo das outras issues será encaixado)
-       - Footer Global
+       [ISSUE #1 - TECH LEAD] HEADER / NAVBAR SUPERIOR
+       - Altura e paddings ajustados conforme a referência
+       - Logo colorida à esquerda | Bloco do usuário à direita
        ========================================================================= -->
+  <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
+    <div class="flex items-center">
+      <a href="index.html">
+        <img src="img/logo.png" alt="AgênciaWeb Escolar" class="h-8 w-auto object-contain" />
+      </a>
+    </div>
 
+    <div class="flex items-center gap-3">
+      <div class="bg-[#f09a37] text-white rounded-[4px] w-9 h-9 flex items-center justify-center font-bold text-sm shadow-sm">
+        LD
+      </div>
+      <div class="hidden sm:flex flex-col text-right leading-tight">
+        <span class="text-[13px] font-bold text-gray-900">John Doe</span>
+        <span class="text-[11px] text-gray-400 font-medium">Agência Web</span>
+      </div>
+    </div>
+  </header>
 
   <!-- =========================================================================
-       [ISSUE #2] INTEGRANTE 2
-       Branch: feat/produtos-dashboard
-       Arquivo de trabalho: index.html
-       O que inserir dentro da tag <main> do layout base:
-       - Banner Hero Promocional (Black Friday)
-       - Grid com os 3 Cards de Produtos (Design de App, PDV, Wordpress)
+       ESTRUTURA PRINCIPAL (SIDEBAR + ÁREA DE CONTEÚDO)
        ========================================================================= -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- =======================================================================
+         [ISSUE #1 - TECH LEAD] SIDEBAR LATERAL GLOBAL
+         - Largura fixa (260px) com borda à direita descendo até o final
+         - Fontes e cores recalibradas (Dashboard em destaque)
+         ======================================================================= -->
+    <aside class="w-[260px] bg-white border-r border-gray-200 py-8 px-6 hidden md:block shrink-0 overflow-y-auto">
+      <h2 class="text-base font-bold text-gray-700 mb-6">Canal do cliente</h2>
+
+      <nav class="space-y-5 text-[14px]">
+        <!-- Loja de Projetos + Submenu -->
+        <div>
+          <div class="flex items-center gap-2.5 text-gray-500 mb-3">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            <span class="font-medium">Loja de projetos</span>
+          </div>
+          <ul class="ml-7 space-y-3">
+            <li>
+              <!-- Link Ativo: Azul e Negrito -->
+              <a id="nav-dashboard" href="index.html" class="text-[#0052cc] font-bold block">Dashboard</a>
+            </li>
+            <li>
+              <a id="nav-compra" href="compra.html" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Compra de créditos</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Concluídos</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Gestão de Projetos -->
+        <div>
+          <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+            <span>Gestão de projetos</span>
+          </a>
+        </div>
+
+        <!-- Campanhas -->
+        <div>
+          <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+            <span>Campanhas</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO DINÂMICO E FOOTER -->
+    <div class="flex-1 flex flex-col relative overflow-y-auto bg-[#fdfdfd]">
+
+      <!-- CONTAINER PRINCIPAL <main> -->
+      <main class="flex-1 p-8 w-full max-w-[1100px]">
+
+        <!-- =========================================================================
+             [ÁREA DE TRABALHO EM index.html]
+             ========================================================================= -->
+
+        <!-- ⬇️ INTEGRANTE 2 (ISSUE #2) - INSERIR CÓDIGO ABAIXO ⬇️ -->
+        <!-- Conteúdo: Banner Hero Black Friday + Grid de 3 Cards de Produtos -->
+        <!-- ⬆️ FIM DA ÁREA DO INTEGRANTE 2 ⬆️ -->
 
 
-  <!-- =========================================================================
-       [ISSUE #3] INTEGRANTE 3
-       Branch: feat/compra-topo
-       Arquivo de trabalho: compra.html (criado a partir da estrutura base)
-       O que inserir na parte SUPERIOR da tag <main>:
-       - Breadcrumb (Loja de Projetos > Comprar Créditos...)
-       - Título principal "Compra de pontos base"
-       - Card de Limite Mensal (com barra de progresso DaisyUI)
-       - Card de Informações
-       ========================================================================= -->
+        <!-- =========================================================================
+             [ORIENTAÇÕES PARA PÁGINA 2 (compra.html)]
+             Os Integrantes 3 e 4 devem duplicar este arquivo base para "compra.html"
+             e inserir seus componentes dentro do <main> dividindo as áreas abaixo:
+             ========================================================================= -->
+
+        <!-- ⬇️ INTEGRANTE 3 (ISSUE #3) - CÓDIGO DENTRO DE compra.html (PARTE SUPERIOR) ⬇️ -->
+        <!-- Conteúdo: Breadcrumbs + Título + Card de Limite Mensal + Card de Informações -->
+        <!-- ⬆️ FIM DA ÁREA DO INTEGRANTE 3 ⬆️ -->
 
 
-  <!-- =========================================================================
-       [ISSUE #4] INTEGRANTE 4
-       Branch: feat/compra-seletor-acoes
-       Arquivo de trabalho: compra.html
-       O que inserir na parte INFERIOR da tag <main> e rodapé da página:
-       - Card do Seletor de Créditos (Botões - / + e valor Total em Reais)
-       - Menu expansível "Mais informações sobre o produto" e aviso em texto
-       - Barra de Ações no Rodapé (Botões Voltar, Adicionar ao carrinho, Continuar)
-       ========================================================================= -->
+        <!-- ⬇️ INTEGRANTE 4 (ISSUE #4) - CÓDIGO DENTRO DE compra.html (PARTE INFERIOR) ⬇️ -->
+        <!-- Conteúdo: Seletor de Créditos (+/-) + Card Total em Reais + Barra Fixa do Rodapé (Voltar/Carrinho/Continuar) -->
+        <!-- ⬆️ FIM DA ÁREA DO INTEGRANTE 4 ⬆️ -->
 
+      </main>
 
-  <!-- =========================================================================
-       [ISSUE #5] INTEGRANTE 5
-       Branch: enhancement/navegacao-responsividade
-       Arquivos de trabalho: index.html e compra.html
-       O que fazer:
-       - Conectar todos os links dos botões entre as duas páginas
-       - Configurar a classe de link "ativo" na Sidebar dependendo da página atual
-       - Ajustar colapso de colunas/sidebar para telas mobile
-       ========================================================================= -->
+      <!-- =========================================================================
+           [ISSUE #1 - TECH LEAD] RODAPÉ GLOBAL (FOOTER)
+           - Fica posicionado no canto inferior direito da tela
+           ========================================================================= -->
+      <footer class="w-full px-8 py-6 flex justify-end shrink-0">
+        <img src="img/logo_footer.png" alt="AgênciaWeb Escolar" class="h-[18px] w-auto object-contain opacity-50 grayscale" />
+      </footer>
 
-
-  <!-- =========================================================================
-       [ISSUE #6] INTEGRANTE 6
-       Branch: docs/readme-qa
-       O que fazer:
-       - Revisar historico de merges na dev (garantir refs #1, #2, etc.)
-       - Criar o arquivo README.md na raiz do repositório
-       - Fechar todas as issues na aba "Issues" do GitHub
-       ========================================================================= -->
+    </div>
+  </div>
 
 </body>
 </html>
