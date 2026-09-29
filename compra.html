@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de pontos base</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <main class="max-w-5xl mx-auto p-6">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumbs text-sm mb-6">
+            <ul>
+                <li>Loja de Projetos</li>
+                <li>Comprar Créditos</li>
+            </ul>
+        </div>
+
+        <!-- Título -->
+        <h1 class="text-3xl font-bold mb-6">
+            Compra de pontos base
+        </h1>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Limite mensal -->
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">Limite mensal</h2>
+
+                    <p>Você utilizou 60 de 100 pontos.</p>
+
+                    <progress
+                        class="progress progress-primary w-full"
+                        value="60"
+                        max="100">
+                    </progress>
+
+                    <p class="text-sm">60% utilizado</p>
+                </div>
+            </div>
+
+            <!-- Informações -->
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">Informações</h2>
+
+                    <ul class="list-disc list-inside">
+                        <li>Os pontos podem ser utilizados na Loja de Projetos.</li>
+                        <li>O limite de pontos é mensal.</li>
+                        <li>Os pontos disponíveis podem variar.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
