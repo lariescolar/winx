@@ -1,46 +1,43 @@
-# 🏊‍♂️ Nobre Piscinas - Projeto do Módulo 3
+# 🚀 AgênciaWeb Escolar — Dashboard & Loja de Projetos
 
-Este repositório contém a *landing page* responsiva desenvolvida para a **Nobre Piscinas**, realizada no âmbito do projeto prático do Módulo 3. A página foi desenvolvida com foco na experiência do utilizador, na adaptação para dispositivos móveis (responsividade) e na fidelidade visual em relação aos protótipos de referência.
+Plataforma web desenvolvida para a gestão e aquisição de créditos de projetos digitais (Design de Apps, Sistemas PDV e Sites WordPress), com foco em fidelidade visual, prototipagem responsiva e interface fluida.
+
+Este projeto foi realizado no âmbito da disciplina de **Design Web 2026 (IFRN)**.
+
+---
+
+## 📌 Funcionalidades
+
+- **Dashboard Principal (`index.html`):**
+  - Banner promocional em destaque (Campanha *Black Friday*).
+  - Grelha de cartões de produtos (*Design de App*, *Sistemas PDV* e *Sites Wordpress*).
+  - Indicação visual de cupões e valores por pacote de créditos.
+- **Página de Compra de Créditos (`compra.html`):**
+  - Painel de seleção e simulação de aquisição de pontos/créditos.
+  - Layout totalmente alinhado com o protótipo de referência.
+- **Interface e Navegação:**
+  - Sidebar lateral com rotas ativas.
+  - Cabeçalho global com identificação do utilizador.
+  - Layout fluido e responsivo adaptado a múltiplos ecrãs.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5**: Estruturação semântica das secções.
-- **Tailwind CSS**: Estilização através de classes utilitárias e gestão de layout responsivo.
-- **DaisyUI**: Componentes de interface e elementos de navegação.
-- **Google Fonts (Montserrat)**: Tipografia oficial do projeto.
-- **SVG Vetorial**: Ícones de alta definição e escaláveis.
+- **HTML5** — Estrutura semântica.
+- **Tailwind CSS** (via CDN) — Estilização utilitária e componentes responsivos.
+- **Google Fonts** — Tipografia oficial (*Inter*).
+- **Git & GitHub** — Controlo de versões utilizando fluxo de *branches* (`main`, `release/v1.0`).
 
 ---
 
-## 👥 Divisão do Trabalho (Equipa)
-
-O desenvolvimento da página foi dividido entre os elementos da equipa:
-
-- **Integrante A**: Estrutura base e **Header / Navegação** (`<header>`)
-- **Integrante B**: Secção **Hero / Destaque Principal** (`<section class="hero">`)
-- **Integrante C**: Secção **Modelos de Piscinas / Cards Responsivos** (`#piscinas`)
-- **Integrante D**: Banner de **Atendimento / WhatsApp**, Secção **Sobre Nós** e Formulário de **Orçamento**
-- **Integrante E**: **Rodapé / Footer** (`<footer>`) e **FAQ**
-
----
-
-## 📱 Destaques da Implementação
-
-- **Layout Responsivo**: Ajuste fluido para telemóveis, tablets e ecrãs de computador.
-- **Cards Quadrados no Mobile**: Exibição dos modelos de piscinas com proporção `aspect-square` e cantos arredondados (`rounded-2xl`), em conformidade com o protótipo de referência.
-- **Vetorização de Ícones**: Utilização do logótipo do WhatsApp em formato SVG nativo para assegurar máxima nitidez.
-- **Menu Mobile**: Dropdown funcional integrado para navegação em ecrãs mais pequenos.
-
----
-
-## 📂 Estrutura do Ficheiro
+## 📂 Estrutura do Projeto
 
 ```text
 .
-├── assets/
-│   └── img/          # Logótipos e ícones complementares
-├── img/              # Imagens dos modelos de piscinas e fundos
-├── index.html        # Ficheiro principal da landing page
-└── README.md         # Documentação do projeto
+├── index.html          # Página principal (Dashboard de produtos)
+├── compra.html         # Página de compra de créditos
+├── img/                # Recorte de logótipos e recursos visuais
+│   ├── logo.png
+│   └── logo_footer.png
+└── README.md           # Documentação do repositório
