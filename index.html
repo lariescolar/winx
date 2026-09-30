@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgênciaWeb Escolar — Dashboard</title>
+  <title>Dashboard - Loja de Projetos</title>
 
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- CDN Tailwind CSS + DaisyUI -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -20,8 +19,8 @@
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col antialiased">
 
-  <!-- HEADER GLOBAL (Issue #6: Responsividade no Bloco do Usuário e Link na Logo) -->
-  <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
+  <!-- HEADER GLOBAL -->
+  <header class="bg-[#f9f9fb] border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
     <div class="flex items-center">
       <a href="index.html">
         <img src="img/logo.png" alt="AgênciaWeb Escolar" class="h-8 w-auto object-contain" />
@@ -42,9 +41,9 @@
   <!-- ESTRUTURA PRINCIPAL -->
   <div class="flex flex-1 overflow-hidden">
 
-    <!-- SIDEBAR LATERAL (Issue #6) -->
+    <!-- SIDEBAR LATERAL -->
     <aside class="w-[260px] bg-white border-r border-gray-200 py-8 px-6 hidden md:block shrink-0 overflow-y-auto">
-      <h2 class="text-base font-bold text-gray-700 mb-6">Canal do cliente</h2>
+      <h2 class="text-[15px] font-bold text-gray-700 mb-6">Canal do cliente</h2>
 
       <nav class="space-y-5 text-[14px]">
         <div>
@@ -56,10 +55,10 @@
           </div>
           <ul class="ml-7 space-y-3">
             <li>
-              <a id="nav-dashboard" href="index.html" class="text-[#0052cc] font-bold block">Dashboard</a>
+              <a href="index.html" class="text-[#0052cc] font-bold block">Dashboard</a>
             </li>
             <li>
-              <a id="nav-compra" href="compra.html" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Compra de créditos</a>
+              <a href="compra.html" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Compra de créditos</a>
             </li>
             <li>
               <a href="#" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Concluídos</a>
@@ -87,99 +86,142 @@
       </nav>
     </aside>
 
-    <!-- ÁREA DE CONTEÚDO DINÂMICO E FOOTER -->
-    <div class="flex-1 flex flex-col relative overflow-y-auto bg-[#fdfdfd]">
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL (FLUIDA) -->
+    <div class="flex-1 flex flex-col relative overflow-y-auto bg-white">
+      
+      <main class="flex-1 w-full px-8 md:px-16 lg:px-24 xl:px-[120px] py-10 flex flex-col">
+        
+        <div class="flex-1">
+          <!-- BANNER HERO (BLACK FRIDAY) -->
+          <div class="relative w-full rounded-[16px] overflow-hidden mb-10 bg-slate-900 min-h-[220px] flex items-center">
+            <!-- Imagem de Fundo com Overlay -->
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Equipe AWE" 
+              class="absolute inset-0 w-full h-full object-cover object-center opacity-40" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
 
-      <!-- CONTAINER PRINCIPAL -->
-      <main class="flex-1 p-8 w-full max-w-[1100px]">
-
-        <!-- CONTEÚDO INTEGRANTE 2 -->
-        <section class="mx-auto w-full max-w-[980px] px-0 pt-[35px]">
-
-          <div class="h-[215px] w-full overflow-hidden rounded-[11px]">
-            <img src="./assets/img/banner.png" alt="Black Friday - A maior oferta de projetos AWE do ano" class="h-full w-full object-fill">
+            <!-- Conteúdo do Banner -->
+            <div class="relative z-10 p-8 md:p-10 max-w-xl">
+              <span class="inline-block bg-white text-black text-[12px] font-bold px-3 py-1 rounded-full mb-4 shadow-sm">
+                Black Friday
+              </span>
+              <h1 class="text-white text-[24px] md:text-[28px] font-bold leading-tight mb-3">
+                A maior oferta de projetos<br class="hidden sm:inline"/> AWE do ano
+              </h1>
+              <p class="text-gray-300 text-[13px] md:text-[14px] leading-relaxed">
+                A AWE está oferecendo diversos serviços e produtos com descontos arrasadores.
+              </p>
+            </div>
           </div>
 
-          <h2 class="mb-[23px] mt-[38px] text-[22px] font-bold tracking-[-0.4px] text-[#111111]">
+          <!-- TÍTULO DA SEÇÃO -->
+          <h2 class="text-[20px] md:text-[22px] font-bold text-gray-900 mb-6">
             Compre pontos e distribua como quiser
           </h2>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+          <!-- GRELHA DE PRODUTOS (3 COLUNAS) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
-            <!-- Card 1: Design de App -->
-            <article class="flex h-[276px] flex-col rounded-[8px] border border-[#d0d0d0] bg-white p-[22px]">
-              <div class="relative flex h-[95px] w-full shrink-0 items-center justify-center overflow-hidden rounded-[6px] bg-[#111111]">
-                <span class="absolute left-[6px] top-[7px] rounded-[3px] bg-[#0969c7] px-[9px] py-[4px] text-[10px] font-bold uppercase tracking-[1px] text-white">
-                  Cupom disponível
-                </span>
-                <h3 class="text-[22px] font-medium tracking-[-0.5px] text-white">
-                  Design de App<span class="text-[#a9eaff]">_</span>
-                </h3>
-              </div>
-              <div class="mt-[16px] h-[48px] shrink-0">
-                <p class="text-[14px] leading-[1.35] text-[#888888]">
-                  Desenvolvimento, consultoria ou UX/UI<br>para seus projetos decolarem.
-                </p>
-              </div>
-              <div class="flex-1"></div>
-              <a href="compra.html" class="flex shrink-0 items-center justify-between no-underline">
-                <span class="text-[15px] font-bold text-[#111111]">Comprar créditos</span>
-                <span class="text-[25px] leading-none text-[#111111]">›</span>
-              </a>
-              <p class="mt-[4px] shrink-0 text-[13px] text-[#888888]">5 créditos por R$10.000,00</p>
-            </article>
+            <!-- CARD 1: Design de App -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto com Badge -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center relative mb-5 h-[110px] flex items-center justify-center">
+                  <span class="absolute top-2.5 left-2.5 bg-[#0052cc] text-white text-[9px] font-bold px-2 py-0.5 rounded-[3px] tracking-wider uppercase">
+                    CUPOM DISPONÍVEL
+                  </span>
+                  <h3 class="text-[18px] font-bold tracking-wide">Design de App_</h3>
+                </div>
 
-            <!-- Card 2: Sistemas PDV -->
-            <article class="flex h-[276px] flex-col rounded-[8px] border border-[#d0d0d0] bg-white p-[22px]">
-              <div class="flex h-[95px] w-full shrink-0 items-center justify-center overflow-hidden rounded-[6px] bg-[#111111]">
-                <h3 class="text-[22px] font-medium tracking-[-0.5px] text-white">
-                  Sistemas PDV<span class="text-[#a9eaff]">_</span>
-                </h3>
-              </div>
-              <div class="mt-[16px] h-[48px] shrink-0">
-                <p class="text-[14px] leading-[1.35] text-[#888888]">
-                  Desenvolvimento de projeto de ponta a<br>ponta, com nível de complexidade média<br>com super desconto.
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Desenvolvimento, consultoria ou UX/UI para seus projetos decolarem.
                 </p>
               </div>
-              <div class="flex-1"></div>
-              <a href="compra.html" class="flex shrink-0 items-center justify-between no-underline">
-                <span class="text-[15px] font-bold text-[#111111]">Comprar créditos</span>
-                <span class="text-[25px] leading-none text-[#111111]">›</span>
-              </a>
-              <p class="mt-[4px] shrink-0 text-[13px] text-[#888888]">21 créditos por R$120.000,00</p>
-            </article>
 
-            <!-- Card 3: Sites Wordpress -->
-            <article class="flex h-[276px] flex-col rounded-[8px] border border-[#d0d0d0] bg-white p-[22px]">
-              <div class="flex h-[95px] w-full shrink-0 items-center justify-center overflow-hidden rounded-[6px] bg-[#111111]">
-                <h3 class="text-[22px] font-medium tracking-[-0.5px] text-white">
-                  Sites Wordpress<span class="text-[#a9eaff]">_</span>
-                </h3>
-              </div>
-              <div class="mt-[16px] h-[48px] shrink-0">
-                <p class="text-[14px] leading-[1.35] text-[#888888]">
-                  Descontos cumulativos para projetos<br>em Wordpress para 2025.
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  5 créditos por R$10.000,00
                 </p>
               </div>
-              <div class="flex-1"></div>
-              <a href="compra.html" class="flex shrink-0 items-center justify-between no-underline">
-                <span class="text-[15px] font-bold text-[#111111]">Comprar créditos</span>
-                <span class="text-[25px] leading-none text-[#111111]">›</span>
-              </a>
-              <p class="mt-[4px] shrink-0 text-[13px] text-[#888888]">21 créditos por R$12.000,00</p>
-            </article>
+            </div>
+
+            <!-- CARD 2: Sistemas PDV -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center mb-5 h-[110px] flex items-center justify-center">
+                  <h3 class="text-[18px] font-bold tracking-wide">Sistemas PDV_</h3>
+                </div>
+
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Desenvolvimento de projeto de ponta a ponta, com nível de complexidade média com super desconto.
+                </p>
+              </div>
+
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  21 créditos por R$120.000,00
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 3: Sites Wordpress -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center mb-5 h-[110px] flex items-center justify-center">
+                  <h3 class="text-[18px] font-bold tracking-wide">Sites Wordpress_</h3>
+                </div>
+
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Descontos cumulativos para projetos em Wordpress para 2025.
+                </p>
+              </div>
+
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  21 créditos por R$12.000,00
+                </p>
+              </div>
+            </div>
 
           </div>
-        </section>
+        </div>
+
+        <!-- LINHA DIVISÓRIA E RODAPÉ -->
+        <div class="pt-6 border-t border-gray-200 mt-auto flex justify-end items-center">
+          <img src="img/logo_footer.png" alt="AgênciaWeb Escolar" class="h-6 w-auto object-contain" />
+        </div>
 
       </main>
-
-      <!-- FOOTER GLOBAL -->
-      <footer class="w-full px-8 py-4 flex justify-end items-center shrink-0 border-t border-gray-200 bg-white">
-        <img src="img/logo_footer.png" alt="AgênciaWeb Escolar" class="h-6 w-auto object-contain" />
-      </footer>
-
     </div>
   </div>
+
 </body>
 </html>

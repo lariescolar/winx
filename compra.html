@@ -19,8 +19,8 @@
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col antialiased">
 
-  <!-- HEADER GLOBAL (Issue #6) -->
-  <header class="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
+  <!-- HEADER GLOBAL (Acinzentado conforme referência) -->
+  <header class="bg-[#f9f9fb] border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
     <div class="flex items-center">
       <a href="index.html">
         <img src="img/logo.png" alt="AgênciaWeb Escolar" class="h-8 w-auto object-contain" />
@@ -41,13 +41,11 @@
   <!-- ESTRUTURA PRINCIPAL -->
   <div class="flex flex-1 overflow-hidden">
 
-    <!-- SIDEBAR LATERAL (Issue #6) -->
+    <!-- SIDEBAR LATERAL -->
     <aside class="w-[260px] bg-white border-r border-gray-200 py-8 px-6 hidden md:block shrink-0 overflow-y-auto">
-      <h2 class="text-base font-bold text-gray-700 mb-6">Canal do cliente</h2>
+      <h2 class="text-[15px] font-bold text-gray-700 mb-6">Canal do cliente</h2>
 
       <nav class="space-y-5 text-[14px]">
-        
-        <!-- Loja de Projetos -->
         <div>
           <div class="flex items-center gap-2.5 text-gray-500 mb-3">
             <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +66,6 @@
           </ul>
         </div>
 
-        <!-- Gestão de Projetos -->
         <div>
           <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
             <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +75,6 @@
           </a>
         </div>
 
-        <!-- Campanhas -->
         <div>
           <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
             <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,111 +83,101 @@
             <span>Campanhas</span>
           </a>
         </div>
-
       </nav>
     </aside>
 
-    <!-- ÁREA DE CONTEÚDO DINÂMICO E FOOTER -->
-    <div class="flex-1 flex flex-col relative overflow-y-auto bg-[#fdfdfd]">
+    <!-- ÁREA DE CONTEÚDO DINÂMICO (W-FULL E PADDING FLUIDO) -->
+    <div class="flex-1 flex flex-col relative overflow-y-auto bg-white">
       
-      <main class="flex-1 p-8 w-full max-w-[1100px] mx-auto md:mx-0 flex flex-col justify-between">
+      <!-- Container sem max-width para ocupar o tamanho completo da tela de forma proporcional -->
+      <main class="flex-1 w-full px-8 md:px-16 lg:px-24 xl:px-[120px] py-10 flex flex-col">
         
-        <div>
-          <!-- =========================================================================
-               [ISSUE #3] BREADCRUMB, TÍTULO E CARDS SUPERIORES
-               ========================================================================= -->
-
-          <!-- Breadcrumb -->
-          <nav class="text-xs text-gray-500 mb-3 flex items-center gap-1 font-medium">
-            <a href="#" class="hover:underline text-gray-600">Loja de Projetos</a>
+        <div class="flex-1">
+          <!-- Breadcrumb (Links sublinhados nativamente) -->
+          <nav class="text-[13px] text-gray-500 mb-5 flex items-center gap-1.5 font-medium">
+            <a href="#" class="underline text-gray-600">Loja de Projetos</a>
             <span class="text-gray-400">›</span>
-            <a href="#" class="hover:underline text-gray-600">Comprar Créditos</a>
+            <a href="#" class="underline text-gray-600">Comprar Créditos</a>
             <span class="text-gray-400">›</span>
             <span class="text-gray-400">Compra de créditos</span>
           </nav>
 
-          <!-- Título Principal com linha divisória -->
-          <div class="border-b border-gray-200 pb-4 mb-6">
-            <h1 class="text-2xl font-bold text-gray-900 tracking-tight">
+          <!-- Título Principal com linha full-width -->
+          <div class="border-b border-gray-200 pb-5 mb-8">
+            <h1 class="text-[28px] font-bold text-[#111] tracking-tight">
               Compra de pontos base
             </h1>
           </div>
 
           <!-- Grid dos 2 Cards Superiores -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <!-- Card 1: Limite Mensal -->
-            <div class="bg-[#f4f5f7] rounded-xl p-6 flex flex-col justify-between">
+            <div class="bg-[#f4f5f7] rounded-[10px] p-7 flex flex-col justify-between">
               <div>
-                <h2 class="text-base font-bold text-gray-900 mb-1">Limite mensal</h2>
-                <p class="text-xs text-gray-500 mb-6">Confira a quantidade de pontos disponível para compra</p>
+                <h2 class="text-[16px] font-bold text-gray-900 mb-1.5">Limite mensal</h2>
+                <p class="text-[13px] text-gray-600 mb-7">Confira a quantidade de pontos disponível para compra</p>
 
                 <!-- Barra de Progresso Personalizada -->
-                <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden flex mb-4">
+                <div class="w-full bg-gray-300 h-2.5 rounded-full overflow-hidden flex mb-5">
                   <div class="bg-[#0052cc] h-full w-[50%]"></div>
                   <div class="bg-[#4c9aff] h-full w-[10%]"></div>
                 </div>
               </div>
 
-              <div class="flex justify-between items-center text-[11px] pt-2">
+              <div class="flex justify-between items-center text-[12px]">
                 <div>
                   <p class="text-gray-400 font-medium">Comprado esse mês</p>
-                  <p class="font-bold text-gray-900">100 créditos</p>
+                  <p class="font-bold text-gray-900 text-[13px]">100 créditos</p>
                 </div>
                 <div class="text-right">
                   <p class="text-gray-400 font-medium">Seu limite mensal</p>
-                  <p class="font-bold text-gray-900">2.000 créditos</p>
+                  <p class="font-bold text-gray-900 text-[13px]">2.000 créditos</p>
                 </div>
               </div>
             </div>
 
             <!-- Card 2: Informações -->
-            <div class="bg-[#f4f5f7] rounded-xl p-6">
-              <h2 class="text-base font-bold text-gray-900 mb-5">Informações</h2>
+            <div class="bg-[#f4f5f7] rounded-[10px] p-7">
+              <h2 class="text-[16px] font-bold text-gray-900 mb-6">Informações</h2>
 
-              <ul class="space-y-4 text-xs text-gray-700">
+              <ul class="space-y-4 text-[13px] text-gray-700">
                 <li class="flex items-center gap-3">
                   <div class="text-[#0052cc]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                   </div>
-                  <span>Valor mínimo de <strong class="font-bold text-gray-900">100 créditos</strong></span>
+                  <span>Valor mínimo de <strong class="font-bold text-gray-900 text-[14px]">100 créditos</strong></span>
                 </li>
 
                 <li class="flex items-center gap-3">
                   <div class="text-[#0052cc]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
                   </div>
-                  <span>Validade <strong class="font-bold text-gray-900">24 meses</strong></span>
+                  <span>Validade <strong class="font-bold text-gray-900 text-[14px]">24 meses</strong></span>
                 </li>
 
                 <li class="flex items-center gap-3">
                   <div class="text-[#0052cc]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
                     </svg>
                   </div>
-                  <span>Limite de compra mensal <strong class="font-bold text-gray-900">2.000 créditos</strong></span>
+                  <span>Limite de compra mensal <strong class="font-bold text-gray-900 text-[14px]">2.000 créditos</strong></span>
                 </li>
               </ul>
             </div>
-
           </div>
 
-          <!-- =========================================================================
-               [ISSUE #4] SELETOR DE QUANTIDADE, TOTAL, MAIS INFORMAÇÕES E AÇÕES
-               ========================================================================= -->
-
           <!-- Card Principal: Seletor + Total -->
-          <div class="bg-[#f4f5f7] rounded-xl p-8 mb-8">
+          <div class="bg-[#f4f5f7] rounded-[10px] p-9 mb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               
               <!-- Quantidade de créditos -->
               <div>
-                <h3 class="text-sm font-bold text-gray-900 mb-6">
+                <h3 class="text-[16px] font-bold text-gray-900 mb-8">
                   Quantidade de créditos para compra
                 </h3>
 
@@ -199,39 +185,38 @@
                   <button 
                     type="button"
                     onclick="alterarQuantidade(-100)" 
-                    class="w-9 h-9 rounded-full border-2 border-[#0052cc] text-[#0052cc] flex items-center justify-center font-bold text-lg hover:bg-blue-50 transition-colors focus:outline-none"
+                    class="w-[34px] h-[34px] rounded-full border-[1.5px] border-[#0052cc] text-[#0052cc] flex items-center justify-center text-xl hover:bg-blue-50 transition-colors focus:outline-none pb-0.5"
                   >
                     −
                   </button>
 
                   <div class="flex flex-col items-center">
-                    <span id="quantidade" class="text-3xl font-extrabold text-gray-900 min-w-[80px] text-center">
+                    <span id="quantidade" class="text-[38px] font-extrabold text-gray-900 min-w-[100px] text-center leading-none">
                       100
                     </span>
-                    <div class="w-24 border-b-2 border-gray-300 mt-1"></div>
+                    <div class="w-36 border-b border-gray-300 mt-4"></div>
                   </div>
 
                   <button 
                     type="button"
                     onclick="alterarQuantidade(100)" 
-                    class="w-9 h-9 rounded-full border-2 border-[#0052cc] text-[#0052cc] flex items-center justify-center font-bold text-lg hover:bg-blue-50 transition-colors focus:outline-none"
+                    class="w-[34px] h-[34px] rounded-full border-[1.5px] border-[#0052cc] text-[#0052cc] flex items-center justify-center text-xl hover:bg-blue-50 transition-colors focus:outline-none pb-0.5"
                   >
                     +
                   </button>
                 </div>
 
-                <p class="text-[11px] text-gray-400 mt-3 font-medium">
+                <p class="text-[13px] text-gray-500 mt-5 font-medium">
                   Digite o valor aproximado
                 </p>
               </div>
 
               <!-- Total em reais -->
-              <div class="md:border-l md:border-gray-200 md:pl-8">
-                <h3 class="text-sm font-bold text-gray-900 mb-4">
+              <div class="md:pl-10">
+                <h3 class="text-[16px] font-bold text-gray-900 mb-6">
                   Total em reais
                 </h3>
-
-                <p id="total" class="text-3xl font-extrabold text-gray-900 tracking-tight">
+                <p id="total" class="text-[38px] font-extrabold text-gray-900 tracking-tight leading-none">
                   R$20.000,00
                 </p>
               </div>
@@ -239,54 +224,55 @@
             </div>
           </div>
 
-          <!-- Mais informações sobre o produto -->
-          <div class="mb-12">
-            <div class="flex items-center gap-2 border-b border-gray-200 pb-3 cursor-pointer">
-              <h3 class="text-xs font-bold text-gray-900">
+          <!-- Mais informações sobre o produto (Linha divisória ajustada) -->
+          <div class="mb-14">
+            <div class="flex items-center gap-2 cursor-pointer pb-4 border-b border-gray-200">
+              <h3 class="text-[16px] font-bold text-gray-900">
                 Mais informações sobre o produto
               </h3>
-              <svg class="w-3.5 h-3.5 text-[#0052cc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#0052cc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
               </svg>
             </div>
 
-            <p class="text-xs text-gray-400 mt-4 leading-relaxed max-w-3xl">
-              <strong class="text-gray-700 font-bold">ATENÇÃO:</strong> 
+            <!-- Fonte em tom de cinza igual a imagem -->
+            <p class="text-[13px] text-gray-500 mt-5 leading-relaxed">
+              <strong class="font-bold text-gray-500">ATENÇÃO:</strong> 
               A transferência dos pontos comprados para programas parceiros (Milhas) depende da elegibilidade do seu cartão de crédito. Consulte os cartões elegíveis na página do produto a partir do menu Viagens - Programas Parceiros.
             </p>
           </div>
         </div>
 
-        <!-- Barra de Ações (Voltar, Adicionar ao carrinho, Continuar) -->
-        <div class="flex items-center justify-between pt-6 border-t border-gray-200 mt-auto">
-          <a href="#" class="text-sm font-bold text-[#0052cc] hover:underline">
+        <!-- Barra de Ações (Full Width, ícone seta reta e tamanhos ajustados) -->
+        <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-200">
+          <a href="#" class="text-[15px] font-bold text-[#0052cc] hover:underline">
             Voltar
           </a>
 
-          <div class="flex items-center gap-3">
-            <button type="button" class="px-5 py-2.5 rounded-md border border-[#0052cc] text-[#0052cc] text-xs font-bold hover:bg-blue-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <button type="button" class="px-6 py-[11px] rounded-[6px] border border-[#0052cc] text-[#0052cc] text-[15px] font-bold hover:bg-blue-50 transition-colors">
               Adicionar ao carrinho
             </button>
-            <button type="button" class="px-6 py-2.5 rounded-md bg-[#0052cc] text-white text-xs font-bold hover:bg-blue-700 transition-colors flex items-center gap-2">
+            <button type="button" class="px-8 py-[11px] rounded-[6px] bg-[#0052cc] text-white text-[15px] font-bold hover:bg-blue-700 transition-colors flex items-center gap-2">
               <span>Continuar</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <!-- Seta reta correspondente a imagem -->
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </button>
           </div>
         </div>
 
       </main>
-
+      
       <!-- FOOTER GLOBAL -->
-      <footer class="w-full px-8 py-4 flex justify-end items-center shrink-0 border-t border-gray-200 bg-white mt-auto">
+      <footer class="w-full px-8 py-4 flex justify-end items-center shrink-0 bg-white">
         <img src="img/logo_footer.png" alt="AgênciaWeb Escolar" class="h-6 w-auto object-contain" />
       </footer>
-
     </div>
   </div>
 
-  <!-- Lógica JavaScript da Issue #4 -->
+  <!-- Lógica JavaScript -->
   <script>
     let quantidade = 100;
     const PRECO_POR_CREDITO = 200;
