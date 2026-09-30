@@ -34,10 +34,13 @@ Este projeto foi realizado no âmbito da disciplina de **Design Web 2026 (IFRN)*
 ## 📂 Estrutura do Projeto
 
 ```text
-.
-├── index.html          # Página principal (Dashboard de produtos)
-├── compra.html         # Página de compra de créditos
-├── img/                # Recorte de logótipos e recursos visuais
-│   ├── logo.png
-│   └── logo_footer.png
-└── README.md           # Documentação do repositório
+winx/
+├── assets/
+│   └── img/
+│       └── banner.png      # Imagem de fundo do banner (Black Friday)
+├── img/
+│   ├── logo.png            # Logótipo do cabeçalho
+│   └── logo_footer.png     # Logótipo do rodapé
+├── compra.html             # Página de compra de créditos
+├── index.html              # Página principal (Dashboard)
+└── README.md               # Documentação do repositório
