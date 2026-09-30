@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Loja de Projetos</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen flex flex-col antialiased">
+
+  <!-- HEADER GLOBAL -->
+  <header class="bg-[#f9f9fb] border-b border-gray-200 px-8 py-4 flex items-center justify-between shrink-0 h-[72px]">
+    <div class="flex items-center">
+      <a href="index.html">
+        <img src="img/logo.png" alt="AgênciaWeb Escolar" class="h-8 w-auto object-contain" />
+      </a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <div class="bg-[#f09a37] text-white rounded-[4px] w-9 h-9 flex items-center justify-center font-bold text-sm shadow-sm">
+        LD
+      </div>
+      <div class="hidden sm:flex flex-col text-right leading-tight">
+        <span class="text-[13px] font-bold text-gray-900">John Doe</span>
+        <span class="text-[11px] text-gray-400 font-medium">Agência Web</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESTRUTURA PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- SIDEBAR LATERAL -->
+    <aside class="w-[260px] bg-white border-r border-gray-200 py-8 px-6 hidden md:block shrink-0 overflow-y-auto">
+      <h2 class="text-[15px] font-bold text-gray-700 mb-6">Canal do cliente</h2>
+
+      <nav class="space-y-5 text-[14px]">
+        <div>
+          <div class="flex items-center gap-2.5 text-gray-500 mb-3">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            <span class="font-medium">Loja de projetos</span>
+          </div>
+          <ul class="ml-7 space-y-3">
+            <li>
+              <a href="index.html" class="text-[#0052cc] font-bold block">Dashboard</a>
+            </li>
+            <li>
+              <a href="compra.html" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Compra de créditos</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-gray-600 font-medium block transition-colors">Concluídos</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+            </svg>
+            <span>Gestão de projetos</span>
+          </a>
+        </div>
+
+        <div>
+          <a href="#" class="flex items-center gap-2.5 text-gray-500 hover:text-gray-700 font-medium transition-colors">
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+            </svg>
+            <span>Campanhas</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL (FLUIDA) -->
+    <div class="flex-1 flex flex-col relative overflow-y-auto bg-white">
+      
+      <main class="flex-1 w-full px-8 md:px-16 lg:px-24 xl:px-[120px] py-10 flex flex-col">
+        
+        <div class="flex-1">
+          <!-- BANNER HERO (BLACK FRIDAY) -->
+          <div class="relative w-full rounded-[16px] overflow-hidden mb-10 bg-slate-900 min-h-[220px] flex items-center">
+            <!-- Imagem de Fundo com Overlay -->
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Equipe AWE" 
+              class="absolute inset-0 w-full h-full object-cover object-center opacity-40" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+
+            <!-- Conteúdo do Banner -->
+            <div class="relative z-10 p-8 md:p-10 max-w-xl">
+              <span class="inline-block bg-white text-black text-[12px] font-bold px-3 py-1 rounded-full mb-4 shadow-sm">
+                Black Friday
+              </span>
+              <h1 class="text-white text-[24px] md:text-[28px] font-bold leading-tight mb-3">
+                A maior oferta de projetos<br class="hidden sm:inline"/> AWE do ano
+              </h1>
+              <p class="text-gray-300 text-[13px] md:text-[14px] leading-relaxed">
+                A AWE está oferecendo diversos serviços e produtos com descontos arrasadores.
+              </p>
+            </div>
+          </div>
+
+          <!-- TÍTULO DA SEÇÃO -->
+          <h2 class="text-[20px] md:text-[22px] font-bold text-gray-900 mb-6">
+            Compre pontos e distribua como quiser
+          </h2>
+
+          <!-- GRELHA DE PRODUTOS (3 COLUNAS) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            
+            <!-- CARD 1: Design de App -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto com Badge -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center relative mb-5 h-[110px] flex items-center justify-center">
+                  <span class="absolute top-2.5 left-2.5 bg-[#0052cc] text-white text-[9px] font-bold px-2 py-0.5 rounded-[3px] tracking-wider uppercase">
+                    CUPOM DISPONÍVEL
+                  </span>
+                  <h3 class="text-[18px] font-bold tracking-wide">Design de App_</h3>
+                </div>
+
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Desenvolvimento, consultoria ou UX/UI para seus projetos decolarem.
+                </p>
+              </div>
+
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  5 créditos por R$10.000,00
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 2: Sistemas PDV -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center mb-5 h-[110px] flex items-center justify-center">
+                  <h3 class="text-[18px] font-bold tracking-wide">Sistemas PDV_</h3>
+                </div>
+
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Desenvolvimento de projeto de ponta a ponta, com nível de complexidade média com super desconto.
+                </p>
+              </div>
+
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  21 créditos por R$120.000,00
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 3: Sites Wordpress -->
+            <div class="border border-gray-200 rounded-[12px] p-5 bg-white flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <!-- Bloco Preto -->
+                <div class="bg-[#111111] text-white rounded-[8px] p-6 text-center mb-5 h-[110px] flex items-center justify-center">
+                  <h3 class="text-[18px] font-bold tracking-wide">Sites Wordpress_</h3>
+                </div>
+
+                <!-- Descrição -->
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-6">
+                  Descontos cumulativos para projetos em Wordpress para 2025.
+                </p>
+              </div>
+
+              <!-- Ação e Valor -->
+              <div class="pt-4 border-t border-gray-100">
+                <a href="compra.html" class="flex items-center justify-between text-gray-900 hover:text-[#0052cc] transition-colors group">
+                  <span class="text-[14px] font-bold">Comprar créditos</span>
+                  <svg class="w-4 h-4 text-gray-800 group-hover:text-[#0052cc] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+                <p class="text-[12px] text-gray-400 mt-1 font-medium">
+                  21 créditos por R$12.000,00
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- LINHA DIVISÓRIA E RODAPÉ -->
+        <div class="pt-6 border-t border-gray-200 mt-auto flex justify-end items-center">
+          <img src="img/logo_footer.png" alt="AgênciaWeb Escolar" class="h-6 w-auto object-contain" />
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
