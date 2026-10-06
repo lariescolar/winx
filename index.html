@@ -3,52 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olimpíada da Advocacia</title>
+  <title>I Olimpíadas da Advocacia 2023</title>
 
-  <!-- Importação Tailwind CSS e DaisyUI via CDN -->
+  <!-- Fonte Montserrat (fidelidade visual ao Figma) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- DaisyUI + Tailwind CSS via CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuração das Cores e Tipografia Oficiais do Figma -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#00a3e0',
+            brandRed: '#e30613',
+            footerBg: '#f4f4f4',
+            navText: '#4a5568',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="min-h-screen flex flex-col bg-base-100 text-base-content font-sans">
+<body class="min-h-screen flex flex-col bg-white text-gray-800 font-sans antialiased">
 
   <!-- ================================================================= -->
-  <!-- COMPONENTE: HEADER / NAVBAR                                       -->
-  <!-- Responsável: Integrante 1 (Issue #1 - Setup Base)                 -->
-  <!-- Descrição: Implementar a Navbar DaisyUI com os links do menu      -->
+  <!-- COMPONENTE: HEADER INSTITUCIONAL (FIGMA)                          -->
   <!-- ================================================================= -->
-  <!-- [INTEGRANTE 1: INSERIR CÓDIGO DO HEADER AQUI] -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="navbar container mx-auto px-4 md:px-12 py-3 flex justify-between items-center max-w-7xl">
+      
+      <!-- Logo Oficial (com fallback visual caso a imagem não tenha sido baixada ainda) -->
+      <div class="flex-1">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-10 md:h-12 object-contain" 
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-xl tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-sm border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[10px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
+        </a>
+      </div>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+        <a href="index.html" class="text-brandBlue font-bold">Home</a>
+        <a href="modalidades.html" class="text-navText hover:text-brandBlue transition-colors">Modalidades</a>
+        <a href="noticias.html" class="text-navText hover:text-brandBlue transition-colors">Notícias</a>
+        <a href="cronograma.html" class="text-navText hover:text-brandBlue transition-colors">Cronograma</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Administradores</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Regulamento</a>
+      </nav>
+
+      <!-- Menu Mobile (DaisyUI Dropdown) -->
+      <div class="dropdown dropdown-end lg:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Abrir Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-xl bg-white rounded-box w-56 font-semibold text-gray-700 border border-gray-100">
+          <li><a href="index.html" class="active bg-brandBlue text-white">Home</a></li>
+          <li><a href="modalidades.html">Modalidades</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="cronograma.html">Cronograma</a></li>
+          <li><a href="#">Administradores</a></li>
+          <li><a href="#">Regulamento</a></li>
+          <li class="divider my-1"></li>
+          <li><a href="modalidade.html" class="text-xs text-gray-400">Pág. Modalidade (Post)</a></li>
+          <li><a href="noticia.html" class="text-xs text-gray-400">Pág. Notícia (Post)</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
 
 
   <!-- ================================================================= -->
-  <!-- ÁREA DE CONTEÚDO PRINCIPAL DA PÁGINA                              -->
+  <!-- ÁREA DE CONTEÚDO PRINCIPAL (RESERVADA PARA CADA INTEGRANTE)       -->
   <!-- ================================================================= -->
-  <!-- 
-    MAPEAMENTO DE FICHEIROS E RESPONSABILIDADES:
-
-    - index.html        -> Integrante 1 (Issue #2 - Homepage / Landing Page)
-    - noticias.html     -> Integrante 2 (Issue #3 - Listagem de Notícias)
-    - noticia.html      -> Integrante 3 (Issue #4 - Detalhe da Notícia)
-    - modalidades.html  -> Integrante 4 (Issue #5 - Listagem de Modalidades)
-    - modalidade.html   -> Integrante 5 (Issue #6 - Detalhe da Modalidade)
-    - cronograma.html  -> Integrante 6 (Issue #7 - Cronograma do Evento)
-
-    ORIENTAÇÃO:
-    Duplique este ficheiro base, renomeie com o nome do seu ficheiro HTML
-    e desenvolva o seu conteúdo dentro da tag <main> abaixo.
-  -->
-  <main class="flex-grow container mx-auto px-4 py-8">
-
-    <!-- [DESENVOLVER O CONTEÚDO DA SUA PÁGINA AQUI] -->
+  <main class="flex-grow container mx-auto px-4 py-12 max-w-7xl">
+    
+    <div class="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center bg-gray-50/50 my-6">
+      <h2 class="text-2xl font-bold text-gray-700 mb-2">Área de Trabalho da Página</h2>
+      <p class="text-gray-500 text-sm max-w-lg mx-auto">
+        Substitua este bloco de código pelas seções específicas da sua página mantendo o Header e Footer intocados.
+      </p>
+    </div>
 
   </main>
 
 
   <!-- ================================================================= -->
-  <!-- COMPONENTE: FOOTER INSTITUCIONAL                                  -->
-  <!-- Responsável: Integrante 1 (Issue #1 - Setup Base)                 -->
-  <!-- Descrição: Implementar o Rodapé DaisyUI com links e copyright    -->
+  <!-- COMPONENTE: FOOTER INSTITUCIONAL (FIGMA)                          -->
   <!-- ================================================================= -->
-  <!-- [INTEGRANTE 1: INSERIR CÓDIGO DO FOOTER AQUI] -->
+  <footer class="bg-footerBg border-t border-gray-200 text-gray-600 text-sm mt-auto pt-10 pb-6">
+    <div class="container mx-auto px-4 md:px-12 max-w-7xl">
+      
+      <!-- Linha Superior: Logo, Links e Redes Sociais -->
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-6 pb-8 border-b border-gray-300/60">
+        
+        <!-- Logo Esquerda -->
+        <div class="flex items-center">
+          <a href="index.html">
+            <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-10 md:h-11 object-contain"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-lg tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-xs border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[9px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
+          </a>
+        </div>
+
+        <!-- Links Centrais -->
+        <nav class="flex flex-wrap justify-center items-center gap-6 md:gap-8 font-semibold text-sm text-gray-600">
+          <a href="index.html" class="text-brandBlue font-bold hover:underline">Home</a>
+          <a href="modalidades.html" class="hover:text-brandBlue transition-colors">Modalidades</a>
+          <a href="noticias.html" class="hover:text-brandBlue transition-colors">Notícias</a>
+          <a href="cronograma.html" class="hover:text-brandBlue transition-colors">Cronograma</a>
+          <a href="#" class="hover:text-brandBlue transition-colors">Administradores</a>
+          <a href="#" class="hover:text-brandBlue transition-colors">Regulamento</a>
+        </nav>
+
+        <!-- Ícone Social Direita (Instagram em círculo azul do Figma) -->
+        <div>
+          <a href="#" class="w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center hover:opacity-90 transition-opacity shadow-sm" aria-label="Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Linha Inferior: Copyright Centralizado -->
+      <div class="pt-6 text-center text-xs text-gray-500 font-medium">
+        2023 HC Sports. Todos os direitos reservados.
+      </div>
+
+    </div>
+  </footer>
 
 </body>
 </html>
