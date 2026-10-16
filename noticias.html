@@ -34,7 +34,6 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Estrutura principal */
     .site-container {
       width: 100%;
       min-height: 100vh;
@@ -44,7 +43,6 @@
       flex-direction: column;
     }
 
-    /* Cabeçalho */
     .site-header {
       width: 100%;
       border-bottom: 1px solid #e5e7eb;
@@ -97,7 +95,6 @@
       font-weight: 700;
     }
 
-    /* Conteúdo */
     .main-content {
       width: 100%;
       max-width: 1100px;
@@ -114,7 +111,6 @@
       color: #292929;
     }
 
-    /* Busca e filtro */
     .filters {
       display: flex;
       align-items: center;
@@ -174,7 +170,6 @@
       outline: none;
     }
 
-    /* Grid de notícias */
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -260,7 +255,6 @@
       color: #626262;
     }
 
-    /* Paginação */
     .pagination {
       display: flex;
       align-items: center;
@@ -303,7 +297,6 @@
       display: none !important;
     }
 
-    /* Rodapé */
     .site-footer {
       width: 100%;
       margin-top: 30px;
@@ -327,7 +320,6 @@
       margin: 0;
     }
 
-    /* Adaptação para telas menores */
     @media (min-width: 1400px) {
       .main-content {
         padding-top: 28px;
@@ -394,11 +386,9 @@
 
   <div class="site-container">
 
-    <!-- HEADER INSTITUCIONAL -->
     <header class="site-header">
       <nav class="header-content" aria-label="Menu principal">
 
-        <!-- Logo oficial do projeto -->
         <a href="index.html" aria-label="Página inicial">
           <img
             src="assets/img/logo-olimpiadas.png"
@@ -407,7 +397,6 @@
           >
         </a>
 
-        <!-- Navegação -->
         <ul class="navigation">
           <li><a href="index.html">Home</a></li>
           <li><a href="modalidades.html">Modalidades</a></li>
@@ -429,7 +418,6 @@
 
       <h1 class="page-title">NOTÍCIAS</h1>
 
-      <!-- Barra de pesquisa e filtro -->
       <div class="filters">
 
         <label class="search-box">
@@ -466,7 +454,6 @@
 
       </div>
 
-      <!-- LISTA DE NOTÍCIAS -->
       <section
         id="news-grid"
         class="news-grid"
@@ -667,12 +654,10 @@
 
       </section>
 
-      <!-- Mensagem exibida quando não houver resultados -->
       <p id="no-results" class="hidden">
         Nenhuma notícia encontrada.
       </p>
 
-      <!-- PAGINAÇÃO VISUAL -->
       <nav class="pagination" aria-label="Paginação de notícias">
 
         <button
@@ -698,7 +683,6 @@
 
     </main>
 
-    <!-- RODAPÉ -->
     <footer class="site-footer">
       <div class="footer-content">
         <p>© Olimpíadas da Advocacia 2023</p>
@@ -708,7 +692,6 @@
 
   </div>
 
-  <!-- FUNCIONALIDADE DE BUSCA E FILTRO -->
   <script>
     const searchInput = document.getElementById("news-search");
     const categoryFilter = document.getElementById("news-filter");
