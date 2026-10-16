@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notícias | Olimpíada da Advocacia</title>
+
+  <!-- Tailwind CSS e DaisyUI -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+    rel="stylesheet"
+  >
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: #292929;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Estrutura principal */
+    .site-container {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Cabeçalho */
+    .site-header {
+      width: 100%;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-content {
+      max-width: 1100px;
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 8px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: block;
+      width: auto;
+      max-width: 150px;
+      height: auto;
+      max-height: 42px;
+      object-fit: contain;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .navigation a {
+      display: block;
+      padding: 9px 7px;
+      color: #292929;
+      font-size: 11px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .navigation a:hover {
+      color: #008bc4;
+    }
+
+    .navigation .active {
+      color: #008bc4;
+      font-weight: 700;
+    }
+
+    /* Conteúdo */
+    .main-content {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 30px 30px;
+      flex: 1;
+    }
+
+    .page-title {
+      margin: 0 0 20px;
+      font-size: 19px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #292929;
+    }
+
+    /* Busca e filtro */
+    .filters {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .search-box {
+      width: 294px;
+      max-width: 100%;
+      height: 32px;
+      min-height: 32px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #d5d9dd;
+      border-radius: 5px;
+      background: #ffffff;
+    }
+
+    .search-box svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: #687386;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 11px;
+      color: #333333;
+    }
+
+    .search-box input::placeholder {
+      color: #8b919a;
+    }
+
+    .category-filter {
+      width: 138px;
+      height: 32px;
+      min-height: 32px;
+      padding: 0 10px;
+      border: 1px solid #d5d9dd;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #333333;
+      font-family: inherit;
+      font-size: 11px;
+      outline: none;
+    }
+
+    /* Grid de notícias */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 22px;
+      row-gap: 28px;
+    }
+
+    .news-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: #ffffff;
+      box-shadow: none;
+    }
+
+    .news-image-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 330 / 212;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.news-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+    .news-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 12px 12px 0;
+    }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+      font-size: 9px;
+      line-height: 1.4;
+    }
+
+    .news-date {
+      color: #008bc4;
+    }
+
+    .news-category {
+      color: #16884b;
+    }
+
+    .news-title {
+      margin: 0 0 7px;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 500;
+      color: #292929;
+    }
+
+    .news-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .news-title a:hover {
+      color: #008bc4;
+    }
+
+    .news-description {
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.45;
+      font-weight: 400;
+      color: #626262;
+    }
+
+    /* Paginação */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 30px;
+      font-size: 10px;
+      color: #555555;
+    }
+
+    .page-button {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 4px;
+      background: #0798d0;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .page-button:disabled {
+      background: #dedede;
+      color: #ffffff;
+      cursor: default;
+    }
+
+    #no-results {
+      padding: 30px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #777777;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Rodapé */
+    .site-footer {
+      width: 100%;
+      margin-top: 30px;
+      background: #f3f3f3;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      font-size: 9px;
+      color: #666666;
+    }
+
+    .footer-content p {
+      margin: 0;
+    }
+
+    /* Adaptação para telas menores */
+    @media (min-width: 1400px) {
+      .main-content {
+        padding-top: 28px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-content {
+        padding: 12px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .navigation {
+        flex-wrap: wrap;
+      }
+
+      .navigation a {
+        padding: 7px;
+      }
+
+      .main-content {
+        padding: 22px 20px 28px;
+      }
+
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 16px;
+      }
+
+      .news-image {
+        height: 150px;
+      }
+
+      .news-body {
+        padding: 10px 5px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+        row-gap: 25px;
+      }
+
+      .news-image {
+        height: 200px;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .footer-content {
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="site-container">
+
+    <!-- HEADER INSTITUCIONAL -->
+    <header class="site-header">
+      <nav class="header-content" aria-label="Menu principal">
+
+        <!-- Logo oficial do projeto -->
+        <a href="index.html" aria-label="Página inicial">
+          <img
+            src="assets/img/logo-olimpiadas.png"
+            alt="Olimpíada da Advocacia"
+            class="logo"
+          >
+        </a>
+
+        <!-- Navegação -->
+        <ul class="navigation">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="modalidades.html">Modalidades</a></li>
+          <li>
+            <a href="noticias.html" class="active" aria-current="page">
+              Notícias
+            </a>
+          </li>
+          <li><a href="cronograma.html">Cronograma</a></li>
+          <li><a href="#">Administradores</a></li>
+          <li><a href="#">Regulamento</a></li>
+        </ul>
+
+      </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+      <h1 class="page-title">NOTÍCIAS</h1>
+
+      <!-- Barra de pesquisa e filtro -->
+      <div class="filters">
+
+        <label class="search-box">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+
+          <input
+            type="search"
+            id="news-search"
+            placeholder="Pesquise aqui por uma notícia"
+            aria-label="Pesquisar notícias"
+          >
+        </label>
+
+        <select
+          id="news-filter"
+          class="category-filter"
+          aria-label="Filtrar por categoria"
+        >
+          <option value="">Filtrar por</option>
+          <option value="Organização">Organização</option>
+          <option value="Inscrições">Inscrições</option>
+          <option value="Resultados">Resultados</option>
+        </select>
+
+      </div>
+
+      <!-- LISTA DE NOTÍCIAS -->
+      <section
+        id="news-grid"
+        class="news-grid"
+        aria-label="Lista de notícias"
+      >
+
+        <!-- NOTÍCIA 1 -->
+        <article class="news-card" data-category="Organização">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia01.png"
+              alt="Foto da primeira notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">17/03/2023</span>
+              <span class="news-category">• Organização</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia
+              </a>
+            </h2>
+
+            <p class="news-description">
+              As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA's). [...]
+            </p>
+
+          </div>
+        </article>
+
+        <!-- NOTÍCIA 2 -->
+        <article class="news-card" data-category="Organização">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia02.png"
+              alt="Foto da segunda notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">17/03/2023</span>
+              <span class="news-category">• Organização</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Fique por dentro das modalidades que estarão em disputa, categorias e limites de atletas por modalidade
+              </a>
+            </h2>
+
+            <p class="news-description">
+              Basquete 3x3, beach tennis, corrida de rua, crossfit, futebol e futsal estão entre as modalidades. Confira as categorias e os limites de participação. [...]
+            </p>
+
+          </div>
+        </article>
+
+        <!-- NOTÍCIA 3 -->
+        <article class="news-card" data-category="Inscrições">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia03.png"
+              alt="Foto da terceira notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">17/03/2023</span>
+              <span class="news-category">• Inscrições</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Olimpíada da Advocacia terá inscrições 100% digitais
+              </a>
+            </h2>
+
+            <p class="news-description">
+              Uma das grandes novidades da Olimpíada da Advocacia é a implantação do sistema de inscrições on-line para os atletas, facilitando o cadastro e o gerenciamento dos participantes. [...]
+            </p>
+
+          </div>
+        </article>
+
+        <!-- NOTÍCIA 4 -->
+        <article class="news-card" data-category="Organização">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia04.png"
+              alt="Foto da quarta notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">09/03/2023</span>
+              <span class="news-category">• Organização</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Coordenação Técnica das Olimpíadas da Advocacia será da HC Sports
+              </a>
+            </h2>
+
+            <p class="news-description">
+              A HC Sports ficará responsável pela Coordenação Técnica das competições nas Olimpíadas da Advocacia, contribuindo com a organização e o suporte às modalidades. [...]
+            </p>
+
+          </div>
+        </article>
+
+        <!-- NOTÍCIA 5 -->
+        <article class="news-card" data-category="Organização">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia05.png"
+              alt="Foto da quinta notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">09/03/2023</span>
+              <span class="news-category">• Organização</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Praças esportivas recebem visita e passam por vistorias
+              </a>
+            </h2>
+
+            <p class="news-description">
+              Uma comissão visitou as estruturas esportivas para verificar as condições dos espaços que receberão as próximas competições da Olimpíada da Advocacia. [...]
+            </p>
+
+          </div>
+        </article>
+
+        <!-- NOTÍCIA 6 -->
+        <article class="news-card" data-category="Organização">
+
+          <a href="noticia.html" class="news-image-link">
+            <img
+              src="assets/img/noticia06.png"
+              alt="Foto da sexta notícia"
+              class="news-image"
+              loading="lazy"
+            >
+          </a>
+
+          <div class="news-body">
+
+            <div class="news-meta">
+              <span class="news-date">07/03/2023</span>
+              <span class="news-category">• Organização</span>
+            </div>
+
+            <h2 class="news-title">
+              <a href="noticia.html">
+                Goiânia sediará em 2023 a primeira edição das Olimpíadas da Advocacia
+              </a>
+            </h2>
+
+            <p class="news-description">
+              Goiânia foi escolhida para sediar a primeira edição das Olimpíadas da Advocacia, reunindo participantes em diferentes modalidades esportivas. [...]
+            </p>
+
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Mensagem exibida quando não houver resultados -->
+      <p id="no-results" class="hidden">
+        Nenhuma notícia encontrada.
+      </p>
+
+      <!-- PAGINAÇÃO VISUAL -->
+      <nav class="pagination" aria-label="Paginação de notícias">
+
+        <button
+          type="button"
+          class="page-button"
+          disabled
+          aria-label="Página anterior"
+        >
+          ‹
+        </button>
+
+        <span id="page-label">Página 1 de 2</span>
+
+        <a
+          href="noticias.html"
+          class="page-button"
+          aria-label="Próxima página"
+        >
+          ›
+        </a>
+
+      </nav>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>© Olimpíadas da Advocacia 2023</p>
+        <p>2023 HC Sports. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- FUNCIONALIDADE DE BUSCA E FILTRO -->
+  <script>
+    const searchInput = document.getElementById("news-search");
+    const categoryFilter = document.getElementById("news-filter");
+    const newsCards = document.querySelectorAll(".news-card");
+    const noResults = document.getElementById("no-results");
+
+    function filterNews() {
+      const searchText = searchInput.value
+        .toLocaleLowerCase("pt-BR")
+        .trim();
+
+      const selectedCategory = categoryFilter.value;
+      let visibleCards = 0;
+
+      newsCards.forEach((card) => {
+        const cardText = card.textContent
+          .toLocaleLowerCase("pt-BR");
+
+        const cardCategory = card.dataset.category;
+
+        const matchesSearch = cardText.includes(searchText);
+
+        const matchesCategory =
+          selectedCategory === "" ||
+          cardCategory === selectedCategory;
+
+        if (matchesSearch && matchesCategory) {
+          card.classList.remove("hidden");
+          visibleCards++;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      noResults.classList.toggle("hidden", visibleCards > 0);
+    }
+
+    searchInput.addEventListener("input", filterNews);
+    categoryFilter.addEventListener("change", filterNews);
+  </script>
+
+</body>
+</html>
