@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modalidades - Olimpíadas da Advocacia</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: #383838;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 10px;
+    }
+
+    .site {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      background: #fff;
+    }
+
+    /* Cabeçalho */
+    .header {
+      min-height: 39px;
+      padding: 0 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ededed;
+      box-shadow: 0 2px 4px #00000008;
+    }
+
+    .logo {
+      width: 100px;
+      flex-shrink: 0;
+      font-size: 8px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #333;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .logo span {
+      display: block;
+    }
+
+    .logo .red {
+      display: inline;
+      color: #ed3939;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav a {
+      color: #444;
+      text-decoration: none;
+      font-size: 8px;
+      white-space: nowrap;
+    }
+
+    .nav a.active {
+      color: #009fe3;
+      font-weight: 700;
+    }
+
+    /* Conteúdo */
+    .content {
+      min-height: 470px;
+      padding: 22px 7% 65px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #383838;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 800;
+    }
+
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 283px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 11px;
+      height: 11px;
+      color: #444;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 29px;
+      min-height: 29px;
+      padding: 0 10px 0 27px;
+      border: 1px solid #dedede;
+      border-radius: 6px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 8px;
+      outline: none;
+    }
+
+    .filter-box {
+      position: relative;
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .filter-select {
+      appearance: none;
+      width: 100%;
+      height: 29px;
+      min-height: 29px;
+      padding: 0 24px 0 9px;
+      border: 1px solid #dedede;
+      border-radius: 6px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 8px;
+      color: #444;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .filter-arrow {
+      position: absolute;
+      right: 9px;
+      top: 9px;
+      width: 11px;
+      height: 11px;
+      color: #009fe3;
+      pointer-events: none;
+    }
+
+    /* Catálogo */
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: 20px;
+      row-gap: 27px;
+      margin-top: 31px;
+    }
+
+    .letter-group h2 {
+      margin: 0 0 5px;
+      font-size: 29px;
+      line-height: 32px;
+      font-weight: 400;
+      color: #383838;
+    }
+
+    .sports-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .sport {
+      min-height: 17px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 1px 3px;
+      border-radius: 10px;
+      color: #454545;
+      text-decoration: none;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .sport:hover {
+      background: #f1f1f1;
+    }
+
+    .sport.selected {
+      background: #f0f0f0;
+      color: #009fe3;
+      font-weight: 700;
+    }
+
+    .sport-icon {
+      flex: 0 0 15px;
+      width: 15px;
+      height: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #414141;
+      color: #fff;
+      font-size: 8px;
+      line-height: 1;
+    }
+
+    .sport.selected .sport-icon {
+      background: #009fe3;
+    }
+
+    .no-results {
+      display: none;
+      padding-top: 20px;
+      font-size: 10px;
+    }
+
+    /* Rodapé */
+    .footer {
+      min-height: 64px;
+      padding: 0 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f1f1f1;
+      color: #777;
+      font-size: 11px;
+    }
+
+    .footer span:first-child {
+      color: #444;
+    }
+
+    /* Responsividade */
+    @media (max-width: 650px) {
+      .header {
+        min-height: 45px;
+        padding: 10px 4%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .content {
+        padding: 22px 5% 45px;
+      }
+
+      .filters {
+        width: 100%;
+      }
+
+      .search-box {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .catalog {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+      }
+
+      .sport {
+        font-size: 9px;
+        white-space: normal;
+      }
+
+      .footer {
+        padding: 12px 5%;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="Olimpíadas da Advocacia">
+        <span><span class="red">◢</span> OLIMPÍADAS</span>
+        <span>DA ADVOCACIA</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="modalidades.html" class="active">Modalidades</a>
+        <a href="noticias.html">Notícias</a>
+        <a href="cronograma.html">Cronograma</a>
+        <a href="#">Administradores</a>
+        <a href="#">Regulamento</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h1>MODALIDADES</h1>
+
+      <div class="filters">
+        <label class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+
+          <input
+            id="pesquisa"
+            class="input input-bordered search-input"
+            type="search"
+            placeholder="Pesquise aqui por uma modalidade"
+            aria-label="Pesquisar modalidade">
+        </label>
+
+        <div class="filter-box">
+          <select id="filtro" class="select select-bordered filter-select"
+            aria-label="Filtrar por">
+            <option value="todas">Filtrar por</option>
+            <option value="coletiva">Coletiva</option>
+            <option value="individual">Individual</option>
+          </select>
+
+          <svg class="filter-arrow" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="catalog" id="catalogo">
+
+        <section class="letter-group">
+          <h2>B</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Basquete%203x3"
+              data-name="Basquete 3x3" data-type="coletiva">
+              <span class="sport-icon">✥</span>Basquete 3x3
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Beach%20Tennis"
+              data-name="Beach Tennis" data-type="individual">
+              <span class="sport-icon">♟</span>Beach Tennis
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>C</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Corrida%20de%20Rua"
+              data-name="Corrida de Rua" data-type="individual">
+              <span class="sport-icon">♟</span>Corrida de Rua
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Crossfit"
+              data-name="Crossfit" data-type="individual">
+              <span class="sport-icon">⚑</span>Crossfit
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>F</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Futebol%20Society"
+              data-name="Futebol Society" data-type="coletiva">
+              <span class="sport-icon">⚽</span>Futebol Society
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Futebol%20de%20Mesa"
+              data-name="Futebol de Mesa" data-type="individual">
+              <span class="sport-icon">⚑</span>Futebol de Mesa
+            </a>
+
+            <a class="sport selected" href="modalidade.html?nome=Futebol%2011"
+              data-name="Futebol 11" data-type="coletiva">
+              <span class="sport-icon">⚽</span>Futebol 11
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Futebol%207"
+              data-name="Futebol 7" data-type="coletiva">
+              <span class="sport-icon">⚑</span>Futebol 7
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Futevôlei"
+              data-name="Futevôlei" data-type="coletiva">
+              <span class="sport-icon">◉</span>Futevôlei
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>J</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Jiu-jitsu"
+              data-name="Jiu-jitsu" data-type="individual">
+              <span class="sport-icon">✥</span>Jiu-jitsu
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Judô"
+              data-name="Judô" data-type="individual">
+              <span class="sport-icon">✥</span>Judô
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>N</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Natação"
+              data-name="Natação" data-type="individual">
+              <span class="sport-icon">♨</span>Natação
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>S</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Sinuca"
+              data-name="Sinuca" data-type="individual">
+              <span class="sport-icon">♟</span>Sinuca
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>T</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Tênis"
+              data-name="Tênis" data-type="individual">
+              <span class="sport-icon">♟</span>Tênis
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Tênis%20de%20Mesa"
+              data-name="Tênis de Mesa" data-type="individual">
+              <span class="sport-icon">♟</span>Tênis de Mesa
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Tiro%20Esportivo"
+              data-name="Tiro Esportivo" data-type="individual">
+              <span class="sport-icon">◉</span>Tiro Esportivo
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>V</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Vôlei%20de%20Praia"
+              data-name="Vôlei de Praia" data-type="coletiva">
+              <span class="sport-icon">◉</span>Vôlei de Praia
+            </a>
+
+            <a class="sport" href="modalidade.html?nome=Vôlei%20de%20Quadra"
+              data-name="Vôlei de Quadra" data-type="coletiva">
+              <span class="sport-icon">◉</span>Vôlei de Quadra
+            </a>
+          </div>
+        </section>
+
+        <section class="letter-group">
+          <h2>X</h2>
+          <div class="sports-list">
+            <a class="sport" href="modalidade.html?nome=Xadrez"
+              data-name="Xadrez" data-type="individual">
+              <span class="sport-icon">♟</span>Xadrez
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <p id="sem-resultados" class="no-results">
+        Nenhuma modalidade encontrada.
+      </p>
+    </main>
+
+    <footer class="footer">
+      <span>I Olimpíadas da Advocacia 2023</span>
+      <span>2023 HC Sports. Todos os direitos reservados.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    const pesquisa = document.getElementById("pesquisa");
+    const filtro = document.getElementById("filtro");
+    const modalidades = [...document.querySelectorAll(".sport")];
+    const grupos = [...document.querySelectorAll(".letter-group")];
+    const semResultados = document.getElementById("sem-resultados");
+
+    function filtrarModalidades() {
+      const termo = pesquisa.value.trim().toLocaleLowerCase("pt-BR");
+      const tipo = filtro.value;
+      let encontrados = 0;
+
+      modalidades.forEach(modalidade => {
+        const nome = modalidade.dataset.name.toLocaleLowerCase("pt-BR");
+
+        const mostrar =
+          nome.includes(termo) &&
+          (tipo === "todas" || modalidade.dataset.type === tipo);
+
+        modalidade.style.display = mostrar ? "flex" : "none";
+
+        if (mostrar) {
+          encontrados++;
+        }
+      });
+
+      grupos.forEach(grupo => {
+        const temModalidade = [...grupo.querySelectorAll(".sport")]
+          .some(item => item.style.display !== "none");
+
+        grupo.style.display = temModalidade ? "block" : "none";
+      });
+
+      semResultados.style.display = encontrados ? "none" : "block";
+    }
+
+    modalidades.forEach(modalidade => {
+      modalidade.addEventListener("click", () => {
+        modalidades.forEach(item => item.classList.remove("selected"));
+        modalidade.classList.add("selected");
+      });
+    });
+
+    pesquisa.addEventListener("input", filtrarModalidades);
+    filtro.addEventListener("change", filtrarModalidades);
+  </script>
+</body>
+</html>
