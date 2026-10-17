@@ -1,701 +1,289 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Notícias | Olimpíada da Advocacia</title>
 
-  <!-- Tailwind CSS e DaisyUI -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
-    rel="stylesheet"
-  >
+  <!-- Fontes do Figma: Poppins (títulos) e Open Sans (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- DaisyUI + Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Mesma configuração de cores e fontes da Home -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0092d8',   // estimado do recorte, confirmar no Inspect
+            brandRed: '#ff1b24',    // estimado do recorte, confirmar no Inspect
+            footerBg: '#f4f4f4',
+            navText: '#4a5568',
+          },
+          fontFamily: {
+            sans: ['"Open Sans"', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
-    }
-
-    body {
-      background: #ffffff;
-      color: #292929;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .site-container {
-      width: 100%;
-      min-height: 100vh;
-      margin: 0;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .site-header {
-      width: 100%;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .header-content {
-      max-width: 1100px;
-      min-height: 64px;
-      margin: 0 auto;
-      padding: 8px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      display: block;
-      width: auto;
-      max-width: 150px;
-      height: auto;
-      max-height: 42px;
-      object-fit: contain;
-    }
-
-    .navigation {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .navigation a {
-      display: block;
-      padding: 9px 7px;
-      color: #292929;
-      font-size: 11px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .navigation a:hover {
-      color: #008bc4;
-    }
-
-    .navigation .active {
-      color: #008bc4;
-      font-weight: 700;
-    }
-
-    .main-content {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 30px 30px;
-      flex: 1;
-    }
-
-    .page-title {
-      margin: 0 0 20px;
-      font-size: 19px;
-      line-height: 1.3;
-      font-weight: 700;
-      color: #292929;
-    }
-
-    .filters {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-
-    .search-box {
-      width: 294px;
-      max-width: 100%;
-      height: 32px;
-      min-height: 32px;
-      padding: 0 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #d5d9dd;
-      border-radius: 5px;
-      background: #ffffff;
-    }
-
-    .search-box svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      color: #687386;
-    }
-
-    .search-box input {
-      width: 100%;
-      min-width: 0;
-      height: 100%;
-      border: none;
-      outline: none;
-      background: transparent;
-      font-family: inherit;
-      font-size: 11px;
-      color: #333333;
-    }
-
-    .search-box input::placeholder {
-      color: #8b919a;
-    }
-
-    .category-filter {
-      width: 138px;
-      height: 32px;
-      min-height: 32px;
-      padding: 0 10px;
-      border: 1px solid #d5d9dd;
-      border-radius: 5px;
-      background-color: #ffffff;
-      color: #333333;
-      font-family: inherit;
-      font-size: 11px;
-      outline: none;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      column-gap: 22px;
-      row-gap: 28px;
-    }
-
-    .news-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      background: #ffffff;
-      box-shadow: none;
-    }
-
-    .news-image-link {
-  display: block;
-  width: 100%;
-  aspect-ratio: 330 / 212;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-
-.news-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-    .news-body {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      padding: 12px 12px 0;
-    }
-
-    .news-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-      font-size: 9px;
-      line-height: 1.4;
-    }
-
-    .news-date {
-      color: #008bc4;
-    }
-
-    .news-category {
-      color: #16884b;
-    }
-
-    .news-title {
-      margin: 0 0 7px;
-      font-size: 12px;
-      line-height: 1.45;
-      font-weight: 500;
-      color: #292929;
-    }
-
-    .news-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .news-title a:hover {
-      color: #008bc4;
-    }
-
-    .news-description {
-      margin: 0;
-      font-size: 10px;
-      line-height: 1.45;
-      font-weight: 400;
-      color: #626262;
-    }
-
-    .pagination {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 6px;
-      margin-top: 30px;
-      font-size: 10px;
-      color: #555555;
-    }
-
-    .page-button {
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      border-radius: 4px;
-      background: #0798d0;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .page-button:disabled {
-      background: #dedede;
-      color: #ffffff;
-      cursor: default;
-    }
-
-    #no-results {
-      padding: 30px 0;
-      text-align: center;
-      font-size: 12px;
-      color: #777777;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .site-footer {
-      width: 100%;
-      margin-top: 30px;
-      background: #f3f3f3;
-    }
-
-    .footer-content {
-      max-width: 1100px;
-      min-height: 58px;
-      margin: 0 auto;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      font-size: 9px;
-      color: #666666;
-    }
-
-    .footer-content p {
-      margin: 0;
-    }
-
-    @media (min-width: 1400px) {
-      .main-content {
-        padding-top: 28px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .header-content {
-        padding: 12px 20px;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .navigation {
-        flex-wrap: wrap;
-      }
-
-      .navigation a {
-        padding: 7px;
-      }
-
-      .main-content {
-        padding: 22px 20px 28px;
-      }
-
-      .news-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 26px 16px;
-      }
-
-      .news-image {
-        height: 150px;
-      }
-
-      .news-body {
-        padding: 10px 5px 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .news-grid {
-        grid-template-columns: 1fr;
-        row-gap: 25px;
-      }
-
-      .news-image {
-        height: 200px;
-      }
-
-      .search-box {
-        width: 100%;
-      }
-
-      .footer-content {
-        padding: 16px 20px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
+    /* usada só pelo filtro (JS) para esconder cards, mesmo com o display do DaisyUI */
+    .filtered-out { display: none !important; }
   </style>
 </head>
+<body class="min-h-screen flex flex-col bg-white text-[#333] font-sans antialiased">
 
-<body>
+  <!-- ================================================================= -->
+  <!-- COMPONENTE: HEADER INSTITUCIONAL (FIGMA)                          -->
+  <!-- ================================================================= -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="navbar container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl min-h-0">
 
-  <div class="site-container">
-
-    <header class="site-header">
-      <nav class="header-content" aria-label="Menu principal">
-
-        <a href="index.html" aria-label="Página inicial">
-          <img
-            src="assets/img/logo-olimpiadas.png"
-            alt="Olimpíada da Advocacia"
-            class="logo"
-          >
+      <!-- Logo Oficial -->
+      <div class="flex-1">
+        <a href="index.html" class="flex items-center gap-3" aria-label="Página inicial">
+          <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-[42px] object-contain"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-xl tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-sm border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[10px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
         </a>
+      </div>
 
-        <ul class="navigation">
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-10 font-heading text-base font-medium" aria-label="Menu principal">
+        <a href="index.html" class="text-navText hover:text-brandBlue transition-colors">Home</a>
+        <a href="modalidades.html" class="text-navText hover:text-brandBlue transition-colors">Modalidades</a>
+        <a href="noticias.html" class="text-brandBlue font-semibold" aria-current="page">Notícias</a>
+        <a href="cronograma.html" class="text-navText hover:text-brandBlue transition-colors">Cronograma</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Administradores</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Regulamento</a>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="dropdown dropdown-end lg:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Abrir Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-xl bg-white rounded-box w-56 font-semibold text-gray-700 border border-gray-100">
           <li><a href="index.html">Home</a></li>
           <li><a href="modalidades.html">Modalidades</a></li>
-          <li>
-            <a href="noticias.html" class="active" aria-current="page">
-              Notícias
-            </a>
-          </li>
+          <li><a href="noticias.html" class="active bg-brandBlue text-white">Notícias</a></li>
           <li><a href="cronograma.html">Cronograma</a></li>
           <li><a href="#">Administradores</a></li>
           <li><a href="#">Regulamento</a></li>
         </ul>
+      </div>
 
-      </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main-content">
 
-      <h1 class="page-title">NOTÍCIAS</h1>
+  <!-- ================================================================= -->
+  <!-- CONTEÚDO PRINCIPAL                                                -->
+  <!-- ================================================================= -->
+  <main class="flex-grow">
+    <div class="container mx-auto px-6 max-w-7xl pt-9 pb-32">
 
-      <div class="filters">
+      <h1 class="font-heading text-[28px] font-semibold uppercase text-[#333] leading-tight">Notícias</h1>
 
-        <label class="search-box">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            aria-hidden="true"
-          >
+      <!-- Busca + filtro -->
+      <div class="mt-8 flex flex-wrap items-center gap-5">
+
+        <label class="input input-bordered flex items-center gap-3 w-full md:w-[499px] h-[50px] rounded-lg border-gray-200 bg-white focus-within:border-brandBlue focus-within:outline-brandBlue">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px] shrink-0 text-[#333]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <circle cx="11" cy="11" r="7"></circle>
             <path d="m16 16 4 4"></path>
           </svg>
-
-          <input
-            type="search"
-            id="news-search"
-            placeholder="Pesquise aqui por uma notícia"
-            aria-label="Pesquisar notícias"
-          >
+          <input type="search" id="news-search" class="grow text-base placeholder:text-[#8a8a8a]"
+                 placeholder="Pesquise aqui por uma notícia" aria-label="Pesquisar notícias">
         </label>
 
-        <select
-          id="news-filter"
-          class="category-filter"
-          aria-label="Filtrar por categoria"
-        >
-          <option value="">Filtrar por</option>
-          <option value="Organização">Organização</option>
-          <option value="Inscrições">Inscrições</option>
-          <option value="Resultados">Resultados</option>
-        </select>
+        <div class="relative w-[155px]">
+          <select id="news-filter" aria-label="Filtrar por categoria"
+                  class="select select-bordered w-full h-[50px] min-h-0 rounded-lg border-gray-200 bg-white bg-none pl-4 pr-10 text-base font-normal text-[#555] focus:border-brandBlue focus:outline-brandBlue">
+            <option value="">Filtrar por</option>
+            <option value="Organização">Organização</option>
+            <option value="Inscrições">Inscrições</option>
+            <option value="Resultados">Resultados</option>
+          </select>
+          <svg class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brandBlue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
 
       </div>
 
-      <section
-        id="news-grid"
-        class="news-grid"
-        aria-label="Lista de notícias"
-      >
+      <!-- Lista de notícias -->
+      <section id="news-grid" class="mt-[46px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-9 gap-y-10" aria-label="Lista de notícias">
 
         <!-- NOTÍCIA 1 -->
-        <article class="news-card" data-category="Organização">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia01.png"
-              alt="Foto da primeira notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Organização">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia01.png" alt="Foto da primeira notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">17/03/2023</span>
-              <span class="news-category">• Organização</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia
-              </a>
-            </h2>
-
-            <p class="news-description">
-              As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA's). [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">17/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#1fa055]">Organização</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas nesta terça-feira (14/3) durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA) [...]
+            </p>
           </div>
         </article>
 
         <!-- NOTÍCIA 2 -->
-        <article class="news-card" data-category="Organização">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia02.png"
-              alt="Foto da segunda notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Organização">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia02.png" alt="Foto da segunda notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">17/03/2023</span>
-              <span class="news-category">• Organização</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Fique por dentro das modalidades que estarão em disputa, categorias e limites de atletas por modalidade
-              </a>
-            </h2>
-
-            <p class="news-description">
-              Basquete 3x3, beach tennis, corrida de rua, crossfit, futebol e futsal estão entre as modalidades. Confira as categorias e os limites de participação. [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">17/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#1fa055]">Organização</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Fique por dentro das modalidades que estarão em disputa, categorias e limites de atletas por seccional</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              BASQUETE 3×3: BEACH TENNIS: CORRIDA DE RUA – 10Km e 5Km: CROSS: FUTEBOL 11: FUT 7: FUTEBOL SOCIETY: FUTMESA: FUTEVÔLEI: JIU-JITSU: JUDÔ: NATAÇÃO: SINUCA: TÊNIS: TÊNIS DE MESA: TIRO ESPORTIVO: [...]
+            </p>
           </div>
         </article>
 
         <!-- NOTÍCIA 3 -->
-        <article class="news-card" data-category="Inscrições">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia03.png"
-              alt="Foto da terceira notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Inscrições">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia03.png" alt="Foto da terceira notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">17/03/2023</span>
-              <span class="news-category">• Inscrições</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Olimpíada da Advocacia terá inscrições 100% digitais
-              </a>
-            </h2>
-
-            <p class="news-description">
-              Uma das grandes novidades da Olimpíada da Advocacia é a implantação do sistema de inscrições on-line para os atletas, facilitando o cadastro e o gerenciamento dos participantes. [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">17/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#9b3fd1]">Inscrições</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Olimpíada da Advocacia terá inscrições 100% digitais</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              Uma das grandes novidades da Olimpíada da Advocacia para 2023 é a implantação do Sistema de Inscrições on-line para os atletas. Um sistema de cadastramento e gerenciamento específico para os [...]
+            </p>
           </div>
         </article>
 
         <!-- NOTÍCIA 4 -->
-        <article class="news-card" data-category="Organização">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia04.png"
-              alt="Foto da quarta notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Organização">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia04.png" alt="Foto da quarta notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">09/03/2023</span>
-              <span class="news-category">• Organização</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Coordenação Técnica das Olimpíadas da Advocacia será da HC Sports
-              </a>
-            </h2>
-
-            <p class="news-description">
-              A HC Sports ficará responsável pela Coordenação Técnica das competições nas Olimpíadas da Advocacia, contribuindo com a organização e o suporte às modalidades. [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">09/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#1fa055]">Organização</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Coordenação Técnica das Olimpíadas da Advocacia será da HC Sports</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              Será da HC Sports a responsabilidade pela Coordenação Técnica das competições nas Olimpíadas da Advocacia CONCAD 2023. A empresa, que já esteve com a CONCAD em outras competições, como os [...]
+            </p>
           </div>
         </article>
 
         <!-- NOTÍCIA 5 -->
-        <article class="news-card" data-category="Organização">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia05.png"
-              alt="Foto da quinta notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Organização">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia05.png" alt="Foto da quinta notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">09/03/2023</span>
-              <span class="news-category">• Organização</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Praças esportivas recebem visita e passam por vistorias
-              </a>
-            </h2>
-
-            <p class="news-description">
-              Uma comissão visitou as estruturas esportivas para verificar as condições dos espaços que receberão as próximas competições da Olimpíada da Advocacia. [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">09/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#1fa055]">Organização</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Praças esportivas recebem visita e passam por vistorias</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              Uma comitiva da CASAG, acompanhada por representantes do Conselho Federal da OAB, vistoriaram e visitaram, nesta terça-feira, inúmeras praças esportivas na Região Metropolitana de Goiânia. Na pauta, as Olimpíadas da [...]
+            </p>
           </div>
         </article>
 
         <!-- NOTÍCIA 6 -->
-        <article class="news-card" data-category="Organização">
-
-          <a href="noticia.html" class="news-image-link">
-            <img
-              src="assets/img/noticia06.png"
-              alt="Foto da sexta notícia"
-              class="news-image"
-              loading="lazy"
-            >
+        <article class="card rounded-none bg-transparent" data-category="Organização">
+          <a href="noticia.html" class="block aspect-[330/212] overflow-hidden rounded bg-gray-100">
+            <img src="assets/img/noticia06.png" alt="Foto da sexta notícia" class="w-full h-full object-cover" loading="lazy">
           </a>
-
-          <div class="news-body">
-
-            <div class="news-meta">
-              <span class="news-date">07/03/2023</span>
-              <span class="news-category">• Organização</span>
-            </div>
-
-            <h2 class="news-title">
-              <a href="noticia.html">
-                Goiânia sediará em 2023 a primeira edição das Olimpíadas da Advocacia
-              </a>
-            </h2>
-
-            <p class="news-description">
-              Goiânia foi escolhida para sediar a primeira edição das Olimpíadas da Advocacia, reunindo participantes em diferentes modalidades esportivas. [...]
+          <div class="card-body p-0 pt-[18px] gap-0">
+            <p class="grow-0 text-sm font-semibold leading-5">
+              <span class="text-brandBlue">07/03/2023</span>
+              <span class="mx-1.5 text-gray-300">•</span>
+              <span class="text-[#1fa055]">Organização</span>
             </p>
-
+            <h2 class="card-title mt-[18px] block text-lg font-semibold leading-[26px] text-[#333]">
+              <a href="noticia.html" class="hover:text-brandBlue transition-colors">Goiânia sediará em 2023 a primeira edição das Olimpíadas da Advocacia</a>
+            </h2>
+            <p class="grow-0 mt-2 text-base leading-[22px] text-[#555]">
+              Goiânia vai sediar, em 2023, as primeiras Olimpíadas da Advocacia. O anúncio foi feito durante o II Colégio de Presidentes de Caixas de Assistência dos Advogados (CAAs), nesta sexta-feira (20/5), [...]
+            </p>
           </div>
         </article>
 
       </section>
 
-      <p id="no-results" class="hidden">
+      <p id="no-results" class="hidden py-10 text-center text-sm text-gray-500">
         Nenhuma notícia encontrada.
       </p>
 
-      <nav class="pagination" aria-label="Paginação de notícias">
+      <!-- Paginação -->
+      <nav class="mt-16 flex items-center justify-end gap-2.5 text-base text-[#333]" aria-label="Paginação de notícias">
 
-        <button
-          type="button"
-          class="page-button"
-          disabled
-          aria-label="Página anterior"
-        >
-          ‹
+        <button type="button" disabled aria-label="Página anterior"
+                class="btn btn-square w-7 h-7 min-h-0 p-0 rounded border-none disabled:!bg-[#d9d9d9] disabled:!text-white">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
         </button>
 
         <span id="page-label">Página 1 de 2</span>
 
-        <a
-          href="noticias.html"
-          class="page-button"
-          aria-label="Próxima página"
-        >
-          ›
+        <a href="noticias.html" aria-label="Próxima página"
+           class="btn btn-square w-7 h-7 min-h-0 p-0 rounded border-none bg-brandBlue hover:bg-brandBlue/90 text-white">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
         </a>
 
       </nav>
 
-    </main>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <p>© Olimpíadas da Advocacia 2023</p>
-        <p>2023 HC Sports. Todos os direitos reservados.</p>
-      </div>
-    </footer>
 
-  </div>
+  <!-- ================================================================= -->
+  <!-- FOOTER (versão simples do Figma para esta página)                 -->
+  <!-- ================================================================= -->
+  <footer class="footer bg-footerBg">
+    <div class="mx-auto w-full max-w-7xl px-6 py-[46px] flex flex-col sm:flex-row justify-between gap-2 text-[13px] text-[#444]">
+      <p class="font-semibold">I Olimpíadas da Advocacia 2023</p>
+      <p>2023 HC Sports. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
 
   <script>
     const searchInput = document.getElementById("news-search");
     const categoryFilter = document.getElementById("news-filter");
-    const newsCards = document.querySelectorAll(".news-card");
+    const newsCards = document.querySelectorAll("#news-grid article");
     const noResults = document.getElementById("no-results");
 
     function filterNews() {
@@ -719,10 +307,10 @@
           cardCategory === selectedCategory;
 
         if (matchesSearch && matchesCategory) {
-          card.classList.remove("hidden");
+          card.classList.remove("filtered-out");
           visibleCards++;
         } else {
-          card.classList.add("hidden");
+          card.classList.add("filtered-out");
         }
       });
 
