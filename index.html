@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I Olimpíadas da Advocacia 2023</title>
 
-  <!-- Fonte Montserrat (fidelidade visual ao Figma) -->
+  <!-- Fontes do Figma: Poppins (títulos) e Open Sans (textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- DaisyUI + Tailwind CSS via CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
@@ -20,13 +20,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00a3e0',
-            brandRed: '#e30613',
+            brandBlue: '#0092d8',   // estimado do recorte, confirmar no Inspect
+            brandRed: '#ff1b24',    // estimado do recorte, confirmar no Inspect
             footerBg: '#f4f4f4',
             navText: '#4a5568',
+            darkSection: '#000000',
           },
           fontFamily: {
-            sans: ['Montserrat', 'sans-serif'],
+            sans: ['"Open Sans"', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
           }
         }
       }
@@ -39,9 +41,9 @@
   <!-- COMPONENTE: HEADER INSTITUCIONAL (FIGMA)                          -->
   <!-- ================================================================= -->
   <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-    <div class="navbar container mx-auto px-4 md:px-12 py-3 flex justify-between items-center max-w-7xl">
+    <div class="navbar container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl">
       
-      <!-- Logo Oficial (com fallback visual caso a imagem não tenha sido baixada ainda) -->
+      <!-- Logo Oficial -->
       <div class="flex-1">
         <a href="index.html" class="flex items-center gap-3">
           <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-10 md:h-12 object-contain" 
@@ -50,7 +52,7 @@
       </div>
 
       <!-- Navegação Desktop -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold">
         <a href="index.html" class="text-brandBlue font-bold">Home</a>
         <a href="modalidades.html" class="text-navText hover:text-brandBlue transition-colors">Modalidades</a>
         <a href="noticias.html" class="text-navText hover:text-brandBlue transition-colors">Notícias</a>
@@ -59,7 +61,7 @@
         <a href="#" class="text-navText hover:text-brandBlue transition-colors">Regulamento</a>
       </nav>
 
-      <!-- Menu Mobile (DaisyUI Dropdown) -->
+      <!-- Menu Mobile -->
       <div class="dropdown dropdown-end lg:hidden">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Abrir Menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,9 +75,6 @@
           <li><a href="cronograma.html">Cronograma</a></li>
           <li><a href="#">Administradores</a></li>
           <li><a href="#">Regulamento</a></li>
-          <li class="divider my-1"></li>
-          <li><a href="modalidade.html" class="text-xs text-gray-400">Pág. Modalidade (Post)</a></li>
-          <li><a href="noticia.html" class="text-xs text-gray-400">Pág. Notícia (Post)</a></li>
         </ul>
       </div>
 
@@ -84,50 +83,495 @@
 
 
   <!-- ================================================================= -->
-  <!-- ÁREA DE CONTEÚDO PRINCIPAL (RESERVADA PARA CADA INTEGRANTE)       -->
+  <!-- ÁREA DE CONTEÚDO PRINCIPAL (HOMEPAGE)                             -->
   <!-- ================================================================= -->
-  <main class="flex-grow container mx-auto px-4 py-12 max-w-7xl">
-    
-    <div class="border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center bg-gray-50/50 my-6">
-      <h2 class="text-2xl font-bold text-gray-700 mb-2">Área de Trabalho da Página</h2>
-      <p class="text-gray-500 text-sm max-w-lg mx-auto">
-        Substitua este bloco de código pelas seções específicas da sua página mantendo o Header e Footer intocados.
-      </p>
-    </div>
+  <main class="flex-grow">
+
+    <!-- 1. SEÇÃO HERO + CARDS DE ATALHOS (Fundo Preto Contínuo) -->
+    <section class="bg-black text-white pt-20 pb-[72px] relative overflow-hidden">
+      <div class="container mx-auto px-6 max-w-7xl">
+        
+        <!-- Hero -->
+        <div class="flex flex-col lg:flex-row lg:justify-between items-center lg:items-start gap-10 mb-16 lg:mb-[110px]">
+          
+          <!-- Lado Esquerdo: Textos e Botão Gradiente -->
+          <div class="max-w-[720px] text-center lg:text-left">
+            <h1 class="font-heading text-5xl lg:text-[64px] font-semibold leading-tight">
+              I Olimpíadas da<br/>Advocacia 2023
+            </h1>
+            <p class="mt-9 text-base text-gray-200 leading-relaxed font-normal">
+              No dia a dia você corre, você luta, você se desdobra! E agora você pode fazer tudo isso por esporte! De 03 a 08 de julho de 2023, Goiânia será a capital nacional da advocacia. Temos um encontro marcado. Inscrições a partir do dia 10 de abril!
+            </p>
+            <div class="mt-10 lg:mt-[85px]">
+              <a href="#fale-conosco" class="inline-flex items-center justify-center w-[148px] h-11 bg-gradient-to-r from-brandBlue to-brandRed hover:opacity-90 text-white font-heading font-semibold text-sm rounded-md transition-opacity">
+                Inscreva-se
+              </a>
+            </div>
+          </div>
+
+          <!-- Lado Direito: Atleta + Contador Regressivo (countdown.png) -->
+          <div class="shrink-0">
+            <img src="assets/img/countdown.png" alt="Atleta e Contador Regressivo I Olimpíadas da Advocacia" class="h-[380px] lg:h-[487px] w-auto object-contain" />
+          </div>
+
+        </div>
+
+        <!-- 2. GRID COM 4 CARDS BRANCOS (ÍCONE CENTRALIZADO NA BORDA SUPERIOR) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
+          
+          <!-- Card 1: Participe -->
+          <div class="card relative bg-white text-[#333] rounded-md overflow-visible">
+            <div class="absolute -top-[38px] left-1/2 -translate-x-1/2 w-[76px] h-[76px] rounded-full bg-brandBlue flex items-center justify-center">
+              <img src="assets/img/award.png" alt="Ícone Participe" class="w-[34px] h-[34px] object-contain" />
+            </div>
+            <div class="card-body items-center text-center gap-5 px-5 pt-[57px] pb-6">
+              <h3 class="card-title font-heading text-base font-medium leading-6">Participe</h3>
+              <p class="text-sm leading-relaxed font-normal">
+                A I Olimpíadas da Advocacia é a maior competição esportiva para Advogados no Brasil. A expectativa é reunir 4.000 atletas em 06 dias de disputas. Fique atento às informações aqui no portal. Prepare-se!
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Locais -->
+          <div class="card relative bg-white text-[#333] rounded-md overflow-visible">
+            <div class="absolute -top-[38px] left-1/2 -translate-x-1/2 w-[76px] h-[76px] rounded-full bg-brandBlue flex items-center justify-center">
+              <img src="assets/img/map-pin.png" alt="Ícone Locais" class="w-[34px] h-[34px] object-contain" />
+            </div>
+            <div class="card-body items-center text-center gap-5 px-5 pt-[57px] pb-6">
+              <h3 class="card-title font-heading text-base font-medium leading-6">Locais</h3>
+              <p class="text-sm leading-relaxed font-normal">
+                A competição será realizada em Goiás, nas cidades de Goiânia e Aparecida de Goiânia, em 10 centros esportivos, tendo o Clube CEL/OAB, como o principal local de competição.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Inscrições -->
+          <div class="card relative bg-white text-[#333] rounded-md overflow-visible">
+            <div class="absolute -top-[38px] left-1/2 -translate-x-1/2 w-[76px] h-[76px] rounded-full bg-brandBlue flex items-center justify-center">
+              <img src="assets/img/calendar.png" alt="Ícone Inscrições" class="w-[34px] h-[34px] object-contain" />
+            </div>
+            <div class="card-body items-center text-center gap-5 px-5 pt-[57px] pb-6">
+              <h3 class="card-title font-heading text-base font-medium leading-6">Inscrições</h3>
+              <p class="text-sm leading-relaxed font-normal">
+                A partir de 10 de abril, totalmente on-line, aqui mesmo no portal do evento. Acompanhe as nossas atualizações aqui no portal. Leia atentamente o Regulamento Geral dos jogos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4: Disputas -->
+          <div class="card relative bg-white text-[#333] rounded-md overflow-visible">
+            <div class="absolute -top-[38px] left-1/2 -translate-x-1/2 w-[76px] h-[76px] rounded-full bg-brandBlue flex items-center justify-center">
+              <img src="assets/img/target.png" alt="Ícone Disputas" class="w-[34px] h-[34px] object-contain" />
+            </div>
+            <div class="card-body items-center text-center gap-5 px-5 pt-[57px] pb-6">
+              <h3 class="card-title font-heading text-base font-medium leading-6">Disputas</h3>
+              <p class="text-sm leading-relaxed font-normal">
+                São 19 modalidades disponíveis na competição, individuais e coletivas. Os jogos serão realizados em categorias no masculino e feminino, com disputas também em categorias para PCDs.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SEÇÃO SOBRE A EDIÇÃO 2023 (natacao.png) -->
+    <section class="py-16 sm:py-20 bg-footerBg text-gray-800">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Imagem Natação -->
+          <div class="lg:col-span-6 flex">
+            <img src="assets/img/natacao.png" 
+                 alt="Atleta de Natação - I Olimpíadas da Advocacia" 
+                 class="rounded-lg shadow-md object-cover w-full aspect-[3/2]" />
+          </div>
+
+          <!-- Conteúdo Texto -->
+          <div class="lg:col-span-6 flex flex-col justify-center space-y-6">
+            <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-brandRed leading-tight">
+              Sobre a edição 2023
+            </h2>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+              A edição 2023 da <strong>I Olimpíadas da Advocacia</strong> vem recheada de grandes atrações e competições de alto nível. São <strong>19 modalidades</strong> disponíveis que devem receber cerca de <strong>4.000 atletas advogados e advogadas</strong> de todo o Brasil.
+            </p>
+            <p class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal">
+              O Centro Esportivo e de Lazer – CEL da OAB/CASAG, em Aparecida de Goiânia-GO, será o principal polo de competições do evento. Além do CEL, outros centros esportivos com estruturas de alto padrão receberão disputas em várias modalidades. <strong>Uma competição de alto nível</strong>, a melhor infraestrutura, eventos e festividades. Venha aproveitar Goiânia e se divertir com a gente!
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SEÇÃO NOTÍCIAS -->
+    <section class="py-16 sm:py-20 bg-black text-white">
+      <div class="container mx-auto px-6 max-w-7xl">
+        
+        <h2 class="font-heading text-3xl sm:text-4xl font-semibold mb-8 sm:mb-10 text-white tracking-tight">
+          Notícias
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          
+          <!-- Coluna Esquerda: Notícia Principal em Destaque (6 colunas) -->
+          <div class="lg:col-span-6 flex flex-col space-y-3.5">
+            <div class="rounded-md overflow-hidden">
+              <img src="assets/img/ciclistas.png" 
+                   alt="Colégio de presidentes das CAA/Concad" 
+                   class="w-full h-auto aspect-[12/5] object-cover rounded-md shadow-lg" />
+            </div>
+
+            <p class="text-xs text-white font-bold pt-1">
+              17/03/2023 <span class="mx-1.5">•</span> <span class="text-[#00e676] font-semibold">Organização</span>
+            </p>
+
+            <h3 class="font-heading text-xl sm:text-2xl font-semibold text-brandBlue leading-snug">
+              <a href="noticia.html" class="hover:underline">Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia</a>
+            </h3>
+
+            <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
+              As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas nesta terça-feira (14/3) durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA) e da Coordenação Nacional das Caixas de Assistência dos Advogados (Concad) [...]
+            </p>
+
+            <div class="pt-4">
+              <a href="noticias.html" class="inline-flex items-center text-sm sm:text-base text-gray-200 hover:text-white font-normal transition-colors">
+                Clique na seta e acesse todas as notícias <span class="text-brandBlue text-base sm:text-lg font-bold ml-2">➔</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: 3 Notícias Secundárias (6 colunas) -->
+          <div class="lg:col-span-6 flex flex-col gap-4">
+            
+            <!-- Notícia 1: Basquete (basquete.png) -->
+            <div class="flex gap-4 sm:gap-5 items-start">
+              <img src="assets/img/basquete.png" 
+                   alt="Basquete" 
+                   class="w-48 sm:w-52 lg:w-64 h-28 lg:h-36 object-cover rounded-md shrink-0 shadow-md" />
+              <div class="space-y-1 pt-0.5">
+                <p class="text-xs text-white font-bold">
+                  17/03/2023 <span class="mx-1">•</span> <span class="text-[#00e676] font-semibold">Organização</span>
+                </p>
+                <h4 class="font-heading text-sm sm:text-base font-semibold text-brandBlue leading-snug">
+                  <a href="noticia.html" class="hover:underline">Fique por dentro das modalidades que estarão em disputa, categorias e limites de atletas por seccional</a>
+                </h4>
+              </div>
+            </div>
+
+            <!-- Notícia 2: Corrida (corrida.png) -->
+            <div class="flex gap-4 sm:gap-5 items-start">
+              <img src="assets/img/corrida.png" 
+                   alt="Corrida" 
+                   class="w-48 sm:w-52 lg:w-64 h-28 lg:h-36 object-cover rounded-md shrink-0 shadow-md" />
+              <div class="space-y-1 pt-0.5">
+                <p class="text-xs text-white font-bold">
+                  17/03/2023 <span class="mx-1">•</span> <span class="text-[#d500f9] font-semibold">Inscrições</span>
+                </p>
+                <h4 class="font-heading text-sm sm:text-base font-semibold text-brandBlue leading-snug">
+                  <a href="noticia.html" class="hover:underline">Olimpíada da Advocacia terá inscrições 100% digitais</a>
+                </h4>
+              </div>
+            </div>
+
+            <!-- Notícia 3: Ciclismo (ciclismo.png) -->
+            <div class="flex gap-4 sm:gap-5 items-start">
+              <img src="assets/img/ciclismo.png" 
+                   alt="Ciclismo" 
+                   class="w-48 sm:w-52 lg:w-64 h-28 lg:h-36 object-cover rounded-md shrink-0 shadow-md" />
+              <div class="space-y-1 pt-0.5">
+                <p class="text-xs text-white font-bold">
+                  07/03/2023 <span class="mx-1">•</span> <span class="text-[#00e676] font-semibold">Organização</span>
+                </p>
+                <h4 class="font-heading text-sm sm:text-base font-semibold text-brandBlue leading-snug">
+                  <a href="noticia.html" class="hover:underline">Goiânia sediará em 2023 a primeira edição das Olimpíadas da Advocacia</a>
+                </h4>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SEÇÃO DEPOIMENTOS (perfil.png, perfil-2.png, perfil-3.png) -->
+    <section class="bg-footerBg py-20 overflow-hidden">
+      <h2 class="font-heading font-semibold text-4xl text-[#333] text-center mb-14">Depoimentos</h2>
+
+      <div class="relative">
+        <button type="button" aria-label="Anterior"
+          onclick="document.getElementById('depoimentos').scrollBy({left:-426,behavior:'smooth'})"
+          class="btn btn-circle !w-10 !h-10 min-h-0 p-0 border-none bg-brandBlue hover:bg-brandBlue text-white
+                 hidden lg:flex absolute left-[139px] top-[calc(50%-13px)] -translate-y-1/2 z-10">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <div id="depoimentos"
+             class="carousel w-full gap-9 px-6 scroll-pl-6 lg:pl-[313px] lg:scroll-pl-[313px]">
+
+          <!-- Depoimento 1 -->
+          <div class="carousel-item w-[390px] max-w-[85vw]">
+            <div class="card w-full rounded-lg bg-gradient-to-tr from-brandBlue to-brandRed text-white">
+              <div class="card-body p-5 gap-0">
+                <p class="text-sm leading-relaxed">
+                  Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book.
+                </p>
+                <div class="flex items-center gap-5 mt-6">
+                  <div class="avatar">
+                    <div class="w-[52px] rounded-full"><img src="assets/img/perfil.png" alt="Jefferson Thawan" /></div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold leading-7">Jefferson Thawan</h4>
+                    <p class="text-sm font-semibold leading-5">Função/Cargo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 -->
+          <div class="carousel-item w-[390px] max-w-[85vw]">
+            <div class="card w-full rounded-lg bg-gradient-to-tr from-brandBlue to-brandRed text-white">
+              <div class="card-body p-5 gap-0">
+                <p class="text-sm leading-relaxed">
+                  Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book.
+                </p>
+                <div class="flex items-center gap-5 mt-6">
+                  <div class="avatar">
+                    <div class="w-[52px] rounded-full"><img src="assets/img/perfil-2.png" alt="Cesimar Xavier" /></div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold leading-7">Cesimar Xavier</h4>
+                    <p class="text-sm font-semibold leading-5">Função/Cargo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 -->
+          <div class="carousel-item w-[390px] max-w-[85vw]">
+            <div class="card w-full rounded-lg bg-gradient-to-tr from-brandBlue to-brandRed text-white">
+              <div class="card-body p-5 gap-0">
+                <p class="text-sm leading-relaxed">
+                  Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book.
+                </p>
+                <div class="flex items-center gap-5 mt-6">
+                  <div class="avatar">
+                    <div class="w-[52px] rounded-full"><img src="assets/img/perfil-3.png" alt="Zadoque" /></div>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-bold leading-7">Zadoque</h4>
+                    <p class="text-sm font-semibold leading-5">Função/Cargo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Paginação em Pontos: 9px, gap 20px, o 2º é o ativo -->
+      <div class="flex justify-center gap-5 mt-12">
+        <span class="w-[9px] h-[9px] rounded-full bg-[#bdbdbd]"></span>
+        <span class="w-[9px] h-[9px] rounded-full bg-brandBlue"></span>
+        <span class="w-[9px] h-[9px] rounded-full bg-[#bdbdbd]"></span>
+        <span class="w-[9px] h-[9px] rounded-full bg-[#bdbdbd]"></span>
+      </div>
+    </section>
+
+    <!-- 6. SEÇÃO DÚVIDAS FREQUENTES (FAQ) -->
+    <section class="bg-white py-20">
+      <div class="mx-auto max-w-[884px] px-6">
+        
+        <div class="text-center">
+          <h2 class="font-heading font-semibold text-4xl text-brandRed">Dúvidas Frequentes</h2>
+          <p class="mt-6 text-lg text-[#333]">Dúvidas frequentemente questionadas por usuários que acessam a página</p>
+        </div>
+
+        <div class="mt-11 rounded-lg border border-gray-200 shadow-sm overflow-hidden bg-white pb-2">
+
+          <!-- Item aberto -->
+          <details name="faq" open class="collapse group rounded-none">
+            <summary class="collapse-title !flex items-center justify-between min-h-0 !pl-5 !pr-9 py-2.5 group-open:py-[17px]
+                            text-base font-semibold text-[#4a4a4a] group-open:bg-[#333] group-open:text-white">
+              O evento dá algum tipo de premiação para os vencedores?
+              <svg class="w-4 h-4 shrink-0 text-brandBlue transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="collapse-content !p-0 text-base leading-relaxed text-[#333]">
+              <div class="px-5 py-4 mb-3 border-b border-gray-200">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+          </details>
+
+          <!-- Item 2 -->
+          <details name="faq" class="collapse group rounded-none">
+            <summary class="collapse-title !flex items-center justify-between min-h-0 !pl-5 !pr-9 py-2.5 group-open:py-[17px]
+                            text-base font-semibold text-[#4a4a4a] group-open:bg-[#333] group-open:text-white">
+              Where does it come from?
+              <svg class="w-4 h-4 shrink-0 text-brandBlue transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="collapse-content !p-0 text-base leading-relaxed text-[#333]">
+              <div class="px-5 py-4 mb-3 border-b border-gray-200">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+          </details>
+
+          <!-- Item 3 -->
+          <details name="faq" class="collapse group rounded-none">
+            <summary class="collapse-title !flex items-center justify-between min-h-0 !pl-5 !pr-9 py-2.5 group-open:py-[17px]
+                            text-base font-semibold text-[#4a4a4a] group-open:bg-[#333] group-open:text-white">
+              Where can I get some?
+              <svg class="w-4 h-4 shrink-0 text-brandBlue transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="collapse-content !p-0 text-base leading-relaxed text-[#333]">
+              <div class="px-5 py-4 mb-3 border-b border-gray-200">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+          </details>
+
+          <!-- Item 4 -->
+          <details name="faq" class="collapse group rounded-none">
+            <summary class="collapse-title !flex items-center justify-between min-h-0 !pl-5 !pr-9 py-2.5 group-open:py-[17px]
+                            text-base font-semibold text-[#4a4a4a] group-open:bg-[#333] group-open:text-white">
+              What is Lorem Ipsum?
+              <svg class="w-4 h-4 shrink-0 text-brandBlue transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="collapse-content !p-0 text-base leading-relaxed text-[#333]">
+              <div class="px-5 py-4 mb-3 border-b border-gray-200">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+          </details>
+
+          <!-- Item 5 -->
+          <details name="faq" class="collapse group rounded-none">
+            <summary class="collapse-title !flex items-center justify-between min-h-0 !pl-5 !pr-9 py-2.5 group-open:py-[17px]
+                            text-base font-semibold text-[#4a4a4a] group-open:bg-[#333] group-open:text-white">
+              Why do we use it?
+              <svg class="w-4 h-4 shrink-0 text-brandBlue transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="collapse-content !p-0 text-base leading-relaxed text-[#333]">
+              <div class="px-5 py-4 mb-3 border-b border-gray-200">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. SEÇÃO REALIZAÇÃO E ORGANIZAÇÃO (OAB.png e hc_sports.png) -->
+    <section class="bg-black py-20 text-center text-white">
+      
+      <!-- Realização -->
+      <h2 class="font-heading font-medium text-4xl mb-12">Realização</h2>
+      <div class="flex flex-wrap justify-center gap-10 px-6">
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/OAB.png" alt="OAB | CONCAD | CASAG" class="max-h-full w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/OAB.png" alt="OAB | CONCAD | CASAG" class="max-h-full w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/OAB.png" alt="OAB | CONCAD | CASAG" class="max-h-full w-auto object-contain" />
+        </div>
+      </div>
+
+      <!-- Organização -->
+      <h3 class="font-heading font-medium text-3xl mt-24 mb-12">Organização</h3>
+      <div class="flex flex-wrap justify-center gap-10 px-6">
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/hc_sports.png" alt="HC Sports" class="max-h-full w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/hc_sports.png" alt="HC Sports" class="max-h-full w-auto object-contain" />
+        </div>
+        <div class="flex items-center justify-center w-48 h-14 rounded-md bg-white p-1.5">
+          <img src="assets/img/hc_sports.png" alt="HC Sports" class="max-h-full w-auto object-contain" />
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 8. SEÇÃO FALE CONOSCO -->
+    <section id="fale-conosco" class="bg-white py-20">
+      <div class="mx-auto max-w-7xl px-6">
+        
+        <h2 class="font-heading font-semibold text-4xl text-brandRed mb-12">Fale conosco</h2>
+
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-x-9 gap-y-7">
+
+          <div class="flex flex-col gap-7">
+            <label class="form-control w-full">
+              <div class="label p-0 mb-2.5"><span class="label-text font-heading font-medium text-lg text-[#222]">Nome</span></div>
+              <input type="text" placeholder="Digite o seu nome"
+                     class="input input-bordered w-full h-14 rounded-lg border-gray-200 bg-white text-base placeholder:text-gray-400 focus:border-brandBlue focus:outline-brandBlue" required />
+            </label>
+            <label class="form-control w-full">
+              <div class="label p-0 mb-2.5"><span class="label-text font-heading font-medium text-lg text-[#222]">E-mail</span></div>
+              <input type="email" placeholder="Digite o seu e-mail"
+                     class="input input-bordered w-full h-14 rounded-lg border-gray-200 bg-white text-base placeholder:text-gray-400 focus:border-brandBlue focus:outline-brandBlue" required />
+            </label>
+            <label class="form-control w-full">
+              <div class="label p-0 mb-2.5"><span class="label-text font-heading font-medium text-lg text-[#222]">Ocupação</span></div>
+              <input type="text" placeholder="Digite a sua ocupação"
+                     class="input input-bordered w-full h-14 rounded-lg border-gray-200 bg-white text-base placeholder:text-gray-400 focus:border-brandBlue focus:outline-brandBlue" />
+            </label>
+          </div>
+
+          <label class="form-control h-full">
+            <div class="label p-0 mb-2.5"><span class="label-text font-heading font-medium text-lg text-[#222]">Mensagem</span></div>
+            <textarea placeholder="Digite a mensagem"
+                      class="textarea textarea-bordered flex-1 w-full min-h-[190px] resize-none rounded-lg border-gray-200 bg-white text-base placeholder:text-gray-400 focus:border-brandBlue focus:outline-brandBlue" required></textarea>
+          </label>
+
+          <div class="md:col-span-2 flex justify-end">
+            <button type="submit"
+                    class="btn w-40 h-12 min-h-0 rounded-md border-none bg-brandBlue hover:bg-brandBlue/90 text-white font-heading font-semibold text-sm">
+              Enviar e-mail
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
 
   </main>
 
-
   <!-- ================================================================= -->
-  <!-- COMPONENTE: FOOTER INSTITUCIONAL (FIGMA)                          -->
+  <!-- FOOTER INSTITUCIONAL (FIGMA)                                      -->
   <!-- ================================================================= -->
-  <footer class="bg-footerBg border-t border-gray-200 text-gray-600 text-sm mt-auto pt-10 pb-6">
-    <div class="container mx-auto px-4 md:px-12 max-w-7xl">
+  <footer class="bg-footerBg border-t border-gray-200 text-gray-600 text-xs py-8">
+    <div class="container mx-auto px-6 max-w-7xl">
       
-      <!-- Linha Superior: Logo, Links e Redes Sociais -->
-      <div class="flex flex-col lg:flex-row justify-between items-center gap-6 pb-8 border-b border-gray-300/60">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-6 pb-6">
         
-        <!-- Logo Esquerda -->
-        <div class="flex items-center">
-          <a href="index.html">
-            <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-10 md:h-11 object-contain"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-lg tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-xs border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[9px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
-          </a>
-        </div>
+        <a href="index.html">
+          <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-10 object-contain"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-lg tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-xs border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[9px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
+        </a>
 
-        <!-- Links Centrais -->
-        <nav class="flex flex-wrap justify-center items-center gap-6 md:gap-8 font-semibold text-sm text-gray-600">
-          <a href="index.html" class="text-brandBlue font-bold hover:underline">Home</a>
+        <nav class="flex flex-wrap justify-center items-center gap-8 font-semibold text-gray-600">
+          <a href="index.html" class="text-brandBlue font-bold">Home</a>
           <a href="modalidades.html" class="hover:text-brandBlue transition-colors">Modalidades</a>
-          <a href="noticias.html" class="hover:text-brandBlue transition-colors">Notícias</a>
-          <a href="cronograma.html" class="hover:text-brandBlue transition-colors">Cronograma</a>
-          <a href="#" class="hover:text-brandBlue transition-colors">Administradores</a>
+          <a href="cronograma.html" class="hover:text-brandBlue transition-colors">Agenda</a>
+          <a href="#" class="hover:text-brandBlue transition-colors">Resultados</a>
+          <a href="#" class="hover:text-brandBlue transition-colors">Canais</a>
           <a href="#" class="hover:text-brandBlue transition-colors">Regulamento</a>
         </nav>
 
-        <!-- Ícone Social Direita (Instagram em círculo azul do Figma) -->
         <div>
-          <a href="#" class="w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center hover:opacity-90 transition-opacity shadow-sm" aria-label="Instagram">
+          <a href="#" class="w-8 h-8 rounded-full bg-brandBlue text-white flex items-center justify-center hover:opacity-90 transition-opacity" aria-label="Instagram">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
@@ -136,9 +580,8 @@
 
       </div>
 
-      <!-- Linha Inferior: Copyright Centralizado -->
-      <div class="pt-6 text-center text-xs text-gray-500 font-medium">
-        2023 HC Sports. Todos os direitos reservados.
+      <div class="pt-2 text-center text-gray-500 font-medium text-[11px]">
+        © 2023 HC Sports. Todos os direitos reservados.
       </div>
 
     </div>
