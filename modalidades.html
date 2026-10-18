@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
@@ -11,496 +10,226 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #fff;
-      color: #383838;
-      font-family: "Montserrat", Arial, sans-serif;
-      font-size: 10px;
-    }
-
-    .site {
-      width: 100%;
-      min-height: 100vh;
-      margin: 0;
-      background: #fff;
-    }
-
-    /* Cabeçalho */
-    .header {
-      min-height: 39px;
-      padding: 0 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #ededed;
-      box-shadow: 0 2px 4px #00000008;
-    }
-
-    .logo {
-      width: 100px;
-      flex-shrink: 0;
-      font-size: 8px;
-      line-height: 1.2;
-      font-weight: 800;
-      color: #333;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .logo span {
-      display: block;
-    }
-
-    .logo .red {
-      display: inline;
-      color: #ed3939;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-    }
-
-    .nav a {
-      color: #444;
-      text-decoration: none;
-      font-size: 8px;
-      white-space: nowrap;
-    }
-
-    .nav a.active {
-      color: #009fe3;
-      font-weight: 700;
-    }
-
-    /* Conteúdo */
-    .content {
-      min-height: 470px;
-      padding: 22px 7% 65px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      color: #383838;
-      font-family: "Montserrat", Arial, sans-serif;
-      font-size: 15px;
-      line-height: 20px;
-      font-weight: 800;
-    }
-
-    .filters {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .search-box {
-      position: relative;
-      width: 283px;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      width: 11px;
-      height: 11px;
-      color: #444;
-    }
-
-    .search-input {
-      width: 100%;
-      height: 29px;
-      min-height: 29px;
-      padding: 0 10px 0 27px;
-      border: 1px solid #dedede;
-      border-radius: 6px;
-      background: #fff;
-      font-family: inherit;
-      font-size: 8px;
-      outline: none;
-    }
-
-    .filter-box {
-      position: relative;
-      width: 110px;
-      flex-shrink: 0;
-    }
-
-    .filter-select {
-      appearance: none;
-      width: 100%;
-      height: 29px;
-      min-height: 29px;
-      padding: 0 24px 0 9px;
-      border: 1px solid #dedede;
-      border-radius: 6px;
-      background: #fff;
-      font-family: inherit;
-      font-size: 8px;
-      color: #444;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .filter-arrow {
-      position: absolute;
-      right: 9px;
-      top: 9px;
-      width: 11px;
-      height: 11px;
-      color: #009fe3;
-      pointer-events: none;
-    }
-
-    /* Catálogo */
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      column-gap: 20px;
-      row-gap: 27px;
-      margin-top: 31px;
-    }
-
-    .letter-group h2 {
-      margin: 0 0 5px;
-      font-size: 29px;
-      line-height: 32px;
-      font-weight: 400;
-      color: #383838;
-    }
-
-    .sports-list {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .sport {
-      min-height: 17px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 1px 3px;
-      border-radius: 10px;
-      color: #454545;
-      text-decoration: none;
-      font-family: "Montserrat", Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      white-space: nowrap;
-    }
-
-    .sport:hover {
-      background: #f1f1f1;
-    }
-
-    .sport.selected {
-      background: #f0f0f0;
-      color: #009fe3;
-      font-weight: 700;
-    }
-
-    .sport-icon {
-      flex: 0 0 15px;
-      width: 15px;
-      height: 15px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #414141;
-      color: #fff;
-      font-size: 8px;
-      line-height: 1;
-    }
-
-    .sport.selected .sport-icon {
-      background: #009fe3;
-    }
-
-    .no-results {
-      display: none;
-      padding-top: 20px;
-      font-size: 10px;
-    }
-
-    /* Rodapé */
-    .footer {
-      min-height: 64px;
-      padding: 0 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f1f1f1;
-      color: #777;
-      font-size: 11px;
-    }
-
-    .footer span:first-child {
-      color: #444;
-    }
-
-    /* Responsividade */
-    @media (max-width: 650px) {
-      .header {
-        min-height: 45px;
-        padding: 10px 4%;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .content {
-        padding: 22px 5% 45px;
-      }
-
-      .filters {
-        width: 100%;
-      }
-
-      .search-box {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .catalog {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 25px 12px;
-      }
-
-      .sport {
-        font-size: 9px;
-        white-space: normal;
-      }
-
-      .footer {
-        padding: 12px 5%;
-        gap: 15px;
-        flex-wrap: wrap;
+  <!-- Identidade visual do projeto: fontes e cor principal -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', 'Arial', 'sans-serif'],
+            title: ['Poppins', 'Arial', 'sans-serif'],
+            letter: ['Inter', '"Open Sans"', 'Arial', 'sans-serif']
+          },
+          colors: { brand: '#009fe3' }
+        }
       }
     }
-  </style>
+  </script>
 </head>
 
-<body>
-  <div class="site">
+<body class="bg-white font-sans text-base text-[#383838]">
+  <div class="flex min-h-screen w-full flex-col bg-white">
 
-    <header class="header">
-      <a href="index.html" class="logo" aria-label="Olimpíadas da Advocacia">
-        <span><span class="red">◢</span> OLIMPÍADAS</span>
-        <span>DA ADVOCACIA</span>
-      </a>
+    <!-- Header institucional (navbar DaisyUI) -->
+    <header class="border-b border-[#ececec] shadow-[0_2px_6px_#0000000d]">
+      <div class="navbar mx-auto h-[55px] min-h-[55px] w-full max-w-[1216px] justify-between gap-6 px-[88px] py-0 max-[1100px]:px-12 max-[760px]:h-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:gap-2.5 max-[760px]:py-3 max-[650px]:px-4">
+        <a href="index.html" class="shrink-0" aria-label="Olimpíadas da Advocacia">
+          <img class="h-[39px] w-auto" src="assets/img/olimpiadas-logo.png" alt="Olimpíadas da Advocacia">
+        </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="modalidades.html" class="active">Modalidades</a>
-        <a href="noticias.html">Notícias</a>
-        <a href="cronograma.html">Cronograma</a>
-        <a href="#">Administradores</a>
-        <a href="#">Regulamento</a>
-      </nav>
+        <ul class="menu menu-horizontal flex-wrap gap-x-8 gap-y-2 p-0">
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="index.html">Home</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold !text-brand" href="modalidades.html" aria-current="page">Modalidades</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="noticias.html">Notícias</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="cronograma.html">Cronograma</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Administradores</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Regulamento</a></li>
+        </ul>
+      </div>
     </header>
 
-    <main class="content">
-      <h1>MODALIDADES</h1>
+    <main class="mx-auto w-full max-w-[1216px] px-[88px] max-[1100px]:px-12 max-[650px]:px-4 flex-1 pb-[107px] pt-[31px]">
+      <h1 class="mb-6 font-title text-[23px] font-bold uppercase leading-8 text-[#383838]">Modalidades</h1>
 
-      <div class="filters">
-        <label class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2">
+      <div class="flex items-center gap-4 max-[650px]:flex-wrap">
+        <label class="relative min-w-0 flex-[0_1_421px] max-[650px]:basis-full">
+          <svg class="pointer-events-none absolute left-[15px] top-1/2 z-10 h-[17px] w-[17px] -translate-y-1/2 text-[#444]"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="7"></circle>
             <path d="m16 16 5 5"></path>
           </svg>
 
           <input
             id="pesquisa"
-            class="input input-bordered search-input"
+            class="input input-bordered h-[43px] min-h-[43px] w-full rounded-lg border-[#e0e0e0] bg-white pl-[45px] pr-4 text-sm text-[#444] placeholder:text-[#9a9a9a] focus:border-brand focus:outline-none"
             type="search"
             placeholder="Pesquise aqui por uma modalidade"
             aria-label="Pesquisar modalidade">
         </label>
 
-        <div class="filter-box">
-          <select id="filtro" class="select select-bordered filter-select"
+        <div class="relative w-[131px] shrink-0">
+          <select id="filtro"
+            class="select select-bordered h-[43px] min-h-[43px] w-full cursor-pointer appearance-none rounded-lg border-[#e0e0e0] bg-white bg-none pl-4 pr-9 text-sm font-normal text-[#444] focus:border-brand focus:outline-none"
             aria-label="Filtrar por">
             <option value="todas">Filtrar por</option>
             <option value="coletiva">Coletiva</option>
             <option value="individual">Individual</option>
           </select>
 
-          <svg class="filter-arrow" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg class="pointer-events-none absolute right-[14px] top-1/2 h-[26px] w-[26px] -translate-y-1/2 text-brand"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="m6 9 6 6 6-6"></path>
           </svg>
         </div>
       </div>
 
-      <div class="catalog" id="catalogo">
+      <div id="catalogo"
+        class="mt-[43px] grid grid-cols-[244fr_249fr_260fr_197fr_92fr] gap-y-[22px] max-[1100px]:grid-cols-3 max-[1100px]:gap-x-6 max-[1100px]:gap-y-8 max-[650px]:grid-cols-2 max-[650px]:gap-x-3 max-[650px]:gap-y-7">
 
         <section class="letter-group">
-          <h2>B</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Basquete%203x3"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">B</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Basquete%203x3"
               data-name="Basquete 3x3" data-type="coletiva">
-              <span class="sport-icon">✥</span>Basquete 3x3
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/basquete-logo.png" alt=""></span>Basquete 3x3
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Beach%20Tennis"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Beach%20Tennis"
               data-name="Beach Tennis" data-type="individual">
-              <span class="sport-icon">♟</span>Beach Tennis
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/beach-tenis-logo.png" alt=""></span>Beach Tennis
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>C</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Corrida%20de%20Rua"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">C</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Corrida%20de%20Rua"
               data-name="Corrida de Rua" data-type="individual">
-              <span class="sport-icon">♟</span>Corrida de Rua
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/corrida-logo.png" alt=""></span>Corrida de Rua
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Crossfit"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Crossfit"
               data-name="Crossfit" data-type="individual">
-              <span class="sport-icon">⚑</span>Crossfit
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/crossfit-logo.png" alt=""></span>Crossfit
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>F</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Futebol%20Society"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">F</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Futebol%20Society"
               data-name="Futebol Society" data-type="coletiva">
-              <span class="sport-icon">⚽</span>Futebol Society
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/futebol-logo.png" alt=""></span>Futebol Society
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Futebol%20de%20Mesa"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Futebol%20de%20Mesa"
               data-name="Futebol de Mesa" data-type="individual">
-              <span class="sport-icon">⚑</span>Futebol de Mesa
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/futebol-logo.png" alt=""></span>Futebol de Mesa
             </a>
-
-            <a class="sport selected" href="modalidade.html?nome=Futebol%2011"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal selected" href="modalidade.html?nome=Futebol%2011"
               data-name="Futebol 11" data-type="coletiva">
-              <span class="sport-icon">⚽</span>Futebol 11
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/futebol-logo.png" alt=""></span>Futebol 11
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Futebol%207"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Futebol%207"
               data-name="Futebol 7" data-type="coletiva">
-              <span class="sport-icon">⚑</span>Futebol 7
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/futebol-logo.png" alt=""></span>Futebol 7
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Futevôlei"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Futev%C3%B4lei"
               data-name="Futevôlei" data-type="coletiva">
-              <span class="sport-icon">◉</span>Futevôlei
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/volei-logo.png" alt=""></span>Futevôlei
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>J</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Jiu-jitsu"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">J</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Jiu-jitsu"
               data-name="Jiu-jitsu" data-type="individual">
-              <span class="sport-icon">✥</span>Jiu-jitsu
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/lutas-logo.png" alt=""></span>Jiu-jitsu
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Judô"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Jud%C3%B4"
               data-name="Judô" data-type="individual">
-              <span class="sport-icon">✥</span>Judô
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/lutas-logo.png" alt=""></span>Judô
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>N</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Natação"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">N</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Nata%C3%A7%C3%A3o"
               data-name="Natação" data-type="individual">
-              <span class="sport-icon">♨</span>Natação
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/natacao-logo.png" alt=""></span>Natação
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>S</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Sinuca"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">S</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Sinuca"
               data-name="Sinuca" data-type="individual">
-              <span class="sport-icon">♟</span>Sinuca
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/sinuca-logo.png" alt=""></span>Sinuca
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>T</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Tênis"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">T</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=T%C3%AAnis"
               data-name="Tênis" data-type="individual">
-              <span class="sport-icon">♟</span>Tênis
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/tenis-logo.png" alt=""></span>Tênis
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Tênis%20de%20Mesa"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=T%C3%AAnis%20de%20Mesa"
               data-name="Tênis de Mesa" data-type="individual">
-              <span class="sport-icon">♟</span>Tênis de Mesa
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/beach-tenis-logo.png" alt=""></span>Tênis de Mesa
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Tiro%20Esportivo"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Tiro%20Esportivo"
               data-name="Tiro Esportivo" data-type="individual">
-              <span class="sport-icon">◉</span>Tiro Esportivo
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/tiro-logo.png" alt=""></span>Tiro Esportivo
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>V</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Vôlei%20de%20Praia"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">V</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=V%C3%B4lei%20de%20Praia"
               data-name="Vôlei de Praia" data-type="coletiva">
-              <span class="sport-icon">◉</span>Vôlei de Praia
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/volei-logo.png" alt=""></span>Vôlei de Praia
             </a>
-
-            <a class="sport" href="modalidade.html?nome=Vôlei%20de%20Quadra"
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=V%C3%B4lei%20de%20Quadra"
               data-name="Vôlei de Quadra" data-type="coletiva">
-              <span class="sport-icon">◉</span>Vôlei de Quadra
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/volei-logo.png" alt=""></span>Vôlei de Quadra
             </a>
           </div>
         </section>
 
         <section class="letter-group">
-          <h2>X</h2>
-          <div class="sports-list">
-            <a class="sport" href="modalidade.html?nome=Xadrez"
+          <h2 class="mb-3 font-letter text-[45px] font-normal leading-[56px] text-[#383838] max-[650px]:text-[38px]">X</h2>
+          <div class="flex max-w-[185px] flex-col gap-[11.5px]">
+            <a class="sport group flex h-6 items-center gap-2 whitespace-nowrap rounded-full text-base text-[#454545] hover:bg-[#f1f1f1] [&.selected]:bg-[#f0f0f0] [&.selected]:font-semibold [&.selected]:text-brand max-[650px]:h-auto max-[650px]:min-h-6 max-[650px]:whitespace-normal" href="modalidade.html?nome=Xadrez"
               data-name="Xadrez" data-type="individual">
-              <span class="sport-icon">♟</span>Xadrez
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#414141] group-[.selected]:bg-brand"><img class="h-3.5 w-3.5 object-contain brightness-0 invert" src="assets/img/xadrez-logo.png" alt=""></span>Xadrez
             </a>
           </div>
         </section>
-
       </div>
 
-      <p id="sem-resultados" class="no-results">
+      <p id="sem-resultados" class="hidden pt-6 text-base">
         Nenhuma modalidade encontrada.
       </p>
     </main>
 
-    <footer class="footer">
-      <span>I Olimpíadas da Advocacia 2023</span>
-      <span>2023 HC Sports. Todos os direitos reservados.</span>
+    <!-- Footer institucional (footer DaisyUI) -->
+    <footer class="footer h-[94px] items-center bg-[#f2f2f2] p-0 text-xs text-[#555] max-[650px]:h-auto">
+      <div class="mx-auto w-full max-w-[1216px] px-[88px] max-[1100px]:px-12 max-[650px]:px-4 flex items-center justify-between gap-4 max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-1.5 max-[650px]:py-4">
+        <span class="font-semibold text-[#444]">I Olimpíadas da Advocacia 2023</span>
+        <span>2023 HC Sports. Todos os direitos reservados.</span>
+      </div>
     </footer>
 
   </div>

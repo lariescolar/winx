@@ -1,185 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futebol 11 - Olimpíadas da Advocacia</title>
 
-    <title>Futebol 11 - Olimpíadas da Advocacia</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- DaisyUI e Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Identidade visual do projeto: fontes e cor principal -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', 'Arial', 'sans-serif'],
+            title: ['Poppins', 'Arial', 'sans-serif']
+          },
+          colors: { brand: '#009fe3', crumb: '#e4002b' }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="min-h-screen flex flex-col bg-base-100 text-base-content">
+<body class="bg-white font-sans text-base text-[#383838]">
+  <div class="flex min-h-screen w-full flex-col bg-white">
 
-    <!-- Cabeçalho -->
-    <header class="navbar bg-base-100 shadow-sm px-6 md:px-12">
+    <!-- Header institucional (navbar DaisyUI) -->
+    <header class="border-b border-[#ececec] shadow-[0_2px_6px_#0000000d]">
+      <div class="navbar mx-auto h-[55px] min-h-[55px] w-full max-w-[1216px] justify-between gap-6 px-[88px] py-0 max-[1100px]:px-12 max-[760px]:h-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:gap-2.5 max-[760px]:py-3 max-[650px]:px-4">
+        <a href="index.html" class="shrink-0" aria-label="Olimpíadas da Advocacia">
+          <img class="h-[39px] w-auto" src="assets/img/olimpiadas-logo.png" alt="Olimpíadas da Advocacia">
+        </a>
 
-        <div class="flex-1">
-            <a href="#">
-                <img
-                    src="assets/img/logo-olimpiadas.png"
-                    alt="Logo das Olimpíadas da Advocacia"
-                    class="w-36 h-auto"
-                >
-            </a>
-        </div>
-
-        <nav class="hidden md:flex gap-6 text-sm">
-            <a href="#">Home</a>
-            <a href="#" class="text-sky-500 font-bold">Modalidades</a>
-            <a href="#">Notícias</a>
-            <a href="#">Cronograma</a>
-            <a href="#">Administradores</a>
-            <a href="#">Regulamento</a>
-        </nav>
-
+        <ul class="menu menu-horizontal flex-wrap gap-x-8 gap-y-2 p-0">
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="index.html">Home</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold !text-brand" href="modalidades.html" aria-current="page">Modalidades</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="noticias.html">Notícias</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="cronograma.html">Cronograma</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Administradores</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Regulamento</a></li>
+        </ul>
+      </div>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-6 md:px-12 py-8">
+    <main class="mx-auto w-full max-w-[1216px] flex-1 px-[88px] pb-[107px] pt-[23px] max-[1100px]:px-12 max-[650px]:px-4">
 
-        <!-- Breadcrumbs -->
-        <div class="breadcrumbs text-sm mb-6">
-            <ul>
-                <li><a href="#">Modalidades</a></li>
-                <li class="text-red-500 font-bold">Futebol 11</li>
+      <!-- Breadcrumbs (DaisyUI) -->
+      <div class="breadcrumbs mb-[30px] p-0 text-[13px] text-[#383838]">
+        <ul>
+          <li><a class="hover:no-underline" href="modalidades.html">Modalidades</a></li>
+          <li class="font-semibold text-crumb">Futebol 11</li>
+        </ul>
+      </div>
+
+      <h1 class="mb-4 font-title text-[23px] font-bold leading-8 text-[#383838]">Futebol 11</h1>
+
+      <!-- Duas colunas: cartaz + conteúdo -->
+      <div class="grid grid-cols-[372px_1fr] gap-8 max-[900px]:grid-cols-1">
+
+        <!-- Coluna da esquerda: cartaz -->
+        <aside>
+          <img
+            class="aspect-[4/5] w-full rounded-[10px] object-cover"
+            src="assets/img/caradofut.png"
+            alt="Cartaz da modalidade Futebol 11">
+
+          <p class="mt-2.5 text-[11px] text-[#666]">Fonte da figura: hcsports</p>
+        </aside>
+
+        <!-- Coluna da direita: informações -->
+        <div class="flex flex-col gap-7 text-[15px] leading-6 text-[#383838]">
+
+          <section>
+            <h2 class="mb-3 font-title text-[20px] font-semibold leading-7">Formato de disputa</h2>
+
+            <p>
+              O futebol, também referido como futebol de campo, futebol de onze e,
+              originalmente, futebol associado, é um desporto de equipe jogado entre
+              dois times de 11 jogadores cada um e um árbitro que se ocupa da correta
+              aplicação das normas.
+            </p>
+
+            <p class="mt-[22px]">As disputas serão conforme abaixo:</p>
+
+            <ul class="mt-6 list-disc pl-6">
+              <li>Categorias: LIVRE e MÁSTER – Masculino;</li>
+              <li>Limitação por Seccional: 01 equipe LIVRE e 01 equipe MÁSTER;</li>
+              <li>Número de atletas: até 30 por equipe.</li>
             </ul>
+          </section>
+
+          <section>
+            <h2 class="mb-3 font-title text-[20px] font-semibold leading-7">Regras básicas</h2>
+
+            <ul class="list-disc pl-6">
+              <li>Aguarde a divulgação do Regulamento Geral das Olimpíadas.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="mb-3 font-title text-[20px] font-semibold leading-7">Local de competição</h2>
+
+            <p>
+              CEL OAB-GOAv. de Furnas, 312 – Jardim Rio Grande, Aparecida de Goiânia – GO,
+              74982-490
+            </p>
+
+            <p class="mt-[22px]">Outros locais também estão em definição.</p>
+          </section>
+
+          <section>
+            <h2 class="mb-3 font-title text-[20px] font-semibold leading-7">Programação</h2>
+
+            <ul class="list-disc pl-6">
+              <li>Segunda-feira (03/07) – Jogos a partir das 08h00;</li>
+              <li>Terça-feira (04/07) – Jogos a partir das 08h00;</li>
+              <li>Quarta-feira (05/07) – Jogos a partir das 08h00;</li>
+              <li>Quinta-feira (06/07) – Jogos a partir das 08h00;</li>
+              <li>Sexta-feira (07/07) – Jogos a partir das 08h00;</li>
+              <li>Sábado (08/07) – Jogos a partir das 08h00.</li>
+            </ul>
+          </section>
+
         </div>
-
-        <!-- Título da página -->
-        <h1 class="text-2xl font-bold mb-6">Futebol 11</h1>
-
-        <!-- Layout de duas colunas -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Coluna da esquerda: cartaz -->
-            <aside class="md:col-span-1">
-
-                <img
-                    src="assets/img/caradofut.png"
-                    alt="Cartaz da modalidade Futebol 11"
-                    class="w-full rounded-lg object-cover"
-                >
-
-                <p class="text-xs text-base-content/60 mt-2">
-                    Fonte da figura: hcsports
-                </p>
-
-            </aside>
-
-            <!-- Coluna da direita: conteúdo -->
-            <div class="md:col-span-2 space-y-6">
-
-                <!-- Formato de disputa -->
-                <section>
-                    <h2 class="text-lg font-bold mb-3">
-                        Formato de disputa
-                    </h2>
-
-                    <p class="text-sm leading-relaxed mb-4">
-                        O futebol, também referido como futebol de campo,
-                        futebol de onze e, originalmente, futebol associado,
-                        é um desporto de equipe jogado entre dois times de
-                        11 jogadores cada um e um árbitro que se ocupa da
-                        correta aplicação das normas.
-                    </p>
-
-                    <p class="text-sm mb-3">
-                        As disputas serão conforme abaixo:
-                    </p>
-
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>
-                            Categorias: LIVRE e MÁSTER – Masculino;
-                        </li>
-                        <li>
-                            Limitação por Seccional: 01 equipe LIVRE e
-                            01 equipe MÁSTER;
-                        </li>
-                        <li>
-                            Número de atletas: até 30 por equipe.
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Regras básicas -->
-                <section>
-                    <h2 class="text-lg font-bold mb-3">
-                        Regras básicas
-                    </h2>
-
-                    <ul class="list-disc list-inside text-sm">
-                        <li>
-                            Aguarde a divulgação do Regulamento Geral
-                            das Olimpíadas.
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Local de competição -->
-                <section>
-                    <h2 class="text-lg font-bold mb-3">
-                        Local de competição
-                    </h2>
-
-                    <p class="text-sm leading-relaxed">
-                        CEL OAB-GOAv. de Furnas, 312 – Jardim Rio Grande,
-                        Aparecida de Goiânia – GO, 74982-490
-                    </p>
-
-                    <p class="text-sm mt-4">
-                        Outros locais também estão em definição.
-                    </p>
-                </section>
-
-                <!-- Programação -->
-                <section>
-                    <h2 class="text-lg font-bold mb-3">
-                        Programação
-                    </h2>
-
-                    <ul class="list-disc list-inside text-sm space-y-1">
-                        <li>
-                            Segunda-feira (03/07) – Jogos a partir das 08h00;
-                        </li>
-                        <li>
-                            Terça-feira (04/07) – Jogos a partir das 08h00;
-                        </li>
-                        <li>
-                            Quarta-feira (05/07) – Jogos a partir das 08h00;
-                        </li>
-                        <li>
-                            Quinta-feira (06/07) – Jogos a partir das 08h00;
-                        </li>
-                        <li>
-                            Sexta-feira (07/07) – Jogos a partir das 08h00;
-                        </li>
-                        <li>
-                            Sábado (08/07) – Jogos a partir das 08h00.
-                        </li>
-                    </ul>
-                </section>
-
-            </div>
-        </div>
-
+      </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="bg-base-200 px-6 md:px-12 py-6 mt-8">
-
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-3 text-xs text-base-content/70">
-
-            <p>I Olimpíadas da Advocacia 2023</p>
-
-            <p>2023 HC Sports. Todos os direitos reservados.</p>
-
-        </div>
-
+    <!-- Footer institucional (footer DaisyUI) -->
+    <footer class="footer h-[94px] items-center bg-[#f2f2f2] p-0 text-xs text-[#555] max-[650px]:h-auto">
+      <div class="mx-auto flex w-full max-w-[1216px] items-center justify-between gap-4 px-[88px] max-[1100px]:px-12 max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-1.5 max-[650px]:px-4 max-[650px]:py-4">
+        <span class="font-semibold text-[#444]">I Olimpíadas da Advocacia 2023</span>
+        <span>2023 HC Sports. Todos os direitos reservados.</span>
+      </div>
     </footer>
 
+  </div>
 </body>
 </html>
