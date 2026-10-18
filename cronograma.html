@@ -5,121 +5,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cronograma - Olimpíadas da Advocacia</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Identidade visual do projeto: fontes e cor principal -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', 'Arial', 'sans-serif'],
+            title: ['Poppins', 'Arial', 'sans-serif']
+          },
+          colors: { brand: '#009fe3' }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="min-h-screen flex flex-col bg-white font-[Montserrat,sans-serif] text-gray-800 antialiased">
+<body class="bg-white font-sans text-base text-[#383838]">
+  <div class="flex min-h-screen w-full flex-col bg-white">
 
-  <header class="sticky top-0 z-50 border-b border-gray-100 bg-white">
-    <div class="navbar mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-12">
+    <!-- Header institucional (navbar DaisyUI) -->
+    <header class="border-b border-[#ececec] shadow-[0_2px_6px_#0000000d]">
+      <div class="navbar mx-auto h-[55px] min-h-[55px] w-full max-w-[1216px] justify-between gap-6 px-[88px] py-0 max-[1100px]:px-12 max-[760px]:h-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:gap-2.5 max-[760px]:py-3 max-[650px]:px-4">
+        <a href="index.html" class="shrink-0" aria-label="Olimpíadas da Advocacia">
+          <img class="h-[39px] w-auto" src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023">
+        </a>
 
-      <a href="index.html" class="flex flex-1 items-center">
-        <img
-          src="assets/img/logo-olimpiadas.png"
-          alt="Olimpíadas da Advocacia CONCAD 2023"
-          class="h-10 object-contain md:h-12"
-        >
-      </a>
-
-      <nav class="hidden items-center gap-6 text-xs font-semibold lg:flex">
-        <a href="index.html" class="text-[#4a5568] hover:text-[#00a3e0]">Home</a>
-        <a href="modalidades.html" class="text-[#4a5568] hover:text-[#00a3e0]">Modalidades</a>
-        <a href="noticias.html" class="text-[#4a5568] hover:text-[#00a3e0]">Notícias</a>
-        <a href="cronograma.html" class="font-bold text-[#00a3e0]">Cronograma</a>
-        <a href="#" class="text-[#4a5568] hover:text-[#00a3e0]">Resultados</a>
-        <a href="#" class="text-[#4a5568] hover:text-[#00a3e0]">Administradores</a>
-        <a href="#" class="text-[#4a5568] hover:text-[#00a3e0]">Regulamento</a>
-      </nav>
-
-      <div class="dropdown dropdown-end lg:hidden">
-        <button tabindex="0" class="btn btn-ghost btn-circle" aria-label="Abrir menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-
-        <ul tabindex="0" class="menu dropdown-content z-10 mt-3 w-56 rounded-box border border-gray-100 bg-white p-2 shadow-xl">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="modalidades.html">Modalidades</a></li>
-          <li><a href="noticias.html">Notícias</a></li>
-          <li><a href="cronograma.html" class="font-bold text-[#00a3e0]">Cronograma</a></li>
-          <li><a href="modalidade.html">Detalhe da modalidade</a></li>
-          <li><a href="noticia.html">Notícia</a></li>
+        <ul class="menu menu-horizontal flex-wrap gap-x-8 gap-y-2 p-0">
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="index.html">Home</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="modalidades.html">Modalidades</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="noticias.html">Notícias</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold !text-brand" href="cronograma.html" aria-current="page">Cronograma</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Resultados</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Administradores</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Regulamento</a></li>
         </ul>
       </div>
+    </header>
 
-    </div>
-  </header>
+    <main class="mx-auto w-full max-w-[1216px] flex-1 px-[88px] pb-[107px] pt-[31px] max-[1100px]:px-12 max-[650px]:px-4">
 
-  <main class="mx-auto w-full max-w-5xl flex-grow px-4 py-8 md:px-8">
+      <!-- Cronograma geral -->
+      <section>
+        <div class="mb-[13px] flex items-start justify-between gap-3">
+          <h1 class="font-title text-[23px] font-bold uppercase leading-8 text-[#383838]">Cronograma geral</h1>
 
-    <section>
-      <div class="mb-5 flex items-center justify-between gap-3">
-        <h1 class="text-lg font-extrabold uppercase">Cronograma geral</h1>
+          <div class="mt-5 flex gap-[15px]">
+            <button id="anterior" type="button"
+              class="btn btn-circle btn-outline h-[33px] min-h-[33px] w-[33px] border-[#383838] bg-transparent p-0 text-[#383838] hover:border-[#383838] hover:bg-[#383838] hover:text-white"
+              aria-label="Semana anterior">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m15 18-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
 
-        <div class="flex gap-3">
-          <button id="anterior" class="btn btn-circle btn-sm btn-outline" aria-label="Semana anterior">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="m15 18-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
-          <button id="proximo" class="btn btn-circle btn-sm btn-outline" aria-label="Próxima semana">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="m9 18 6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+            <button id="proximo" type="button"
+              class="btn btn-circle btn-outline h-[33px] min-h-[33px] w-[33px] border-[#383838] bg-transparent p-0 text-[#383838] hover:border-[#383838] hover:bg-[#383838] hover:text-white"
+              aria-label="Próxima semana">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m9 18 6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
+
+        <div class="overflow-x-auto rounded-[10px] border border-[#dddddd]">
+          <div id="calendario" class="grid min-w-[840px] grid-cols-6"></div>
+        </div>
+      </section>
+
+      <!-- Cronograma por modalidades -->
+      <section class="mt-16">
+        <h2 class="mb-[14px] font-title text-[23px] font-bold uppercase leading-8 text-[#383838]">Cronograma por modalidades</h2>
+        <div id="modalidades" class="w-full"></div>
+      </section>
+
+    </main>
+
+    <!-- Footer institucional (footer DaisyUI) -->
+    <footer class="footer h-[94px] items-center bg-[#f2f2f2] p-0 text-xs text-[#555] max-[650px]:h-auto">
+      <div class="mx-auto flex w-full max-w-[1216px] items-center justify-between gap-4 px-[88px] max-[1100px]:px-12 max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-1.5 max-[650px]:px-4 max-[650px]:py-4">
+        <span class="font-semibold text-[#444]">I Olimpíadas da Advocacia 2023</span>
+        <span>2023 HC Sports. Todos os direitos reservados.</span>
       </div>
+    </footer>
 
-      <div id="calendario" class="grid grid-cols-2 overflow-x-auto rounded-lg border border-gray-200 sm:grid-cols-3 lg:grid-cols-6"></div>
-
-      <p id="semana-info" class="mt-2 text-right text-xs text-gray-400"></p>
-    </section>
-
-    <section class="mt-12">
-      <h2 class="mb-4 text-lg font-extrabold uppercase">Cronograma por modalidades</h2>
-      <div id="modalidades" class="w-full"></div>
-    </section>
-
-  </main>
-
-  <footer class="mt-auto border-t border-gray-200 bg-[#f4f4f4] py-6">
-    <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-xs text-gray-500 sm:flex-row md:px-8">
-      <a href="index.html">
-        <img
-          src="assets/img/logo-olimpiadas.png"
-          alt="Olimpíadas da Advocacia"
-          class="h-9 object-contain"
-        >
-      </a>
-
-      <span>2023 HC Sports. Todos os direitos reservados.</span>
-    </div>
-  </footer>
+  </div>
 
   <script>
     const imagensEsportes = {
       'Basquete 3x3': 'assets/img/basquete-logo.png',
       'Beach Tennis': 'assets/img/beach-tenis.png',
       'Corrida de Rua': 'assets/img/corrida-logo.png',
+      'Corrida 5km': 'assets/img/corrida-logo.png',
       'Crossfit': 'assets/img/crossfit-logo.png',
       'Futebol 11': 'assets/img/futebol-logo.png',
       'Futebol 7': 'assets/img/futebol-logo.png',
       'Futebol Society': 'assets/img/futebol-logo.png',
       'Futebol de Mesa': 'assets/img/futebol-logo.png',
       'Futevôlei': 'assets/img/volei-logo.png',
-      'Jiu-jítsu': 'assets/img/luta-logo.png',
+      'Jiu-Jitsu': 'assets/img/luta-logo.png',
       'Judô': 'assets/img/luta-logo.png',
       'Natação': 'assets/img/natacao-logo.png',
       'Sinuca': 'assets/img/sinuca-logo.png',
       'Tênis': 'assets/img/tenis-logo.png',
-      'Tênis de Mesa': 'assets/img/tenis-logo.png',
+      'Tênis de Mesa': 'assets/img/beach-tenis.png',
       'Tiro Esportivo': 'assets/img/tiro-logo.png',
       'Vôlei de Quadra': 'assets/img/volei-logo.png',
       'Vôlei de Praia': 'assets/img/volei-logo.png',
@@ -129,7 +126,6 @@
     const dias = [
       {
         nome: 'Seg',
-        numero: 3,
         jogos: [
           ['08:00 - 11:00', 'Vôlei de Quadra'],
           ['11:20 - 13:00', 'Natação'],
@@ -139,30 +135,27 @@
       },
       {
         nome: 'Ter',
-        numero: 4,
         jogos: [
           ['08:00 - 11:00', 'Basquete 3x3'],
           ['10:00 - 13:00', 'Futebol 11'],
           ['14:30 - 16:00', 'Futebol 7'],
           ['16:20 - 18:00', 'Futebol Society'],
-          ['14:30 - 18:00', 'Jiu-jítsu'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
           ['16:00 - 18:00', 'Judô']
         ]
       },
       {
         nome: 'Qua',
-        numero: 5,
         jogos: [
           ['08:00 - 11:00', 'Vôlei de Quadra'],
           ['08:00 - 11:00', 'Basquete 3x3'],
           ['10:00 - 13:00', 'Natação'],
-          ['14:30 - 18:00', 'Jiu-jítsu'],
-          ['15:00 - 18:00', 'Corrida de Rua']
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['15:00 - 18:00', 'Corrida 5km']
         ]
       },
       {
         nome: 'Qui',
-        numero: 6,
         jogos: [
           ['08:00 - 11:00', 'Vôlei de Quadra'],
           ['11:20 - 13:00', 'Natação'],
@@ -172,25 +165,23 @@
       },
       {
         nome: 'Sex',
-        numero: 7,
         jogos: [
           ['08:00 - 11:00', 'Basquete 3x3'],
           ['10:00 - 13:00', 'Futebol 11'],
           ['14:30 - 16:00', 'Futebol 7'],
           ['16:20 - 18:00', 'Futebol Society'],
-          ['14:30 - 18:00', 'Jiu-jítsu'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
           ['16:00 - 18:00', 'Judô']
         ]
       },
       {
         nome: 'Sáb',
-        numero: 8,
         jogos: [
           ['08:00 - 11:00', 'Vôlei de Quadra'],
           ['08:00 - 11:00', 'Basquete 3x3'],
           ['10:00 - 13:00', 'Natação'],
-          ['14:30 - 18:00', 'Jiu-jítsu'],
-          ['15:00 - 18:00', 'Corrida de Rua']
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['15:00 - 18:00', 'Corrida 5km']
         ]
       }
     ];
@@ -205,7 +196,7 @@
       'Futebol Society',
       'Futebol de Mesa',
       'Futevôlei',
-      'Jiu-jítsu',
+      'Jiu-Jitsu',
       'Judô',
       'Natação',
       'Sinuca',
@@ -225,50 +216,49 @@
       ['04/07/2023', '15h00', 'Lorem Ipsum is simply dummy text', 'Jogo 5', 'Grupo A', '2º melhor colocado x 3º melhor colocado']
     ];
 
-    function criarIcone(modalidade) {
+    // Ícone redondo: pequeno (calendário) ou grande (lista de modalidades)
+    function criarIcone(modalidade, grande = false, ativo = false) {
       const caminho = imagensEsportes[modalidade];
-
-      if (caminho) {
-        return `
-          <span class="inline-flex h-[19px] w-[19px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#383838]">
-            <img src="${caminho}" alt="" class="h-[13px] w-[13px] object-contain">
-          </span>
-        `;
-      }
+      const circulo = grande ? 'h-6 w-6' : 'h-[18px] w-[18px]';
+      const imagem = grande ? 'h-3.5 w-3.5' : 'h-2.5 w-2.5';
+      const fundo = ativo ? 'bg-brand' : 'bg-[#383838]';
 
       return `
-        <span class="inline-flex h-[19px] w-[19px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#383838]"></span>
+        <span data-icone class="inline-flex ${circulo} shrink-0 items-center justify-center overflow-hidden rounded-full ${fundo}">
+          ${caminho ? `<img src="${caminho}" alt="" class="${imagem} object-contain brightness-0 invert">` : ''}
+        </span>
       `;
     }
 
     const calendario = document.getElementById('calendario');
-    const semanaInfo = document.getElementById('semana-info');
+    const dataBase = new Date(2023, 6, 3); // segunda-feira, 03/07/2023
     let deslocamentoSemana = 0;
 
     function mostrarCalendario() {
       calendario.innerHTML = '';
 
-      dias.forEach((dia) => {
-        const coluna = document.createElement('div');
-        coluna.className = 'min-w-0 border-r border-gray-200 last:border-r-0';
+      dias.forEach((dia, posicao) => {
+        const data = new Date(dataBase);
+        data.setDate(dataBase.getDate() + posicao + deslocamentoSemana * 7);
 
-        const numero = dia.numero + deslocamentoSemana * 7;
+        const coluna = document.createElement('div');
+        coluna.className = 'min-w-0 border-r border-[#dddddd] last:border-r-0';
 
         coluna.innerHTML = `
-          <div class="border-b border-gray-200 bg-gray-50 px-2 py-3 text-center">
-            <div class="text-xs font-semibold">${dia.nome}</div>
+          <div class="flex flex-col items-center gap-2 border-b border-[#dddddd] bg-[#f1f1f1] py-[14px]">
+            <span class="text-[13px] font-semibold leading-5">${dia.nome}</span>
 
-            <div class="mx-auto mt-1 flex h-7 w-7 items-center justify-center rounded-full bg-gray-800 text-xs font-bold text-white">
-              ${numero}
-            </div>
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#383838] text-[13px] font-bold text-white">
+              ${data.getDate()}
+            </span>
           </div>
 
-          <div class="flex flex-col gap-1.5 p-1.5">
+          <div class="flex flex-col gap-2 p-2.5">
             ${dia.jogos.map(jogo => `
-              <div class="min-w-0 rounded-[5px] border border-[#dedede] bg-white px-1.5 py-[7px]">
-                <p class="mb-[5px] text-[10px] text-[#555]">${jogo[0]}</p>
+              <div class="min-w-0 rounded-md border border-[#dedede] bg-white px-2 py-[11px]">
+                <p class="mb-1.5 text-xs leading-4 text-[#555]">${jogo[0]}</p>
 
-                <div class="flex items-center gap-1 text-[10px] font-medium leading-[1.4]">
+                <div class="flex items-center gap-2 text-xs font-semibold leading-[18px]">
                   ${criarIcone(jogo[1])}
                   <span>${jogo[1]}</span>
                 </div>
@@ -279,23 +269,23 @@
 
         calendario.appendChild(coluna);
       });
-
-      semanaInfo.textContent = deslocamentoSemana === 0
-        ? 'Semana de referência do modelo'
-        : `Visualização ${deslocamentoSemana > 0 ? '+' : ''}${deslocamentoSemana} semana(s)`;
-
-      document.getElementById('anterior').disabled = deslocamentoSemana <= 0;
     }
 
     function montarTabela(jogos) {
+      const larguras = ['w-[11.7%]', 'w-[8.5%]', 'w-[26.1%]', 'w-[8.3%]', 'w-[9.6%]', 'w-[35.8%]'];
+      const destaque = [0, 1, 5]; // colunas em negrito
+
       return `
-        <div class="overflow-x-auto rounded-lg border border-gray-200">
-          <table class="w-full border-collapse">
+        <div class="overflow-x-auto rounded-[10px] border border-[#e5e5e5]">
+          <table class="w-full min-w-[760px] table-fixed border-collapse">
+            <colgroup>
+              ${larguras.map(largura => `<col class="${largura}">`).join('')}
+            </colgroup>
             <tbody>
-              ${jogos.map(jogo => `
-                <tr>
-                  ${jogo.map(celula => `
-                    <td class="whitespace-nowrap border border-[#e5e5e5] p-3 text-left text-[11px] max-sm:p-2 max-sm:text-[10px]">
+              ${jogos.map((jogo, linha) => `
+                <tr class="${linha > 0 ? 'border-t border-[#e5e5e5]' : ''}">
+                  ${jogo.map((celula, coluna) => `
+                    <td class="px-[15px] py-[15px] text-left text-[13px] leading-5 ${coluna > 0 ? 'border-l border-[#e5e5e5]' : ''} ${destaque.includes(coluna) ? 'font-semibold text-[#383838]' : 'text-[#666]'}">
                       ${celula}
                     </td>
                   `).join('')}
@@ -314,27 +304,27 @@
         const aberta = modalidade === 'Futebol 11';
 
         return `
-          <div class="border-b border-[#e5e5e5]">
+          <div data-item class="${aberta ? '' : 'border-b border-[#e5e5e5]'}">
             <button
               type="button"
-              class="flex w-full items-center gap-2 py-2.5 text-left text-xs ${aberta ? 'text-[#00a3e0]' : 'text-[#444]'}"
+              class="flex w-full items-center gap-2.5 py-4 pr-5 text-left text-base ${aberta ? 'text-brand' : 'text-[#444]'}"
               aria-expanded="${aberta}"
               aria-controls="modalidade-${indice}"
               id="botao-modalidade-${indice}"
             >
-              ${criarIcone(modalidade)}
+              ${criarIcone(modalidade, true, aberta)}
 
-              <span>${modalidade}</span>
+              <span class="leading-6">${modalidade}</span>
 
-              <svg class="ml-auto h-4 w-4 shrink-0 transition-transform duration-200 ${aberta ? 'rotate-180' : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <svg class="ml-auto h-5 w-5 shrink-0 transition-transform duration-200 ${aberta ? 'rotate-180' : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
 
-            <div id="modalidade-${indice}" class="${aberta ? 'pb-3' : 'hidden'}">
+            <div id="modalidade-${indice}" class="${aberta ? 'pb-2 pt-2' : 'hidden'}">
               ${aberta
                 ? montarTabela(jogosFutebol)
-                : '<p class="pb-3 pl-7 text-xs text-gray-500">Horários e confrontos a confirmar.</p>'
+                : '<p class="pb-3 pl-9 text-sm text-gray-500">Horários e confrontos a confirmar.</p>'
               }
             </div>
           </div>
@@ -344,35 +334,36 @@
       listaModalidades.forEach((modalidade, indice) => {
         const botao = document.getElementById(`botao-modalidade-${indice}`);
         const conteudo = document.getElementById(`modalidade-${indice}`);
+        const item = botao.closest('[data-item]');
 
         botao.addEventListener('click', () => {
           const estavaAberta = botao.getAttribute('aria-expanded') === 'true';
           const icone = botao.querySelector('svg');
-          const circulo = botao.querySelector('span.inline-flex');
+          const circulo = botao.querySelector('[data-icone]');
 
           botao.setAttribute('aria-expanded', String(!estavaAberta));
 
           conteudo.classList.toggle('hidden', estavaAberta);
-          conteudo.classList.toggle('pb-3', !estavaAberta);
+          conteudo.classList.toggle('pb-2', !estavaAberta);
+          conteudo.classList.toggle('pt-2', !estavaAberta);
 
-          botao.classList.toggle('text-[#00a3e0]', !estavaAberta);
+          item.classList.toggle('border-b', estavaAberta);
+          item.classList.toggle('border-[#e5e5e5]', estavaAberta);
+
+          botao.classList.toggle('text-brand', !estavaAberta);
           botao.classList.toggle('text-[#444]', estavaAberta);
 
           icone.classList.toggle('rotate-180', !estavaAberta);
 
-          if (circulo) {
-            circulo.classList.toggle('bg-[#00a3e0]', !estavaAberta);
-            circulo.classList.toggle('bg-[#383838]', estavaAberta);
-          }
+          circulo.classList.toggle('bg-brand', !estavaAberta);
+          circulo.classList.toggle('bg-[#383838]', estavaAberta);
         });
       });
     }
 
     document.getElementById('anterior').addEventListener('click', () => {
-      if (deslocamentoSemana > 0) {
-        deslocamentoSemana--;
-        mostrarCalendario();
-      }
+      deslocamentoSemana--;
+      mostrarCalendario();
     });
 
     document.getElementById('proximo').addEventListener('click', () => {
