@@ -1,198 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notícias - Olimpíadas da Advocacia 2023</title>
-  
-  <!-- Tailwind CSS + DaisyUI -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colégio de presidentes das CAA/Concad anuncia inscrições | Olimpíada da Advocacia</title>
+
+  <!-- Fontes do Figma: Poppins (títulos) e Open Sans (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- DaisyUI + Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    /* Seta azul personalizada no filtro select */
-    select {
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230085FF' stroke-width='2.5'><path stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/></svg>");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1.2rem;
+  <!-- Mesma configuração de cores e fontes das outras páginas -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#0092d8',   // estimado do recorte, confirmar no Inspect
+            brandRed: '#ff1b24',    // estimado do recorte, confirmar no Inspect
+            footerBg: '#f4f4f4',
+            navText: '#4a5568',
+          },
+          fontFamily: {
+            sans: ['"Open Sans"', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
     }
-  </style>
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col font-sans">
+<body class="min-h-screen flex flex-col bg-white text-[#333] font-sans antialiased">
 
-  <!-- Header / Navbar -->
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <img src="assets/img/logo-olimpiadas.png" alt="Logo" class="h-12 object-contain" />
+  <!-- ================================================================= -->
+  <!-- COMPONENTE: HEADER INSTITUCIONAL (FIGMA)                          -->
+  <!-- ================================================================= -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="navbar container mx-auto px-6 py-3 flex justify-between items-center max-w-7xl min-h-0">
+
+      <!-- Logo Oficial -->
+      <div class="flex-1">
+        <a href="index.html" class="flex items-center gap-3" aria-label="Página inicial">
+          <img src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023" class="h-[42px] object-contain"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center gap-2\'><span class=\'text-brandRed font-black text-xl tracking-tight\'>OLIMPÍADAS</span><span class=\'text-brandBlue font-extrabold text-sm border-l-2 border-gray-300 pl-2 leading-tight\'>DA ADVOCACIA<br><span class=\'text-[10px] text-gray-500 font-bold block\'>CONCAD 2023</span></span></div>';">
+        </a>
       </div>
 
-      <!-- Menu de Navegação -->
-      <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-        <a href="#" class="hover:text-sky-600 transition-colors">Home</a>
-        <a href="#" class="hover:text-sky-600 transition-colors">Modalidades</a>
-        <a href="#" class="text-sky-600 font-bold border-b-2 border-sky-600 pb-1">Notícias</a>
-        <a href="#" class="hover:text-sky-600 transition-colors">Cronograma</a>
-        <a href="#" class="hover:text-sky-600 transition-colors">Administradores</a>
-        <a href="#" class="hover:text-sky-600 transition-colors">Regulamento</a>
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-10 font-heading text-base font-medium" aria-label="Menu principal">
+        <a href="index.html" class="text-navText hover:text-brandBlue transition-colors">Home</a>
+        <a href="modalidades.html" class="text-navText hover:text-brandBlue transition-colors">Modalidades</a>
+        <a href="noticias.html" class="text-brandBlue font-semibold" aria-current="page">Notícias</a>
+        <a href="cronograma.html" class="text-navText hover:text-brandBlue transition-colors">Cronograma</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Administradores</a>
+        <a href="#" class="text-navText hover:text-brandBlue transition-colors">Regulamento</a>
       </nav>
+
+      <!-- Menu Mobile -->
+      <div class="dropdown dropdown-end lg:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Abrir Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-xl bg-white rounded-box w-56 font-semibold text-gray-700 border border-gray-100">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="modalidades.html">Modalidades</a></li>
+          <li><a href="noticias.html" class="active bg-brandBlue text-white">Notícias</a></li>
+          <li><a href="cronograma.html">Cronograma</a></li>
+          <li><a href="#">Administradores</a></li>
+          <li><a href="#">Regulamento</a></li>
+        </ul>
+      </div>
+
     </div>
   </header>
 
-  <!-- Conteúdo Principal -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
 
-    <!-- Título da Página -->
-    <h1 class="text-3xl font-extrabold text-gray-900 uppercase mb-8">NOTÍCIAS</h1>
+  <!-- ================================================================= -->
+  <!-- CONTEÚDO PRINCIPAL: NOTÍCIA COMPLETA                              -->
+  <!-- ================================================================= -->
+  <main class="flex-grow">
+    <div class="container mx-auto px-6 max-w-7xl pt-[18px] pb-32">
 
-    <!-- Barra de Pesquisa e Filtros -->
-    <div class="flex flex-col sm:flex-row gap-4 mb-10 items-center justify-start">
-      
-      <!-- Input de Busca -->
-      <div class="relative w-full sm:w-96">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
-        <input 
-          type="text" 
-          placeholder="Pesquise aqui por uma notícia" 
-          class="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-lg text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-sky-500 shadow-sm"
-        />
+      <!-- Breadcrumb -->
+      <div class="breadcrumbs text-sm text-[#555]" aria-label="Você está em">
+        <ul>
+          <li><a href="noticias.html" class="no-underline hover:text-brandBlue">Notícias</a></li>
+          <li class="font-semibold text-brandRed" aria-current="page">Notícia Completa</li>
+        </ul>
       </div>
 
-      <!-- Select de Filtro com Seta Azul -->
-      <div class="w-full sm:w-48">
-        <select class="w-full appearance-none bg-white border border-gray-300 rounded-lg py-2.5 pl-4 pr-10 text-sm text-gray-700 focus:outline-none focus:border-sky-500 shadow-sm cursor-pointer">
-          <option value="" disabled selected>Filtrar por</option>
-          <option value="organizacao">Organização</option>
-          <option value="inscricoes">Inscrições</option>
-        </select>
-      </div>
+      <article>
 
-    </div>
+        <!-- Título e informações -->
+        <header>
+          <h1 class="mt-10 font-heading text-[32px] font-semibold leading-tight text-[#333]">
+            Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia
+          </h1>
+          <p class="mt-5 pb-4 border-b border-gray-200 text-base text-[#666]">
+            Escrita por HC Sports
+            <span class="mx-2 text-gray-300" aria-hidden="true">·</span>
+            <time datetime="2023-03-17">17/03/2023</time>
+          </p>
+        </header>
 
-    <!-- Grid de Notícias (3 Colunas x 2 Linhas) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Texto + imagem à direita -->
+        <div class="mt-[38px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_438px] items-start gap-x-6 gap-y-7">
 
-      <!-- Card 1 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 1.png" alt="Ciclismo" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">17/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-emerald-600 font-semibold">Organização</span>
+          <div>
+            <p class="text-lg leading-7 text-[#333]">
+              As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas nesta terça-feira (14/3) durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA) e da Coordenação Nacional das Caixas de Assistência dos Advogados (Concad). Os interessados em participar podem fazer a sua inscrição entre 03 de abril e 05 de junho, neste site.
+            </p>
+            <p class="mt-7 text-lg leading-7 text-[#333]">
+              “Será uma grande alegria reunir toda a advocacia em torno do esporte em Goiânia. Essa sinergia entre Caixas de Assistência e OAB Nacional tem sido importantíssima para que possamos entregar o melhor para a advocacia brasileira”, disse o vice-presidente da OAB Nacional, Rafael Horn. “É com muito carinho que estamos trazendo novamente a pauta do esporte às Caixas de Assistência dos Advogados e a toda advocacia”, afirmou o coordenador nacional da Concad, Eduardo Uchôa Athayde.
+            </p>
+          </div>
+
+          <figure class="order-first lg:order-none">
+            <img src="assets/img/ciclistas.png"
+                 alt="Pelotão de ciclistas durante uma prova"
+                 class="w-full aspect-[4/3] object-cover rounded-lg" />
+          </figure>
+
         </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Colégio de presidentes das CAA/Concad anuncia inscrições para Olimpíadas da Advocacia
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          As datas de inscrições para a primeira edição das Olimpíadas da Advocacia foram anunciadas nesta terça-feira (14/3) durante o 5º Colégio de presidentes das Caixas de Assistência aos Advogados (CAA) [...]
-        </p>
-      </article>
 
-      <!-- Card 2 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 2.png" alt="Basquetebol" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">17/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-emerald-600 font-semibold">Organização</span>
-        </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Fique por dentro das modalidades que estarão em disputa, categorias e limites de atletas por seccional
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          BASQUETE 3x3: BEACH TENNIS: CORRIDA DE RUA – 10Km e 5Km: CROSS: FUTEBOL 11: FUT 7: FUTEBOL SOCIETY: FUTMESA: FUTEVÔLEI: JIU-JITSU: JUDÔ: NATAÇÃO: SINUCA: TÊNIS: TÊNIS DE MESA: TIRO ESPORTIVO: [...]
-        </p>
-      </article>
+        <!-- Restante do texto -->
+        <div class="mt-8">
+          <p class="text-lg leading-7 text-[#333]">
+            O presidente da seccional de Goiás, responsável por sediar os jogos, Rafael Lara, disse que a cidade está pronta para receber os atletas. “As Olimpíadas da Advocacia marcarão a história do Sistema OAB. Faz tempo que a gente não se reúne festivamente para jogos, e essa será uma excelente oportunidade”, disse Lara.
+          </p>
 
-      <!-- Card 3 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 3.png" alt="Corrida" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">17/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-purple-600 font-semibold">Inscrições</span>
-        </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Olimpíada da Advocacia terá inscrições 100% digitais
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          Uma das grandes novidades da Olimpíada da Advocacia para 2023 é a implantação do Sistema de Inscrições on-line para os atletas. Um sistema de cadastramento e gerenciamento específico para os [...]
-        </p>
-      </article>
+          <h2 class="mt-9 font-heading text-xl font-medium leading-7 text-[#333]">
+            Sobre as Olimpíadas da Advocacia
+          </h2>
 
-      <!-- Card 4 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 4.png" alt="Entrevista" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">09/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-emerald-600 font-semibold">Organização</span>
+          <p class="mt-4 text-lg leading-7 text-[#333]">
+            Com o apoio do CFOAB e organização da Concad, os jogos prometem reunir os profissionais da advocacia em um momento de descontração e alegria, com diversas modalidades esportivas. O evento será realizado entre 3 e 8 de julho, em Goiânia.
+          </p>
+          <p class="mt-7 text-lg leading-7 text-[#333]">
+            Serão 19 modalidades disponíveis, sendo 11 modalidades fixas e 7 por adesão. As categorias fixas incluem futebol society, futebol 11, vôlei de praia, vôlei de quadra, beach tennis, futevôlei, judô, jiu-jitsu, tênis, natação e cross. Já as modalidades por adesão, aquelas que dependem de um número mínimo de participantes, incluem tênis de mesa, basquete 3×3, xadrez, futmesa, corrida 10Km e 5Km, tiro esportivo, sinuca e modalidades para pessoas com deficiência (PCD).
+          </p>
+          <p class="mt-7 text-lg leading-7 text-[#333]">
+            Poderão se inscrever advogados que estejam com a inscrição regular e adimplentes. Cada participante poderá se inscrever em até duas modalidades. Estagiários também poderão disputar as Olimpíadas, mas apenas nos esportes na modalidade coletiva, no caso, futebol e vôlei, sendo admitidos somente dois estagiários por equipe.
+          </p>
         </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Coordenação Técnica das Olimpíadas da Advocacia será da HC Sports
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          Será da HC Sports a responsabilidade pela Coordenação Técnica das competições nas Olimpíadas da Advocacia CONCAD 2023. A empresa, que já esteve com a CONCAD em outras competições, como os [...]
-        </p>
-      </article>
 
-      <!-- Card 5 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 5.png" alt="Natação" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">09/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-emerald-600 font-semibold">Organização</span>
-        </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Praças esportivas recebem visita e passam por vistorias
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          Uma comitiva da CASAG, acompanhada por representantes do Conselho Federal da OAB, vistoriaram e me visitaram, nesta terça-feira, inúmeras praças esportivas na Região Metropolitana de Goiânia. Na pauta, as Olimpíadas da [...]
-        </p>
-      </article>
-
-      <!-- Card 6 -->
-      <article class="flex flex-col">
-        <img src="assets/img/card 6.png" alt="Goiânia Ciclismo" class="w-full h-52 object-cover rounded-lg mb-3" />
-        <div class="flex items-center gap-2 text-xs mb-2">
-          <span class="text-sky-500 font-semibold">07/03/2023</span>
-          <span class="text-gray-300">•</span>
-          <span class="text-emerald-600 font-semibold">Organização</span>
-        </div>
-        <h2 class="text-base font-bold text-gray-900 leading-snug mb-2 hover:text-sky-600 cursor-pointer">
-          Goiânia sediará em 2023 a primeira edição das Olimpíadas da Advocacia
-        </h2>
-        <p class="text-gray-600 text-xs leading-relaxed">
-          Goiânia vai sediar, em 2023, as primeiras Olimpíadas da Advocacia. O anúncio foi feito durante o II Colégio de Presidentes de Caixas de Assistência dos Advogados (CAAs), nesta sexta-feira (20/5), [...]
-        </p>
       </article>
 
     </div>
-
-    <!-- Paginação -->
-    <div class="flex justify-end items-center gap-3 text-sm text-gray-600 my-6">
-      <button class="btn btn-sm btn-square btn-ghost text-gray-400 bg-gray-200 cursor-not-allowed" disabled>
-        ‹
-      </button>
-      <span>Página 1 de 2</span>
-      <button class="btn btn-sm btn-square text-white bg-sky-500 border-none hover:bg-sky-600">
-        ›
-      </button>
-    </div>
-
   </main>
 
-  <!-- Rodapé / Footer -->
-  <footer class="bg-gray-100 border-t border-gray-200 py-6 text-xs text-gray-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p>I Olimpíadas da Advocacia 2023</p>
+
+  <!-- ================================================================= -->
+  <!-- COMPONENTE: FOOTER (FIGMA)                                        -->
+  <!-- ================================================================= -->
+  <footer class="footer bg-footerBg">
+    <div class="mx-auto w-full max-w-7xl px-6 py-[46px] flex flex-col sm:flex-row justify-between gap-2 text-[13px] text-[#444]">
+      <p class="font-semibold">I Olimpíadas da Advocacia 2023</p>
       <p>2023 HC Sports. Todos os direitos reservados.</p>
     </div>
   </footer>
