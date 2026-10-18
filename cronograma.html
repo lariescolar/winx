@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma - Olimpíadas da Advocacia</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Identidade visual do projeto: fontes e cor principal -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', 'Arial', 'sans-serif'],
+            title: ['Poppins', 'Arial', 'sans-serif']
+          },
+          colors: { brand: '#009fe3' }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white font-sans text-base text-[#383838]">
+  <div class="flex min-h-screen w-full flex-col bg-white">
+
+    <!-- Header institucional (navbar DaisyUI) -->
+    <header class="border-b border-[#ececec] shadow-[0_2px_6px_#0000000d]">
+      <div class="navbar mx-auto h-[55px] min-h-[55px] w-full max-w-[1216px] justify-between gap-6 px-[88px] py-0 max-[1100px]:px-12 max-[760px]:h-auto max-[760px]:flex-col max-[760px]:items-start max-[760px]:gap-2.5 max-[760px]:py-3 max-[650px]:px-4">
+        <a href="index.html" class="shrink-0" aria-label="Olimpíadas da Advocacia">
+          <img class="h-[39px] w-auto" src="assets/img/logo-olimpiadas.png" alt="Olimpíadas da Advocacia CONCAD 2023">
+        </a>
+
+        <ul class="menu menu-horizontal flex-wrap gap-x-8 gap-y-2 p-0">
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="index.html">Home</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="modalidades.html">Modalidades</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="noticias.html">Notícias</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold !text-brand" href="cronograma.html" aria-current="page">Cronograma</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Resultados</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Administradores</a></li>
+          <li><a class="!p-0 !bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent text-[14.5px] font-semibold text-[#444] hover:!text-brand focus:!text-[#444]" href="#">Regulamento</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-[1216px] flex-1 px-[88px] pb-[107px] pt-[31px] max-[1100px]:px-12 max-[650px]:px-4">
+
+      <!-- Cronograma geral -->
+      <section>
+        <div class="mb-[13px] flex items-start justify-between gap-3">
+          <h1 class="font-title text-[23px] font-bold uppercase leading-8 text-[#383838]">Cronograma geral</h1>
+
+          <div class="mt-5 flex gap-[15px]">
+            <button id="anterior" type="button"
+              class="btn btn-circle btn-outline h-[33px] min-h-[33px] w-[33px] border-[#383838] bg-transparent p-0 text-[#383838] hover:border-[#383838] hover:bg-[#383838] hover:text-white"
+              aria-label="Semana anterior">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m15 18-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <button id="proximo" type="button"
+              class="btn btn-circle btn-outline h-[33px] min-h-[33px] w-[33px] border-[#383838] bg-transparent p-0 text-[#383838] hover:border-[#383838] hover:bg-[#383838] hover:text-white"
+              aria-label="Próxima semana">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m9 18 6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-[10px] border border-[#dddddd]">
+          <div id="calendario" class="grid min-w-[840px] grid-cols-6"></div>
+        </div>
+      </section>
+
+      <!-- Cronograma por modalidades -->
+      <section class="mt-16">
+        <h2 class="mb-[14px] font-title text-[23px] font-bold uppercase leading-8 text-[#383838]">Cronograma por modalidades</h2>
+        <div id="modalidades" class="w-full"></div>
+      </section>
+
+    </main>
+
+    <!-- Footer institucional (footer DaisyUI) -->
+    <footer class="footer h-[94px] items-center bg-[#f2f2f2] p-0 text-xs text-[#555] max-[650px]:h-auto">
+      <div class="mx-auto flex w-full max-w-[1216px] items-center justify-between gap-4 px-[88px] max-[1100px]:px-12 max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-1.5 max-[650px]:px-4 max-[650px]:py-4">
+        <span class="font-semibold text-[#444]">I Olimpíadas da Advocacia 2023</span>
+        <span>2023 HC Sports. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const imagensEsportes = {
+      'Basquete 3x3': 'assets/img/basquete-logo.png',
+      'Beach Tennis': 'assets/img/beach-tenis.png',
+      'Corrida de Rua': 'assets/img/corrida-logo.png',
+      'Corrida 5km': 'assets/img/corrida-logo.png',
+      'Crossfit': 'assets/img/crossfit-logo.png',
+      'Futebol 11': 'assets/img/futebol-logo.png',
+      'Futebol 7': 'assets/img/futebol-logo.png',
+      'Futebol Society': 'assets/img/futebol-logo.png',
+      'Futebol de Mesa': 'assets/img/futebol-logo.png',
+      'Futevôlei': 'assets/img/volei-logo.png',
+      'Jiu-Jitsu': 'assets/img/luta-logo.png',
+      'Judô': 'assets/img/luta-logo.png',
+      'Natação': 'assets/img/natacao-logo.png',
+      'Sinuca': 'assets/img/sinuca-logo.png',
+      'Tênis': 'assets/img/tenis-logo.png',
+      'Tênis de Mesa': 'assets/img/beach-tenis.png',
+      'Tiro Esportivo': 'assets/img/tiro-logo.png',
+      'Vôlei de Quadra': 'assets/img/volei-logo.png',
+      'Vôlei de Praia': 'assets/img/volei-logo.png',
+      'Xadrez': 'assets/img/xadrez-logo.png'
+    };
+
+    const dias = [
+      {
+        nome: 'Seg',
+        jogos: [
+          ['08:00 - 11:00', 'Vôlei de Quadra'],
+          ['11:20 - 13:00', 'Natação'],
+          ['14:30 - 17:00', 'Futebol Society'],
+          ['16:00 - 18:00', 'Judô']
+        ]
+      },
+      {
+        nome: 'Ter',
+        jogos: [
+          ['08:00 - 11:00', 'Basquete 3x3'],
+          ['10:00 - 13:00', 'Futebol 11'],
+          ['14:30 - 16:00', 'Futebol 7'],
+          ['16:20 - 18:00', 'Futebol Society'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['16:00 - 18:00', 'Judô']
+        ]
+      },
+      {
+        nome: 'Qua',
+        jogos: [
+          ['08:00 - 11:00', 'Vôlei de Quadra'],
+          ['08:00 - 11:00', 'Basquete 3x3'],
+          ['10:00 - 13:00', 'Natação'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['15:00 - 18:00', 'Corrida 5km']
+        ]
+      },
+      {
+        nome: 'Qui',
+        jogos: [
+          ['08:00 - 11:00', 'Vôlei de Quadra'],
+          ['11:20 - 13:00', 'Natação'],
+          ['14:30 - 17:00', 'Futebol Society'],
+          ['16:00 - 18:00', 'Judô']
+        ]
+      },
+      {
+        nome: 'Sex',
+        jogos: [
+          ['08:00 - 11:00', 'Basquete 3x3'],
+          ['10:00 - 13:00', 'Futebol 11'],
+          ['14:30 - 16:00', 'Futebol 7'],
+          ['16:20 - 18:00', 'Futebol Society'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['16:00 - 18:00', 'Judô']
+        ]
+      },
+      {
+        nome: 'Sáb',
+        jogos: [
+          ['08:00 - 11:00', 'Vôlei de Quadra'],
+          ['08:00 - 11:00', 'Basquete 3x3'],
+          ['10:00 - 13:00', 'Natação'],
+          ['14:30 - 18:00', 'Jiu-Jitsu'],
+          ['15:00 - 18:00', 'Corrida 5km']
+        ]
+      }
+    ];
+
+    const listaModalidades = [
+      'Basquete 3x3',
+      'Beach Tennis',
+      'Corrida de Rua',
+      'Crossfit',
+      'Futebol 11',
+      'Futebol 7',
+      'Futebol Society',
+      'Futebol de Mesa',
+      'Futevôlei',
+      'Jiu-Jitsu',
+      'Judô',
+      'Natação',
+      'Sinuca',
+      'Tênis',
+      'Tênis de Mesa',
+      'Tiro Esportivo',
+      'Vôlei de Quadra',
+      'Vôlei de Praia',
+      'Xadrez'
+    ];
+
+    const jogosFutebol = [
+      ['03/07/2023', '09h00', 'Lorem Ipsum is simply dummy text', 'Jogo 1', 'Grupo A', 'Equipe 1 x Equipe 2'],
+      ['03/07/2023', '11h00', 'Lorem Ipsum is simply dummy text', 'Jogo 2', 'Grupo A', 'Equipe 2 x Equipe 3'],
+      ['03/07/2023', '14h00', 'Lorem Ipsum is simply dummy text', 'Jogo 3', 'Grupo A', 'Equipe 1 x Equipe 3'],
+      ['04/07/2023', '10h00', 'Lorem Ipsum is simply dummy text', 'Jogo 4', 'Grupo A', 'Final'],
+      ['04/07/2023', '15h00', 'Lorem Ipsum is simply dummy text', 'Jogo 5', 'Grupo A', '2º melhor colocado x 3º melhor colocado']
+    ];
+
+    // Ícone redondo: pequeno (calendário) ou grande (lista de modalidades)
+    function criarIcone(modalidade, grande = false, ativo = false) {
+      const caminho = imagensEsportes[modalidade];
+      const circulo = grande ? 'h-6 w-6' : 'h-[18px] w-[18px]';
+      const imagem = grande ? 'h-3.5 w-3.5' : 'h-2.5 w-2.5';
+      const fundo = ativo ? 'bg-brand' : 'bg-[#383838]';
+
+      return `
+        <span data-icone class="inline-flex ${circulo} shrink-0 items-center justify-center overflow-hidden rounded-full ${fundo}">
+          ${caminho ? `<img src="${caminho}" alt="" class="${imagem} object-contain brightness-0 invert">` : ''}
+        </span>
+      `;
+    }
+
+    const calendario = document.getElementById('calendario');
+    const dataBase = new Date(2023, 6, 3); // segunda-feira, 03/07/2023
+    let deslocamentoSemana = 0;
+
+    function mostrarCalendario() {
+      calendario.innerHTML = '';
+
+      dias.forEach((dia, posicao) => {
+        const data = new Date(dataBase);
+        data.setDate(dataBase.getDate() + posicao + deslocamentoSemana * 7);
+
+        const coluna = document.createElement('div');
+        coluna.className = 'min-w-0 border-r border-[#dddddd] last:border-r-0';
+
+        coluna.innerHTML = `
+          <div class="flex flex-col items-center gap-2 border-b border-[#dddddd] bg-[#f1f1f1] py-[14px]">
+            <span class="text-[13px] font-semibold leading-5">${dia.nome}</span>
+
+            <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#383838] text-[13px] font-bold text-white">
+              ${data.getDate()}
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-2 p-2.5">
+            ${dia.jogos.map(jogo => `
+              <div class="min-w-0 rounded-md border border-[#dedede] bg-white px-2 py-[11px]">
+                <p class="mb-1.5 text-xs leading-4 text-[#555]">${jogo[0]}</p>
+
+                <div class="flex items-center gap-2 text-xs font-semibold leading-[18px]">
+                  ${criarIcone(jogo[1])}
+                  <span>${jogo[1]}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        calendario.appendChild(coluna);
+      });
+    }
+
+    function montarTabela(jogos) {
+      const larguras = ['w-[11.7%]', 'w-[8.5%]', 'w-[26.1%]', 'w-[8.3%]', 'w-[9.6%]', 'w-[35.8%]'];
+      const destaque = [0, 1, 5]; // colunas em negrito
+
+      return `
+        <div class="overflow-x-auto rounded-[10px] border border-[#e5e5e5]">
+          <table class="w-full min-w-[760px] table-fixed border-collapse">
+            <colgroup>
+              ${larguras.map(largura => `<col class="${largura}">`).join('')}
+            </colgroup>
+            <tbody>
+              ${jogos.map((jogo, linha) => `
+                <tr class="${linha > 0 ? 'border-t border-[#e5e5e5]' : ''}">
+                  ${jogo.map((celula, coluna) => `
+                    <td class="px-[15px] py-[15px] text-left text-[13px] leading-5 ${coluna > 0 ? 'border-l border-[#e5e5e5]' : ''} ${destaque.includes(coluna) ? 'font-semibold text-[#383838]' : 'text-[#666]'}">
+                      ${celula}
+                    </td>
+                  `).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function mostrarModalidades() {
+      const container = document.getElementById('modalidades');
+
+      container.innerHTML = listaModalidades.map((modalidade, indice) => {
+        const aberta = modalidade === 'Futebol 11';
+
+        return `
+          <div data-item class="${aberta ? '' : 'border-b border-[#e5e5e5]'}">
+            <button
+              type="button"
+              class="flex w-full items-center gap-2.5 py-4 pr-5 text-left text-base ${aberta ? 'text-brand' : 'text-[#444]'}"
+              aria-expanded="${aberta}"
+              aria-controls="modalidade-${indice}"
+              id="botao-modalidade-${indice}"
+            >
+              ${criarIcone(modalidade, true, aberta)}
+
+              <span class="leading-6">${modalidade}</span>
+
+              <svg class="ml-auto h-5 w-5 shrink-0 transition-transform duration-200 ${aberta ? 'rotate-180' : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div id="modalidade-${indice}" class="${aberta ? 'pb-2 pt-2' : 'hidden'}">
+              ${aberta
+                ? montarTabela(jogosFutebol)
+                : '<p class="pb-3 pl-9 text-sm text-gray-500">Horários e confrontos a confirmar.</p>'
+              }
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      listaModalidades.forEach((modalidade, indice) => {
+        const botao = document.getElementById(`botao-modalidade-${indice}`);
+        const conteudo = document.getElementById(`modalidade-${indice}`);
+        const item = botao.closest('[data-item]');
+
+        botao.addEventListener('click', () => {
+          const estavaAberta = botao.getAttribute('aria-expanded') === 'true';
+          const icone = botao.querySelector('svg');
+          const circulo = botao.querySelector('[data-icone]');
+
+          botao.setAttribute('aria-expanded', String(!estavaAberta));
+
+          conteudo.classList.toggle('hidden', estavaAberta);
+          conteudo.classList.toggle('pb-2', !estavaAberta);
+          conteudo.classList.toggle('pt-2', !estavaAberta);
+
+          item.classList.toggle('border-b', estavaAberta);
+          item.classList.toggle('border-[#e5e5e5]', estavaAberta);
+
+          botao.classList.toggle('text-brand', !estavaAberta);
+          botao.classList.toggle('text-[#444]', estavaAberta);
+
+          icone.classList.toggle('rotate-180', !estavaAberta);
+
+          circulo.classList.toggle('bg-brand', !estavaAberta);
+          circulo.classList.toggle('bg-[#383838]', estavaAberta);
+        });
+      });
+    }
+
+    document.getElementById('anterior').addEventListener('click', () => {
+      deslocamentoSemana--;
+      mostrarCalendario();
+    });
+
+    document.getElementById('proximo').addEventListener('click', () => {
+      deslocamentoSemana++;
+      mostrarCalendario();
+    });
+
+    mostrarCalendario();
+    mostrarModalidades();
+  </script>
+
+</body>
+</html>
