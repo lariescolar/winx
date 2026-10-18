@@ -71,15 +71,14 @@ Para um servidor local (opcional), use a extensão **Live Server** do VS Code.
 
 | Integrante | Responsabilidade |
 |---|---|
-| _Nome do integrante_ | _Layout base (header, footer e paleta)_ |
-| _Nome do integrante_ | _Home_ |
-| _Nome do integrante_ | _Notícias (lista)_ |
-| _Nome do integrante_ | _Notícia (post)_ |
-| _Nome do integrante_ | _Modalidades (lista)_ |
-| _Nome do integrante_ | _Modalidade (detalhe)_ |
-| _Nome do integrante_ | _Cronograma_ |
+| _Larissa Beatriz_ | _Layout base (header, footer e paleta)_ |
+| _Larissa Beatriz_ | _Home_ |
+| _Anne Julie_ | _Notícias (lista)_ |
+| _Esther Carvalho_ | _Notícia (post)_ |
+| _Kauany Costa_ | _Modalidades (lista)_ |
+| _Camyla Ruth_ | _Modalidade (detalhe)_ |
+| _Vitória Vale_ | _Cronograma_ |
 
 ## Créditos
 
 Disciplina de Design Web — IFRN, Módulo 3.
-Layout e identidade das *Olimpíadas da Advocacia 2023* pertencem aos seus realizadores (HC Sports).
